@@ -47,7 +47,25 @@
     假定 $\lvert i\rangle$ 和 $\lvert j\rangle$ 都是某厄米算符 $A$ 的本征右矢. 在什么条件下, $\lvert i\rangle+\lvert j\rangle$ 也是 $A$ 的一个本征右矢. 证明答案的正确性.
 \end{prob}
 \begin{sol}
-    
+    当 $\lvert i\rangle$ 和 $\lvert j\rangle$ 简并, 即 $\lvert i\rangle$ 和 $\lvert j\rangle$ 对应的本征值相同时, $\lvert i\rangle+\lvert j\rangle$ 也是 $A$ 的一个本征右矢.
+
+    证明: 假设 $\lvert i\rangle$, $\lvert j\rangle$ 和 $(\lvert i\rangle+\lvert j\rangle)$ 对应的本征值分别为 $a_i$, $a_j$ 和 $a$, 即
+    \begin{align}
+        A\lvert i\rangle=&a_i\lvert i\rangle,\\
+        A\lvert j\rangle=&a_j\lvert j\rangle,\\
+        A(\lvert i\rangle+\lvert j\rangle)=&a(\lvert i\rangle+\lvert j\rangle),
+    \end{align}
+    则
+    \begin{gather}
+        A(\lvert i\rangle+\lvert j\rangle)=a_i\lvert i\rangle+a_j\lvert j\rangle=a(\lvert i\rangle+\lvert j\rangle),\\
+        \Longrightarrow(a_i-a)\lvert i\rangle+(a_j-a)\lvert j\rangle=0.
+    \end{gather}
+    由于 $\lvert i\rangle$ 和 $\lvert j\rangle$ 均为 $A$ 的本征右矢, 故 $\lvert i\rangle$ 和 $\lvert j\rangle$ 线性无关, 从而
+    \begin{gather}
+        a_i-a=a_j-a=0,\\
+        \Longrightarrow a_i=a_j=0,
+    \end{gather}
+    即 $\lvert i\rangle$ 和 $\lvert j\rangle$ 简并.
 \end{sol}
 
 \begin{prob}
