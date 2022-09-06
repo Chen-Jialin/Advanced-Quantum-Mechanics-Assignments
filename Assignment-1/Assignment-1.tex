@@ -10,8 +10,36 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 将这两个右矢 $\lvert\alpha\rangle$ 和 $\lvert\beta\rangle$ 分别用这组完备基展开:
+        \begin{align}
+            \lvert\alpha\rangle=&\sum_{m=a',a'',\cdots}\lvert m\rangle\langle m\vert\alpha\rangle,\\
+            \lvert\beta\rangle=&\sum_{n=a',a'',\cdots}\lvert n\rangle\langle n\vert\beta\rangle.
+        \end{align}
+        将上面这两个展开式代入算符 $\lvert\alpha\rangle\langle\beta\rvert$ 中可得其矩阵表示:
+        \begin{align}
+            \notag\lvert\alpha\rangle\langle\beta\rvert=&\sum_{m=a',a'',\cdots}\lvert m\rangle\langle m\vert\alpha\rangle\sum_{n=a',a'',\cdots}\langle n\rvert\langle\beta\vert n\rangle=\sum_{m=a',a'',\cdots}\sum_{n=a',a'',\cdots}\langle m\vert\alpha\rangle\langle\beta\vert n\rangle\lvert m\rangle\langle n\rvert\\
+            =&\begin{bmatrix}
+                \langle a'\vert\alpha\rangle\langle\beta\vert a'\rangle&\langle a'\vert\alpha\rangle\langle\beta\vert a''\rangle&\cdots\\
+                \langle a''\vert\alpha\rangle\langle\beta\vert a'\rangle&\langle a''\vert\alpha\rangle\langle\beta\vert a''\rangle&\cdots\\
+                \vdots&\vdots&\ddots
+            \end{bmatrix}=\begin{bmatrix}
+                \langle a'\vert\alpha\rangle\langle a'\vert \beta\rangle^*&\langle a'\vert\alpha\rangle\langle a''\vert\beta\rangle^*&\cdots\\
+                \langle a''\vert\alpha\rangle\langle a'\vert\beta\rangle^*&\langle a''\vert\alpha\rangle\langle a''\vert\beta\rangle^*&\cdots\\
+                \vdots&\vdots&\ddots
+            \end{bmatrix}.
+        \end{align}
+        \item[(b)] 将这两个右矢 $\lvert\alpha\rangle$ 和 $\lvert\beta\rangle$ 分别用 $s_z$ 对角基展开:
+        \begin{align}
+            \lvert\alpha\rangle=&\lvert s_z=\hbar/2\rangle,\\
+            \lvert\beta\rangle=&\lvert s_x=\hbar/2\rangle=\frac{1}{\sqrt{2}}(\lvert s_z=\hbar/2\rangle+\lvert s_z=-\hbar/2\rangle).
+        \end{align}
+        将上面这两个展开式代入算符 $\lvert\alpha\rangle\langle\beta\rvert$ 中可得其矩阵表示:
+        \begin{align}
+            \lvert\alpha\rangle\langle\beta\rvert=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1&1\\
+                0&0
+            \end{bmatrix}.
+        \end{align}
     \end{itemize}
 \end{sol}
 
