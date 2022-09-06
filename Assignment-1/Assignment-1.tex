@@ -86,9 +86,76 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
-        \item[(c)] 
+        \item[(a)] 该右矢空间中任一矢量 $\lvert\alpha\rangle$ 都可用这组本征右矢 $\{\lvert a'\rangle\}$ 展开:
+        \begin{align}
+            \lvert\alpha\rangle=\sum_{a''}\lvert a''\rangle\langle a''\vert \alpha\rangle.
+        \end{align}
+        将算符 $\prod_{a'}(A-a')$ 作用于该矢量上有
+        \begin{align}
+            \notag\prod_{a'}(A-a')\lvert\alpha\rangle=&\prod_{a'}(A-a')\sum_{a''}\lvert a''\rangle\langle a''\vert\alpha\rangle=\sum_{a''}\prod_{a'}(A-a')\lvert a''\rangle\langle a''\vert\alpha\rangle=\sum_{a''}\left[\prod_{a'}(a''-a')\right]\lvert a''\rangle\langle a''\vert\alpha\rangle\\
+            =&\sum_{a''}0\lvert a''\rangle\langle a''\vert\alpha\rangle=0.
+        \end{align}
+        考虑到 $\lvert\alpha\rangle$ 的任意性, $\prod_{a'}(A-a')$ 为零算符.
+        \item[(b)] 算符 $\prod_{a''\neq a'}\frac{(A-a'')}{(a'-a'')}$ 作用于 $\lvert a'\rangle$, 则仍为 $\lvert a'\rangle$, 算符作用于 $\{\lvert a'\rangle\}$ 中非 $\lvert a'\rangle$ 的任一右矢, 则得零,
+        \begin{align}
+            \prod_{a''\neq a'}\frac{(A-a'')}{(a'-a'')}\lvert a'\rangle=&\prod_{a''\neq a'}\frac{(a'-a'')}{(a'-a'')}\lvert a'\rangle=\lvert a'\rangle,\\
+            \prod_{a''\neq a'}\frac{(A-a'')}{(a'-a'')}\lvert a_n\rangle=&\prod_{a''\neq a'}\frac{(a_n-a'')}{(a'-a'')}=0,\text{for }\lvert a_n\rangle\in\{\lvert a'\rangle\},
+        \end{align}
+        换言之, 算符 $\prod_{a''\neq a'}\frac{(A-a'')}{(a'-a'')}$ 为 $\lvert a'\rangle$ 对应的投影算符.
+        \item[(c)] 若 $A=S_z$, 则其本征右矢的集合为 $\{\lvert S_z=\frac{\hbar}{2}\rangle,\lvert S_z=-\frac{\hbar}{2}\rangle\}$. 算符
+        \begin{align}
+            \notag\prod_{a'}(A-a')=&\left(A-\frac{\hbar}{2}\right)\left(A+\frac{\hbar}{2}\right)=\left(\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&-1
+            \end{bmatrix}-\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&1
+            \end{bmatrix}\right)\left(\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&-1
+            \end{bmatrix}+\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&1
+            \end{bmatrix}\right)\\
+            =&\frac{\hbar}{2}\begin{bmatrix}
+                0&0\\
+                0&-2
+            \end{bmatrix}\frac{\hbar}{2}\begin{bmatrix}
+                2&0\\
+                0&0
+            \end{bmatrix}=\begin{bmatrix}
+                0&0\\
+                0&0
+            \end{bmatrix},
+        \end{align}
+        为零算符.
+        算符
+        \begin{align}
+            \prod_{a''\neq\frac{\hbar}{2}}\frac{(A-a'')}{\left(\frac{\hbar}{2}-a''\right)}=\frac{1}{\frac{\hbar}{2}+\frac{\hbar}{2}}\left(\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&-1
+            \end{bmatrix}+\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&1
+            \end{bmatrix}\right)=\begin{bmatrix}
+                1&0\\
+                0&0
+            \end{bmatrix}=\lvert S_z=\frac{\hbar}{2}\rangle\langle S_z=\frac{\hbar}{2}\rvert
+        \end{align}
+        为 $\lvert S_z=\frac{\hbar}{2}\rangle$ 对应的投影算符,
+        \begin{align}
+            \prod_{a''\neq-\frac{\hbar}{2}}\frac{(A-a'')}{\left(-\frac{\hbar}{2}-a''\right)}=\frac{1}{-\frac{\hbar}{2}-\frac{\hbar}{2}}\left(-\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&-1
+            \end{bmatrix}+\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&1
+            \end{bmatrix}\right)=\begin{bmatrix}
+                0&0\\
+                0&1
+            \end{bmatrix}=\lvert S_z=-\frac{\hbar}{2}\rangle\langle S_z=-\frac{\hbar}{2}\rvert
+        \end{align}
+        为 $\lvert S_z=-\frac{\hbar}{2}\rangle$ 对应的投影算符.
     \end{itemize}
 \end{sol}
 \end{document}
