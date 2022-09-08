@@ -2,7 +2,7 @@
 \ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{作业一}{截止时间: 2022 年 9 月 12 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
 
 \begin{document}
-\begin{prob}
+\begin{prob}[课本习题 1.6]
     \begin{itemize}
         \item[(a)] 考虑两个右矢 $\lvert\alpha\rangle$ 和 $\lvert\beta\rangle$. 假定 $\langle a'\vert\alpha\rangle$, $\langle a''\vert\alpha\rangle$, $\cdots$ 和 $\langle a\vert\beta\rangle$, $\langle a''\vert\beta\rangle$, $\cdots$, 均为已知, 其中 $\lvert a'\rangle$, $\lvert a''\rangle$, $\cdots$ 组成基右矢的完备基. 求在该基下算符 $\lvert\alpha\rangle\langle\beta\rvert$ 的矩阵表示.
         \item[(b)] 现在考虑一个自旋 $\frac{1}{2}$ 系统, 设 $\lvert\alpha\rangle$ 和 $\lvert\beta\rangle$ 分别为 $\lvert s_z=\hbar/2\rangle$ 和 $\lvert s_x=\hbar/2\rangle$ 态. 写出在通常 ($s_z$ 对角) 的基下, 与 $\lvert\alpha\rangle\langle\beta\rvert$ 对应的方阵的显示式.
@@ -43,7 +43,7 @@
     \end{itemize}
 \end{sol}
 
-\begin{prob}
+\begin{prob}[课本习题 1.7]
     假定 $\lvert i\rangle$ 和 $\lvert j\rangle$ 都是某厄米算符 $A$ 的本征右矢. 在什么条件下, $\lvert i\rangle+\lvert j\rangle$ 也是 $A$ 的一个本征右矢. 证明答案的正确性.
 \end{prob}
 \begin{sol}
@@ -68,7 +68,7 @@
     即 $\lvert i\rangle$ 和 $\lvert j\rangle$ 简并.
 \end{sol}
 
-\begin{prob}
+\begin{prob}[课本习题 1.8]
     考虑被厄米算符 $A$ 的本征右矢 $\{\lvert a'\rangle\}$ 所张的一个右矢空间. 不存在任何简并.
     \begin{itemize}
         \item[(a)] 证明
@@ -156,6 +156,49 @@
             \end{bmatrix}=\lvert S_z=-\frac{\hbar}{2}\rangle\langle S_z=-\frac{\hbar}{2}\rvert
         \end{align}
         为 $\lvert S_z=-\frac{\hbar}{2}\rangle$ 对应的投影算符.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 1.4]
+    利用左矢-右矢代数规则证明或计算下列各式:
+    \begin{itemize}
+        \item[(a)] $\tr(XY)=\tr(YX)$, 其中 $X$ 和 $Y$ 都是算符.
+        \item[(b)] $(XY)^{\dagger}=Y^{\dagger}X^{\dagger}$, 其中 $X$ 和 $Y$ 都是算符.
+        \item[(c)] 在左矢-右矢形式下 $\exp[if(A)]=$? 其中 $A$ 是厄米算符, 其本征值是已知的.
+        \item[(d)] $\sum_{a'}\psi_{a'}^*(\bm{x}')\psi_{a'}(\bm{x}'')$, 其中 $\psi_{a'}(\bm{x}')=\langle\bm{x}'\vert a'\rangle$.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \begin{align}
+            \tr(XY)=&\sum_{a'}\langle a'\rvert XY\lvert a'\rangle=\sum_{a',a''}\langle a'\rvert X\lvert a''\rangle\langle a''\rvert Y\lvert a'\rangle=\sum_{a',a''}\langle a''\rvert Y\lvert a'\rangle\langle a'\rvert X\lvert a''\rangle=\sum_{a''}\langle a''\rvert YX\lvert a''\rangle=\tr(YX).
+        \end{align}
+        \item[(b)] 一方面,
+        \begin{align}
+            [XY\lvert\alpha\rangle]^{\dagger}=[(XY)\lvert\alpha\rangle]^{\dagger}=\langle\alpha\rvert(XY)^{\dagger},
+        \end{align}
+        另一方面,
+        \begin{align}
+            [XY\lvert\alpha\rangle]^{\dagger}=[X(Y\lvert\alpha\rangle)]^{\dagger}=(Y\lvert\alpha\rangle)^{\dagger}X^{\dagger}=\langle\alpha\rvert Y^{\dagger}X^{\dagger},
+        \end{align}
+        考虑到 $\langle\alpha\rvert$ 的任意性, 有
+        \begin{align}
+            (XY)^{\dagger}=Y^{\dagger}X^{\dagger}.
+        \end{align}
+        \item[(c)] 假设 $A$ 的本征值和对应的本征矢为 $\{a'\}$ 和 $\{\lvert a'\rangle\}$. $f(A)$ 是关于算符 $A$ 的函数, 将其关于 $A$ 做泰勒展开并作用于本征态 $\lvert a'\rangle$, 有
+        \begin{align}
+            f(A)\lvert a'\rangle=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)A^n}{n!}\lvert a'\rangle=\sum_{n=0}^{\infty}\frac{f^{(n)}(0){a'}^n}{n!}\lvert a'\rangle=f(a')\lvert a'\rangle,
+        \end{align}
+        故
+        \begin{align}
+            \notag\exp[if(A)]=&\sum_{a'}\exp[if(A)]\lvert a'\rangle\langle a'\rvert=\sum_{a'}\sum_n\frac{i^n[f(A)]^n}{n!}\lvert a'\rangle\langle a'\rvert=\sum_{a'}\sum_n\frac{i^n[f(a')]^n}{n!}\lvert a'\rangle\langle a'\rvert\\
+            =&\sum_{a'}\exp[if(a')]\lvert a'\rangle\langle a'\rvert.
+        \end{align}
+        \item[(d)] 
+        \begin{align}
+            \sum_{a'}\psi_{a'}^*(\bm{x}')\psi_{a'}(\bm{x}'')=\sum_{a'}\langle a'\vert\bm{x}'\rangle\langle\bm{x}''\vert a'\rangle=\sum_{a'}\langle\bm{x}''\vert a'\rangle\langle a'\vert\bm{x}'\rangle=\langle\bm{x}''\vert\bm{x}'\rangle=\delta(\bm{x}'-\bm{x}'').
+        \end{align}
     \end{itemize}
 \end{sol}
 \end{document}
