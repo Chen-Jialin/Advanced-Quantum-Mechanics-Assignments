@@ -201,4 +201,46 @@
         \end{align}
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 1.10]
+    一个双胎系统其哈密顿算符由下式给出
+    \[
+        H=a(\lvert 1\rangle\langle 1\rvert-\lvert 2\rangle\langle 2\rvert+\lvert 1\rangle\langle 2\rvert+\lvert 2\rangle\langle 1\rvert),
+    \]
+    其中 $a$ 是一个数, 其量纲为能量. 求能量的本征值和相应的能量本征右矢 (作为 $\lvert 1\rangle$ 和 $\lvert 2\rangle$ 的线性组合).
+\end{prob}
+\begin{sol}
+    在以 $\{\lvert 1\rangle,\lvert 2\rangle\}$ 为基的表象下, 该哈密顿量的矩阵表示为
+    \begin{align}
+        H=a\begin{bmatrix}
+            1&1\\
+            1&-1
+        \end{bmatrix},
+    \end{align}
+    其特征方程为
+    \begin{align}
+        \det(H-EI)=\begin{vmatrix}
+            a-E&a\\
+            a&-a-E
+        \end{vmatrix}=E^2-2a^2=0,
+    \end{align}
+    解得能量的本征值为
+    \begin{align}
+        E_1=\sqrt{2}a,\quad E_2=-\sqrt{2}a.
+    \end{align}
+    将这两个能量的本征值分别代入
+    \begin{align}
+        H\lvert\psi\rangle=E_{1/2}\lvert\psi\rangle,
+    \end{align}
+    解得相应的能量本征右矢分别为
+    \begin{align}
+        \lvert\psi_1\rangle=\frac{1}{\sqrt{4-2\sqrt{2}}}\begin{bmatrix}
+            1\\
+            \sqrt{2}-1
+        \end{bmatrix},\quad\lvert\psi_2\rangle=\frac{1}{\sqrt{4+2\sqrt{2}}}\begin{bmatrix}
+            -1\\
+            \sqrt{2}+1
+        \end{bmatrix}.
+    \end{align}
+\end{sol}
 \end{document}
