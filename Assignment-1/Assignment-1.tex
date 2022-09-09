@@ -243,4 +243,30 @@
         \end{bmatrix}.
     \end{align}
 \end{sol}
+
+\begin{prob}[课本习题 1.13]
+    一束自旋 $\frac{1}{2}$ 的原子通过如下一系列斯特恩-盖拉赫类的测量
+    \begin{itemize}
+        \item[(a)] 第一次测量存留 $s_z=\hbar/2$ 的原子而舍弃 $s_z=-\hbar/2$ 的原子.
+        \item[(b)] 第二次测量存留 $s_n=\hbar/2$ 的原子而舍弃 $s_n=-\hbar/2$ 的原子, 其中 $s_n$ 是算符 $\bm{S}\cdot\dot{\bm{n}}$ 的本征值, 而 $\hat{\bm{n}}$ 在 $xz$ 平面上与 $z$ 轴夹角为 $\beta$.
+        \item[(c)] 第三次测量存留 $s_z=-\hbar/2$ 的原子而舍弃 $s_z=\hbar/2$ 的原子. 当第一次测量存活下的 $s_z=\hbar/2$ 束流归一到 $1$ 时, 找到 $s_z=-\hbar/2$ 束流的强度是什么? 如果我们想使最后找到 $s_z=-\hbar/2$ 束流的强度取最大值, 我们必须怎样设置第二次测量仪器取向?
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    第一次测量存留 $s_z=\hbar/2$ 的原子而舍弃 $s_z=-\hbar/2$ 的原子后, 原子的状态为 $\lvert s_z;+\rangle$, 此时找到 $s_z=-\hbar/2$ 束流的强度为 $0$.
+
+    第二次测量存留 $s_n=\hbar/2$ 的原子而舍弃 $s_n=-\hbar/2$ 的原子后, 得到原子的状态为
+    \begin{align}
+        \lvert s_n;+\rangle=\cos\frac{\beta}{2}\lvert s_z;+\rangle+\sin\frac{\beta}{2}\lvert s_z;-\rangle,
+    \end{align}
+    束流的强度为
+    \begin{align}
+        I_2=\abs{\langle s_n;+\vert s_z;+\rangle}^2=\cos^2\frac{\beta}{2}.
+    \end{align}
+    第三次测量存留 $s_z=-\hbar/2$ 的原子而舍弃 $s_z=\hbar/2$ 的原子, 得到的束流的强度为
+    \begin{align}
+        I_3=I_2\abs{\langle s_z;-\vert s_n;+\rangle}^2=\cos^2\frac{\beta}{2}\sin^2\frac{\beta}{2}=\cos^2\frac{\beta}{2}\left(1-\cos^2\frac{\beta}{2}\right).
+    \end{align}
+    若想使最后找到 $s_z=-\hbar/2$ 束流的强度取最大值, 我们必须设置第二次测量仪器取向 $\hat{\bm{n}}$ 在 $xz$ 平面上与 $z$ 轴夹角 $\beta=\frac{\pi}{2}$, 此时束流强度为 $\frac{1}{4}$.
+\end{sol}
 \end{document}
