@@ -269,4 +269,112 @@
     \end{align}
     若想使最后找到 $s_z=-\hbar/2$ 束流的强度取最大值, 我们必须设置第二次测量仪器取向 $\hat{\bm{n}}$ 在 $xz$ 平面上与 $z$ 轴夹角 $\beta=\frac{\pi}{2}$, 此时束流强度为 $\frac{1}{4}$.
 \end{sol}
+
+\begin{prob}[课本习题 1.23]
+    考虑一个三维右矢空间, 如果某一组正交的右矢集合, 比如 $\lvert 1\rangle$, $\lvert 2\rangle$, $\lvert 3\rangle$, 用作基右矢, 算符 $A$ 和 $B$ 由
+    \[
+        A=\begin{pmatrix}
+            a&0&0\\
+            0&-a&0\\
+            0&0&-a
+        \end{pmatrix},\quad B=\begin{pmatrix}
+            b&0&0\\
+            0&0&-ib\\
+            0&ib&0
+        \end{pmatrix}
+    \]
+    表示, 其中 $a$ 和 $b$ 都是实数.
+    \begin{itemize}
+        \item[(a)] 显然, $A$ 展示了一个简并的谱, $B$ 也展示了简并的谱吗?
+        \item[(b)] 证明 $A$ 和 $B$ 对易.
+        \item[(c)] 找到一组新的正交归一右矢集合, 它们是 $A$ 和 $B$ 的共同本征右矢, 具体确定在这三个本征右矢的每一个本征右矢上 $A$ 和 $B$ 的本征值. 你确定的本征值能完全地表征每个本征右矢吗?
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] $B$ 的特征方程为
+        \begin{align}
+            \det(B-\lambda I)=\begin{vmatrix}
+                b-\lambda&0&0\\
+                0&-\lambda&-ib\\
+                0&ib&-\lambda
+            \end{vmatrix}=(b-\lambda)[\lambda^2-b^2]=0,
+        \end{align}
+        解得本征值为
+        \begin{align}
+            \lambda_1=b,\quad\lambda_2=b,\quad\lambda_3=-b,
+        \end{align}
+        故 $B$ 也展示了简并的谱.
+        \item[(b)] 
+        \begin{align}
+            \notag[A,B]=&AB-BA=\begin{bmatrix}
+                a&0&0\\
+                0&-a&0\\
+                0&0&-a
+            \end{bmatrix}\begin{bmatrix}
+                b&0&0\\
+                0&0&-ib\\
+                0&ib&0
+            \end{bmatrix}-\begin{bmatrix}
+                b&0&0\\
+                0&0&-ib\\
+                0&ib&0
+            \end{bmatrix}\begin{bmatrix}
+                a&0&0\\
+                0&-a&0\\
+                0&0&-a
+            \end{bmatrix}\\
+            =&\begin{bmatrix}
+                ab&0&0\\
+                0&0&-iab\\
+                0&iab&0
+            \end{bmatrix}-\begin{bmatrix}
+                ab&0&0\\
+                0&0&-iab\\
+                0&iab&0
+            \end{bmatrix}=0,
+        \end{align}
+        故 $A$ 和 $B$ 对易.
+        \item[(c)] $A$ 的本征值为 $\lambda_1=a$, $\lambda_2=-a$,$\lambda_3=-a$,其中第一个本征值对应的归一化本征右矢为 $\begin{bmatrix}
+            1\\
+            0\\
+            0
+        \end{bmatrix}$, 后两个简并本征值对应的正交归一右矢为 $\begin{bmatrix}
+            0\\
+            \cos\theta_1\\
+            e^{i\varphi_1}\sin\theta_1
+        \end{bmatrix}$ 和 $\begin{bmatrix}
+            0\\
+            -\sin\theta_1\\
+            e^{-i\varphi_1}\cos\theta_1
+        \end{bmatrix}$, 其中 $\theta_1$, $\varphi_1$ 待定.
+
+        $B$ 的本征值为 $\lambda_1=b$, $\lambda_2=b$, $\lambda_3=-b$, 其中最后一个本征值对应的归一化本征右矢为 $\frac{1}{\sqrt{2}}\begin{bmatrix}
+            0\\
+            1\\
+            -i
+        \end{bmatrix}$, 前两个本征值对应的归一化本征右矢为 $\begin{bmatrix}
+            \cos\theta_2\\
+            e^{i\varphi_2}\frac{1}{\sqrt{2}}\sin\theta_2\\
+            e^{i\varphi_2}\frac{i}{\sqrt{2}}\sin\theta_2
+        \end{bmatrix}$ 和 $\begin{bmatrix}
+            -\sin\theta_2\\
+            e^{-i\varphi_2}\frac{1}{\sqrt{2}}\cos\theta_2\\
+            e^{-i\varphi_2}\frac{i}{\sqrt{2}}\cos\theta_2
+        \end{bmatrix}$, 其中 $\theta_2$, $\varphi_2$ 待定.
+
+        要找到 $A$ 和 $B$ 共有的一组新的正交归一右矢集合, 则取 $\theta_1=\frac{\pi}{4}$, $\varphi_1=\frac{\pi}{2}$, $\theta_2=0$, $\varphi_2=\frac{\pi}{2}$, 从而有
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $A$ 的本征值 & $B$ 的本征值 & 正交归一本征右矢 \\ \hline
+            $a$ & $b$ & $\lvert 1\rangle$ \\ \hline
+            $-a$ & $-b$ & $\frac{1}{\sqrt{2}}(\lvert 2\rangle-i\lvert 3\rangle)$ \\ \hline
+            $-a$ & $b$ & $-\frac{1}{\sqrt{2}}(\lvert 2\rangle+i\lvert 3\rangle)$ \\ \hline
+            \end{tabular}
+        \end{table}
+        由上表知, 结合 $A$ 和 $B$ 的本征值可以完全地表征每个本征右矢.
+    \end{itemize}
+\end{sol}
 \end{document}
