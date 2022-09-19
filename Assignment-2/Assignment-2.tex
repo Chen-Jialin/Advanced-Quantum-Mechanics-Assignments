@@ -1,0 +1,68 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第二次作业}{截止时间: 2022 年 9 月 26 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 1.29]
+    \begin{itemize}
+        \item[(a)] Gottfried (1966) 在他的书的 247 页上说: 对所有能表示成其宗量的幂级数的函数 $F$ 和 $G$, 从基本对易关系都可以 "容易地推导" 出
+        \[
+            [x_i,G(\bm{p})]=i\hbar\frac{\partial G}{\partial p_i},\quad[p_i,F(\bm{x})]=-i\hbar\frac{\partial F}{\partial x_i}
+        \]
+        证明这个说法.
+        \item[(b)] 求 $[x^2,p^2]$ 的值, 把你的结果与经典的泊松括号 $[x^2,p^2]_{\text{经典}}$ 相比较.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 通过泰勒展开将函数 $F$ 和 $G$ 分别表为其宗量的幂级数和
+        \begin{align}
+            F(\bm{x})=&\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\sum_{l=0}^{\infty}\begin{pmatrix}
+                n+m+l\\
+                n
+            \end{pmatrix}\begin{pmatrix}
+                m+l\\
+                m
+            \end{pmatrix}\frac{1}{(n+m+l)!}\frac{\partial^{n+m+l}F}{\partial x_i^n\partial x_j^m\partial x_k^l}x_i^lx_j^mx_k^n\equiv\sum_{nml}f_{nml}x_i^nx_j^mx_k^l,\\
+            G(\bm{p})=&\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\sum_{l=0}^{\infty}\begin{pmatrix}
+                n+m+l\\
+                n
+            \end{pmatrix}\begin{pmatrix}
+                m+l\\
+                m
+            \end{pmatrix}\frac{1}{(n+m+l)!}\frac{\partial^{n+m+l}G}{\partial p_i^n\partial p_j^m\partial p_k^l}p_i^np_j^mp_k^l\equiv\sum_{nml}g_{nml}p_i^np_j^mp_k^l
+        \end{align}
+        利用基本对易关系
+        \begin{align}
+            [x_i,p_j]=i\hbar\delta_{ij},
+        \end{align}
+        有
+        \begin{align}
+            \notag[x_i,p_i^n]=&p_i[x_i,p_i^{n-1}]+[x_i,p_i]p_i^{n-1}=p_i[x_i,p_i^{n-1}]+i\hbar p_i^{n-1}\\
+            \notag=&p_i^2[x_i,p_i^{n-2}]+p_i[x_i,p_i]p_i^{n-2}+i\hbar p_i^{n-1}=p_i^2[x_i,p_i^{n-2}]+2i\hbar p_i^{n-1}\\
+            \notag\cdots&\\
+            =&ni\hbar p_i^{n-1},\\
+            \notag[p_i,x_i^n]=&x_i[p_i,x_i^{n-1}]+[p_i,x_i]x_i^{n-1}=x_i[p_i,x_i^{n-1}]-i\hbar x_i^{n-1}\\
+            \notag=&x_i^2[p_i,x_i^{n-2}]+x_i[p_i,x_i]x_i^{n-2}-i\hbar x_i^{n-1}=x_i^2[p_i,x_i^{n-2}]-2i\hbar x_i^{n-1}\\
+            \notag\cdots&\\
+            =&-ni\hbar x_i^{n-1},
+        \end{align}
+        从而
+        \begin{align}
+            [x_i,G(\bm{p})]=&[x_i,\sum_{nml}g_{nml}p_i^np_j^mp_k^l]=\sum_{nml}g_{nml}[x_i,p_i^n]p_j^mp_k^l=i\hbar\sum_{nml}g_{nml}np_i^{n-1}p_j^mp_k^l=i\hbar\frac{\partial G}{\partial p},\\
+            [p_i,F(\bm{x})]=&[p_i,\sum_{nml}f_{nml}x_i^nx_j^mx_k^l]=\sum_{nml}g_{nml}[p_i,x_i^n]x_j^mx_k^l=-i\hbar\sum_{nml}f_{nml}nx_i^{n-1}x_j^mx_k^l=-i\hbar\frac{\partial F}{\partial x}.
+        \end{align}
+        \item[(b)] 
+        \begin{align}
+            [x^2,p^2]=x[x,p^2]+[x,p^2]x=x\{p[x,p]+[x,p],p\}+\{p[x,p]+[x,p]p\}x=2i\hbar(xp+px)
+        \end{align}
+        经典的泊松括号:
+        \begin{align}
+            [x^2,p^2]_{\text{经典}}=\frac{\partial x^2}{\partial x}\frac{\partial p^2}{\partial p}-\frac{\partial x^2}{\partial p}\frac{\partial p^2}{\partial x}=4xp.
+        \end{align}
+        只需将经典的泊松括号厄米化, 即可得到与量子力学中一致的形式:
+        \begin{align}
+            [x^2,p^2]_{\text{经典}}=4xp\overset{\text{厄米化}}{\longrightarrow}2xp+2px=\frac{1}{i\hbar}[x^2,p^2].
+        \end{align}
+    \end{itemize}
+\end{sol}
+\end{document}
