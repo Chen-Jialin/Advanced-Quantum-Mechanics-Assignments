@@ -65,4 +65,28 @@
         \end{align}
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 1.31]
+    在正文中我们讨论了 $\mathscr{T}(\mathrm{d}\bm{x}')$ 在位置和动量本征右矢上以及在一个更一般的态右矢 $\lvert\alpha\rangle$ 的效应. 我们还可以研究期待值 $\langle\bm{x}\rangle$ 和 $\langle\bm{p}\rangle$ 在无穷小平移下的行为. 利用 (1.6.25) 式和 (1.6.45) 式并令 $\lvert\alpha\rangle\rightarrow\mathscr{T}(\mathrm{d}\bm{x}')\lvert\alpha\rangle$, 证明在无穷小平移下 $\langle\bm{x}\rangle\rightarrow\langle\bm{x}\rangle+\mathrm{d}\bm{x}'$, $\langle\bm{p}\rangle\rightarrow\langle\bm{p}\rangle$.
+\end{prob}
+\begin{pf}
+    平移前,
+    \begin{align}
+        \langle\bm{x}\rangle=&\langle\alpha\rvert\bm{x}\lvert\alpha\rangle,\\
+        \langle\bm{p}\rangle=&\langle\alpha\rvert\bm{p}\lvert\alpha\rangle.
+    \end{align}
+    平移后, 利用 (1.6.25) 式 $[\bm{x},\mathscr{T}(\mathrm{d}\bm{x}')]=\mathrm{d}\bm{x}'$, 有
+    \begin{align}
+        \notag\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\bm{x}\mathscr{T}(\mathrm{d}\bm{x}')\lvert\alpha\rangle=&\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')[\mathscr{T}(\mathrm{d}\bm{x}')\bm{x}+\mathrm{d}\bm{x}']\lvert\alpha\rangle\\
+        \notag=&\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathscr{T}(\mathrm{d}\bm{x}')\bm{x}\lvert\alpha\rangle+\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathrm{d}\bm{x}'\lvert\alpha\rangle\\
+        \notag=&\langle\alpha\rvert\bm{x}\lvert\alpha\rangle+\langle\alpha\rvert(1+i\bm{K}\cdot\mathrm{d}\bm{x}')\mathrm{d}\bm{x}'\lvert\alpha\rangle\\
+        \notag&(\text{略去高阶小量})\\
+        \notag=&\langle\bm{x}\rangle+\langle\alpha\rvert\mathrm{d}\bm{x}'\lvert\alpha\rangle\\
+        =&\langle\bm{x}\rangle+\mathrm{d}\bm{x}',
+    \end{align}
+    由于平移算符 $\mathscr{T}(\mathrm{d}\bm{x}')$ 可表为动量算符 $\bm{p}$ 的幂级数之和, 利用 (1.6.45) 式 $[p_i,p_j]=0$, 有 $[\mathscr{T}(\mathrm{d}\bm{x}'),\bm{p}]=0$, 从而
+    \begin{align}
+        \langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\bm{p}\mathscr{T}(\mathrm{d}\bm{x}')\lvert\rangle=\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathscr{T}(\mathrm{d}\bm{x}')\bm{p}\lvert\alpha\rangle=\langle\alpha\rvert\bm{p}\lvert\alpha\rangle=\langle\bm{p}\rangle.
+    \end{align}
+\end{pf}
 \end{document}
