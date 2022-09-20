@@ -4,7 +4,7 @@
 \begin{document}
 \begin{prob}[课本习题 1.29]
     \begin{itemize}
-        \item[(a)] Gottfried (1966) 在他的书的 247 页上说: 对所有能表示成其宗量的幂级数的函数 $F$ 和 $G$, 从基本对易关系都可以 "容易地推导" 出
+        \item[(a)] Gottfried (1966) 在他的书的 247 页上说: 对所有能表示成其宗量的幂级数的函数 $F$ 和 $G$, 从基本对易关系都可以 ``容易地推导'' 出
         \[
             [x_i,G(\bm{p})]=i\hbar\frac{\partial G}{\partial p_i},\quad[p_i,F(\bm{x})]=-i\hbar\frac{\partial F}{\partial x_i}
         \]
@@ -70,12 +70,12 @@
     在正文中我们讨论了 $\mathscr{T}(\mathrm{d}\bm{x}')$ 在位置和动量本征右矢上以及在一个更一般的态右矢 $\lvert\alpha\rangle$ 的效应. 我们还可以研究期待值 $\langle\bm{x}\rangle$ 和 $\langle\bm{p}\rangle$ 在无穷小平移下的行为. 利用 (1.6.25) 式和 (1.6.45) 式并令 $\lvert\alpha\rangle\rightarrow\mathscr{T}(\mathrm{d}\bm{x}')\lvert\alpha\rangle$, 证明在无穷小平移下 $\langle\bm{x}\rangle\rightarrow\langle\bm{x}\rangle+\mathrm{d}\bm{x}'$, $\langle\bm{p}\rangle\rightarrow\langle\bm{p}\rangle$.
 \end{prob}
 \begin{pf}
-    平移前,
+    \uline{平移前},
     \begin{align}
         \langle\bm{x}\rangle=&\langle\alpha\rvert\bm{x}\lvert\alpha\rangle,\\
         \langle\bm{p}\rangle=&\langle\alpha\rvert\bm{p}\lvert\alpha\rangle.
     \end{align}
-    平移后, 利用 (1.6.25) 式 $[\bm{x},\mathscr{T}(\mathrm{d}\bm{x}')]=\mathrm{d}\bm{x}'$, 有
+    \uline{平移后}, 利用 (1.6.25) 式 $[\bm{x},\mathscr{T}(\mathrm{d}\bm{x}')]=\mathrm{d}\bm{x}'$, 有
     \begin{align}
         \notag\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\bm{x}\mathscr{T}(\mathrm{d}\bm{x}')\lvert\alpha\rangle=&\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')[\mathscr{T}(\mathrm{d}\bm{x}')\bm{x}+\mathrm{d}\bm{x}']\lvert\alpha\rangle\\
         \notag=&\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathscr{T}(\mathrm{d}\bm{x}')\bm{x}\lvert\alpha\rangle+\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathrm{d}\bm{x}'\lvert\alpha\rangle\\
@@ -88,5 +88,58 @@
     \begin{align}
         \langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\bm{p}\mathscr{T}(\mathrm{d}\bm{x}')\lvert\rangle=\langle\alpha\rvert\mathscr{T}^{\dagger}(\mathrm{d}\bm{x}')\mathscr{T}(\mathrm{d}\bm{x}')\bm{p}\lvert\alpha\rangle=\langle\alpha\rvert\bm{p}\lvert\alpha\rangle=\langle\bm{p}\rangle.
     \end{align}
+\end{pf}
+
+\begin{prob}
+    \begin{itemize}
+        \item[(a)] 证明下列各式:
+        \begin{itemize}
+            \item[i.] $\langle p'\rvert x\lvert\alpha\rangle=i\hbar\frac{\partial}{\partial p'}\langle p'\vert\alpha\rangle$.
+            \item[ii.] $\langle\beta\rvert x\lvert\alpha\rangle=\int\mathrm{d}p'\phi_{\beta}^*(p')i\hbar\frac{\partial}{\partial p'}\phi_{\alpha}(p')$, 其中 $\phi_{\alpha}(p')=\langle p'\vert\alpha\rangle$ 和 $\phi_{\beta}(p')=\langle p'\vert\beta\rangle$ 都是动量空间波函数.
+        \end{itemize}
+        \item[(b)] 
+        \[
+            \exp\left(\frac{ix\Xi}{\hbar}\right)
+        \]
+        的物理意义是什么, 其中 $x$ 是位置算符, 而 $\Xi$ 是某个量纲为动量的数? 证明你的答案的正确性.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[(a)] 
+        \begin{itemize}
+            \item[i.] 
+            \begin{align}
+                \langle p'\rvert x\lvert\alpha\rangle=&\int\mathrm{d}p''\,\langle p'\rvert x\lvert p''\rangle\langle p''\vert\alpha\rangle,
+            \end{align}
+            其中
+            \begin{align}
+                \notag\langle p'\rvert x\lvert p''\rangle=&\int\mathrm{d}x'\,\langle p'\rvert x\lvert x'\rangle\langle x'\vert p'\rangle\\
+                \notag=&\int\mathrm{d}x'\,x'\langle p'\vert x'\rangle\langle x'\vert p'\rangle\\
+                \notag=&\frac{1}{2\pi\hbar}\int\mathrm{d}x'\,x'\exp\left[-i\frac{(p'-p'')x'}{\hbar}\right]\\
+                \notag=&\frac{1}{2\pi\hbar}\int\mathrm{d}x'\,i\hbar\frac{\partial}{\partial p'}\exp\left[-i\frac{(p'-p'')x'}{\hbar}\right]\\
+                \notag=&i\hbar\frac{\partial}{\partial p'}\frac{1}{2\pi\hbar}\int\mathrm{d}x'\,\exp\left[-i\frac{(p'-p'')x'}{\hbar}\right]\\
+                =&i\hbar\frac{\partial}{\partial p'}\delta(p'-p''),
+            \end{align}
+            故
+            \begin{align}
+                \langle p'\rvert x\lvert\alpha\rangle=&\int\mathrm{d}p''\,i\hbar\frac{\partial}{\partial p'}\delta(p'-p'')\langle p''\vert\alpha\rangle=i\hbar\frac{\partial}{\partial p'}\langle p'\vert\alpha\rangle.
+            \end{align}
+            \item[ii.] 
+            \begin{align}
+                \langle\beta\rvert x\lvert\alpha\rangle=\int\mathrm{d}p'\,\langle\beta\vert p'\rangle\langle p'\rvert x\lvert\alpha\rangle=\int\mathrm{d}p'\,\langle\beta\vert p'\rangle i\hbar\frac{\partial}{\partial p'}\langle p'\vert\alpha\rangle=\int\mathrm{d}p'\,\phi_{\beta}^*(p')i\hbar\frac{\partial}{\partial p'}\phi_{\alpha}(p').
+            \end{align}
+        \end{itemize}
+        \item[(b)] $\exp\left(\frac{ix\Xi}{\hbar}\right)$ 为动量平移算符. 证明如下:\\
+        将 $\exp\left(\frac{ix\Xi}{\hbar}\right)$ 作用于动量算符 $p$ 的本征态 $\lvert p'\rangle$ 后, 其动量变为 $p'+\Xi$:
+        \begin{align}
+            \notag p\exp\left(\frac{ix\Xi}{\hbar}\right)\lvert p'\rangle=&p\sum_{n=0}^{\infty}\frac{1}{n!}\left(\frac{ix\Xi}{\hbar}\right)^n\lvert p'\rangle\\
+            \notag&(\text{利用第 1 题中推得的对易关系: }[p,x^n]=-ni\hbar x^{n-1})\\
+            \notag=&\left[\sum_{n=0}^{\infty}\frac{1}{n!}\left(\frac{ix\Xi}{\hbar}\right)^np+\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\left(\frac{ix\Xi}{\hbar}\right)^{n-1}\Xi\right]\lvert p'\rangle\\
+            \notag=&(p'+\Xi)\sum_{n=0}^{\infty}\frac{1}{n!}\left(\frac{ix\Xi}{\hbar}\right)^n\lvert p'\rangle\\
+            =&(p'+\Xi)\exp\left(\frac{ix\Xi}{\hbar}\right)\lvert p'\rangle,
+        \end{align}
+        故 $\exp\left(\frac{ix\Xi}{\hbar}\right)$ 为动量平移算符, 其带来的动量变化为 $\Xi$.
+    \end{itemize}
 \end{pf}
 \end{document}
