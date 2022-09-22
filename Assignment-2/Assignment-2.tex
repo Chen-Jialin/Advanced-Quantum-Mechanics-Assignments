@@ -90,7 +90,7 @@
     \end{align}
 \end{pf}
 
-\begin{prob}
+\begin{prob}[课本习题 1.33]
     \begin{itemize}
         \item[(a)] 证明下列各式:
         \begin{itemize}
@@ -142,4 +142,38 @@
         故 $\exp\left(\frac{ix\Xi}{\hbar}\right)$ 为动量平移算符, 其带来的动量变化为 $\Xi$.
     \end{itemize}
 \end{pf}
+
+\begin{prob}[课本习题 2.2]
+    再看一下第 1 章习题 1.11 的哈密顿量. 假定打字员出了一个错, 把 $H$ 写成
+    \[
+        H=H_{11}\lvert 1\rangle\langle 1\rvert+H_{22}\lvert 2\rangle\langle 2\rvert+H_{12}\lvert 1\rangle\langle 2\rvert.
+    \]
+    现在什么原理被破坏了? 通过尝试利用这类不合法的哈密顿量求解最一般的问题 (为了简单, 你可以假定 $H_{11}=H_{22}=0$), 阐明你的观点.
+\end{prob}
+\begin{sol}
+    该非厄米的哈密顿量导致时间演化算符失去了幺正性, 从而破坏了量子态在时间演化中的归一性, 即在该哈密顿量下, 量子态与自身的内积并不能总保持为 $1$.
+
+    简单起见, 不妨假定 $H_{11}=H_{22}=0$, 即
+    \begin{align}
+        H=H_{12}\lvert 1\rangle\langle 2\rvert.
+    \end{align}
+    该不含时的哈密顿量对应的时间演化算符为
+    \begin{align}
+        \notag U(t,t_0)=&\exp\left[\frac{-iH(t-t_0)}{\hbar}\right]\\
+        \notag=&\sum_{n=0}^{\infty}\frac{1}{n!}\left[\frac{-iH(t-t_0)}{\hbar}\right]^n\\
+        \notag&(\text{利用 }H^2=H_{12}^2\lvert 1\rangle\langle 2\vert 1\rangle\langle 2\rvert=0)\\
+        \notag=&1-\frac{iH(t-t_0)}{\hbar}\\
+        =&1-\frac{iH_{12}(t-t_0)}{\hbar}\lvert 1\rangle\langle 2\rvert.
+    \end{align}
+    假设 $t_0$ 时刻的归一化量子态 $\lvert\alpha,t_0\rangle=c_1\lvert 1\rangle+c_2\lvert 2\rangle$ 满足归一化条件 $\langle\alpha,t_0\vert\alpha,t_0\rangle=\abs{c_1}^2+\abs{c_2}^2=1$, 则其演化至 $t$ 时刻为
+    \begin{align}
+        \lvert\alpha,t_0;t\rangle=U(t,t_0)\lvert\alpha,t_0\rangle=\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\lvert 1\rangle\langle 2\rvert\right](c_1\lvert 1\rangle+c_2\lvert 2\rangle)=\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\right]c_2\lvert 2\rangle.
+    \end{align}
+    此时量子态与自身的内积含时, 不再满足归一化条件:
+    \begin{align}
+        \notag\langle\alpha,t_0;t\vert\alpha,t_0;t\rangle=&\langle 2\rvert c_2^*\left[1+\frac{iH_{12}^*(t-t_0)}{\hbar}\right]\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\right]c_2\lvert 2\rangle\\
+        \notag=&\abs{c_2}^2\left[1+\frac{\abs{H_{12}}^2(t-t_0)^2}{\hbar^2}\right]\\
+        (\text{一般})\neq&1.
+    \end{align}
+\end{sol}
 \end{document}
