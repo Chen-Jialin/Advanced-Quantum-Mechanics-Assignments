@@ -278,4 +278,46 @@
         综上, (a) 和 (b) 中得到的结论应当是可靠的.
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 2.6]
+    考虑一个一维粒子, 其哈密顿量由下式给出
+    \[
+        H=\frac{p^2}{2m}+V(x).
+    \]
+    通过计算 $[[H,x],x]$, 证明
+    \[
+        \sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=\frac{\hbar^2}{2m},
+    \]
+    其中 $\lvert a'\rangle$ 是一个能量本征态, 本征值为 $E_{a'}$.
+\end{prob}
+\begin{pf}
+    \begin{align}
+        [H,x]=[\frac{p^2}{2m}+V(x),x]=[\frac{p^2}{2m},x]+[V(x),x]=\frac{1}{2m}[p^2,x]=\frac{1}{2m}(p[p,x]+[p,x]p)=-i\frac{\hbar}{m}p.
+    \end{align}
+    \begin{align}
+        [[H,x],x]=[-i\frac{\hbar}{m}p,x]=-\frac{\hbar^2}{m}.
+    \end{align}
+    一方面,
+    \begin{align}
+        \notag\sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=&\sum_{a'}[\langle a''\rvert x\lvert a'\rangle E_{a'}\langle a'\rvert x\lvert a''\rangle-\langle a''\rvert x\lvert a'\rangle E_{a''}\langle a'\rvert x\lvert a''\rangle]\\
+        \notag=&\sum_{a'}[\langle a''\rvert xH\lvert a'\rangle\langle a'\rvert x\lvert a''\rangle-\langle a''\rvert Hx\lvert a'\rangle\langle a'\rvert x\lvert a''\rangle]\\
+        \notag=&\sum_{a'}\langle a''\rvert(xH-Hx)\lvert a'\rangle\langle a'\rvert x\lvert a''\rangle\\
+        =&\langle a''\rvert[x,H]x\lvert a''\rangle,
+    \end{align}
+    另一方面,
+    \begin{align}
+        \notag\sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=&\sum_{a'}[\langle a''\rvert x\lvert a'\rangle E_{a'}\langle a'\rvert x\lvert a''\rangle-\langle a''\rvert x\lvert a'\rangle E_{a''}\langle a'\rvert x\lvert a''\rangle]\\
+        \notag=&\sum_{a'}[\langle a''\rvert x\lvert a'\rangle\langle a'\rvert Hx\lvert a''\rangle-\langle a''\rvert x\lvert a'\rangle\langle a'\rvert xH\lvert a''\rangle]\\
+        \notag=&\sum_{a'}\langle a''\rvert x\lvert a'\rangle\langle a'\rvert(Hx-xH)\lvert a''\rangle\\
+        =&\langle a''\rvert x[H,x]\lvert a''\rangle.
+    \end{align}
+    以上两式相加得
+    \begin{align}
+        \notag 2\sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=&\langle a''\rvert[x,H]x\lvert a''\rangle+\langle a''\rvert x[H,x]\lvert a''\rangle\\
+        \notag=&-\langle a''\rvert([H,x]x-x[H,x])\lvert a''\rangle\\
+        \notag=&-\langle a''\rvert[[H,x],x]\lvert a''\rangle\\
+        =&\frac{\hbar^2}{m},\\
+        \Longrightarrow\sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=&\frac{\hbar^2}{2m}.
+    \end{align}
+\end{pf}
 \end{document}
