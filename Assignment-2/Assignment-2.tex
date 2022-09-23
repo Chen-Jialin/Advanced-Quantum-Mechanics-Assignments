@@ -320,4 +320,59 @@
         \Longrightarrow\sum_{a'}\abs{\langle a''\rvert x\lvert a'\rangle}^2(E_{a'}-E_{a''})=&\frac{\hbar^2}{2m}.
     \end{align}
 \end{pf}
+
+\begin{prob}[课本习题 2.8]
+    考虑一个一维自由粒子的波包. $t=0$ 时它满足最小不确定度关系
+    \[
+        \langle(\Delta x)^2\rangle\langle(\Delta p)^2\rangle=\frac{\hbar^2}{4}\quad(t=0).
+    \]
+    此外, 我们知道
+    \[
+        \langle x\rangle=\langle p\rangle=0\quad(t=0).
+    \]
+    利用海森堡绘景, 当 $\langle(\Delta x)^2\rangle_{t=0}$ 给定时, 求作为 $t$ $(t\geq 0)$ 的函数的 $\langle(\Delta x)^2\rangle_t$. (提示: 利用你在第 1 章习题 1.18 中得到的不确定度波包的性质.)
+\end{prob}
+\begin{sol}
+    一维自由粒子的哈密顿量为
+    \begin{align}
+        H=\frac{p^2}{2m}.
+    \end{align}
+    对应的时间演化算符为
+    \begin{align}
+        U(t,0)=\exp\left(\frac{-ip^2t}{2m\hbar}\right).
+    \end{align}
+    从而
+    \begin{align}
+        \notag\langle(\Delta x)^2\rangle_t=&\langle x^2\rangle_t-\langle x\rangle_t^2\\
+        =&\langle\alpha,t=0\rvert U^{\dagger}(t,0)x^2U(t,0)\lvert\alpha,t=0\rangle-\langle\alpha,t=0\rvert U^{\dagger}(t,0)xU(t,0)\lvert\alpha,t=0\rangle^2.
+    \end{align}
+    利用 Baker-Campbell-Hausdorff 公式 $e^XYe^{-X}=Y+[X,Y]+\frac{1}{2!}[X,[X,Y]]+\frac{1}{3!}[x,[X,[X,Y]]]+\cdots$, 有
+    \begin{align}
+        \notag U^{\dagger}(t,0)x^2U(t,0)=&\exp\left(\frac{ip^2t}{2m}\right)x^2\exp\left(\frac{-ip^2t}{2m}\right)\\
+        \notag=&x^2+[\frac{ip^2t}{2m},x^2]+\frac{1}{2!}[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},x^2]]+\frac{1}{3!}[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},x^2]]]+\cdots\\
+        =&x^2+\frac{t}{m}(px+xp)+\left(\frac{t}{m}\right)^2p^2,\\
+        \notag U^{\dagger}(t,0)xU(t,0)=&\exp\left(\frac{ip^2t}{2m}\right)x\exp\left(\frac{-ip^2t}{2m}\right)\\
+        \notag=&x+[\frac{ip^2t}{2m},x]+\frac{1}{2!}[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},x]]+\frac{1}{3!}[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},[\frac{ip^2t}{2m},x]]]+\cdots\\
+        =&x+\frac{t}{m}p.
+    \end{align}
+    故
+    \begin{align}
+        \notag\langle(\Delta x)^2\rangle_t=&\langle\alpha,t=0\rvert\left[x^2+\frac{t}{m}(px+xp)+\left(\frac{t}{m}\right)^2p^2\right]\lvert\alpha,t=0\rangle-\langle\alpha,t=0\rvert\left(x+\frac{t}{m}p\right)\lvert\alpha,t=0\rangle\\
+        \notag=&\langle x^2\rangle_{t=0}+\frac{t}{m}\langle px+xp\rangle_{t=0}+\left(\frac{t}{m}\right)^2\langle p^2\rangle_{t=0}-\left[\langle x\rangle_{t=0}+\frac{t}{m}\langle p\rangle_{t=0}\right]^2\\
+        =&\langle x^2\rangle_{t=0}+\frac{t}{m}\langle px+xp\rangle_{t=0}+\left(\frac{t}{m}\right)^2\langle p^2\rangle_{t=0}.
+    \end{align}
+    由于该粒子在 $t=0$ 时满足最小不确定度关系, 有
+    \begin{gather}
+        \langle p^2\rangle_{t=0}=\langle(p-\langle p\rangle_{t=0})^2\rangle=\langle(\Delta p)^2\rangle=\frac{\hbar^2}{4}\frac{1}{\langle(\Delta x)^2\rangle_{t=0}}.
+    \end{gather}
+    及
+    \begin{gather}
+        \langle(\Delta x)^2\rangle_{t=0}\langle(\Delta p)^2\rangle_{t=0}=\frac{1}{4}\abs{\langle[\Delta x,\Delta p]\rangle_{t=0}}^2+\frac{1}{4}\abs{\langle\{\Delta x,\Delta p\}\rangle_{t=0}}^2=\frac{\hbar^2}{4}+\frac{1}{4}\abs{\langle\{\Delta x,\Delta p\}\rangle_{t=0}}^2=\frac{\hbar^2}{4},\\
+        \Longrightarrow\langle\{\Delta x,\Delta p\}\rangle_{t=0}=\langle xp+px\rangle_{t=0}=0.
+    \end{gather}
+    故
+    \begin{align}
+        \langle(\Delta x)^2\rangle_t=\langle(\Delta x)^2\rangle_{t=0}+\frac{\hbar^2t^2}{4m^2}\frac{1}{\langle(\Delta x)^2\rangle_{t=0}}.
+    \end{align}
+\end{sol}
 \end{document}
