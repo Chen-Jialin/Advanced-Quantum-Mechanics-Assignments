@@ -176,4 +176,106 @@
         (\text{一般})\neq&1.
     \end{align}
 \end{sol}
+
+\begin{prob}[课本习题 2.3]
+    一个电子受到一个时间无关的、强度为 $B$ 的沿正 $z$ 方向的均匀磁场的作用. 在 $t=0$ 时已知电子处在 $\bm{S}\cdot\hat{\bm{n}}$ 的本征态上, 本征值为 $\hbar/2$, 其中 $\hat{\bm{n}}$ 是一个单位矢量, 位于 $xz$ 平面上, 与 $z$ 轴夹 $\beta$ 角.
+    \begin{itemize}
+        \item[(a)] 求找到电子处在 $s_x=\hbar/2$ 态上作为时间函数的概率.
+        \item[(b)] 求作为时间函数的 $S_x$ 的期待值.
+        \item[(c)] 为让你自己放心, 在 (i) $\beta\rightarrow 0$ 和 (ii) $\beta\rightarrow\pi/2$ 的极端情况下证明你的答案是有意义的.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] $t=0$ 时, 电子的状态为
+        \begin{align}
+            \lvert\alpha,t=0\rangle=&\cos\frac{\beta}{2}\lvert s_z,+\rangle+\sin\frac{\beta}{2}\lvert s_z,-\rangle.
+        \end{align}
+        电子和磁场相互作用的哈密顿量
+        \begin{align}
+            H=-\frac{eB}{mc}S_z
+        \end{align}
+        不含时, 故对应的时间演化算符为
+        \begin{align}
+            U(t,0)=\exp\left(\frac{-iHt}{\hbar}\right)=\exp\left(\frac{-ieBS_zt}{mc\hbar}\right).
+        \end{align}
+        $t$ 时刻电子的状态为
+        \begin{align}
+            \notag\lvert\alpha,t\rangle=&U(t,0)\lvert\alpha,t\rangle\\
+            \notag=&\exp\left(\frac{-ieBS_zt}{mc\hbar}\right)\left(\cos\frac{\beta}{2}\lvert s_z,+\rangle+\sin\frac{\beta}{2}\lvert s_z,-\rangle\right)\\
+            =&\exp\left(\frac{-ieBt}{2mc}\right)\cos\frac{\beta}{2}\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\sin\frac{\beta}{2}\lvert s_z,-\rangle.
+        \end{align}
+        电子处在 $s_x=\hbar/2$ 态上概率为
+        \begin{align}
+            \notag P(s_x=\hbar/2)=&\abs{\langle s_x=\hbar/2\vert\alpha,t\rangle}^2\\
+            \notag=&\abs{\frac{1}{\sqrt{2}}(\langle s_z,+\rvert+\langle s_z,-\rvert)\left[\exp\left(\frac{-ieBt}{2mc}\right)\cos\frac{\beta}{2}\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\sin\frac{\beta}{2}\lvert s_z,-\rangle\right]}^2\\
+            \notag=&\frac{1}{2}\abs{\exp\left(\frac{-ieBt}{2mc}\right)\cos\frac{\beta}{2}+\exp\left(\frac{ieBt}{2mc}\right)\sin\frac{\beta}{2}}^2\\
+            =&\frac{1}{2}\left[1+\sin\beta\cos\left(\frac{eBt}{mc}\right)\right].
+        \end{align}
+        \item[(b)] 算符 $S_x$ 在基 $\{\lvert s_z,\pm\rangle\}$ 上展开的形式为
+        \begin{align}
+            S_x=\frac{\hbar}{2}(\lvert s_z,+\rangle\langle s_z,-\rvert+\lvert s_z,-\rangle\langle s_z,+\rvert).
+        \end{align}
+        $S_x$ 的期待值
+        \begin{align}
+            \notag\langle S_x(t)\rangle=&\langle\alpha,t\rvert S_x\lvert\alpha,t\rangle\\
+            \notag=&\left[\exp\left(\frac{ieBt}{2mc}\right)\cos\frac{\beta}{2}\langle s_z,+\rvert+\exp\left(\frac{-ieBt}{2mc}\right)\sin\frac{\beta}{2}\langle s_z,-\rvert\right]\frac{\hbar}{2}(\lvert s_z,+\rangle\langle s_z,-\rvert+\lvert s_z,-\rangle\langle s_z,+\rvert)\times\\
+            \notag&\left[\exp\left(\frac{-ieBt}{2mc}\right)\cos\frac{\beta}{2}\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\sin\frac{\beta}{2}\lvert s_z,-\rangle\right]\\
+            =&\frac{\hbar}{2}\sin\beta\cos\left(\frac{eBt}{mc}\right).
+        \end{align}
+        \item[(c)] 
+        \begin{itemize}
+            \item[(i)] 当 $\beta=0$, 则 $t=0$ 时电子的状态为 $\lvert\alpha,t=0\rangle=\lvert s_z,+\rangle$, 该状态为哈密顿量的本征态, 故关于时间保持不变. $t$ 时刻电子处在 $s_x=\hbar/2$ 的概率为
+            \begin{align}
+                P(s_x=\hbar/2)=\abs{\langle s_x,+\vert s_z,+\rangle}^2=\abs{\frac{1}{\sqrt{2}}(\langle s_z,+\rvert+\langle s_z,-\rvert)\lvert s_z,+\rangle}^2=\frac{1}{2}.
+            \end{align}
+            这与利用 (a) 中结论得到的
+            \begin{align}
+                P(s_x=\hbar/2)=\frac{1}{2}\left[1+\sin 0\cos\left(\frac{eBt}{mc}\right)\right]=\frac{1}{2}
+            \end{align}
+            一致.
+            $S_x$ 的期待值为
+            \begin{align}
+                \langle S_x\rangle=\langle s_z,+\rvert S_x\lvert s_z,+\rangle=\langle s_z,+\rvert\frac{\hbar}{2}(\lvert s_z,+\rangle\langle s_z,-\rvert+\lvert s_z,-\rangle\langle s_z,+\rvert)\lvert s_z,+\rangle=0.
+            \end{align}
+            这与利用 (b) 中结论得到的
+            \begin{align}
+                \langle S_x\rangle=\frac{\hbar}{2}\sin 0\cos\left(\frac{eBt}{mc}\right)=0
+            \end{align}
+            一致.
+            \item[(ii)] 当 $\beta=\pi/2$, 则 $t=0$ 时电子的状态为
+            \begin{align}
+                \lvert\alpha,t=0\rangle=\lvert s_x,+\rangle=\frac{1}{\sqrt{2}}(\lvert s_z,+\rangle+\lvert s_z,-\rangle).
+            \end{align}
+            $t$ 时刻电子的状态为
+            \begin{align}
+                \notag\lvert\alpha,t\rangle=&U(t,0)\lvert\alpha,t=0\rangle=\exp\left(\frac{-ieBS_zt}{mc\hbar}\right)\frac{1}{\sqrt{2}}(\lvert s_z,+\rangle+\lvert s_z,-\rangle)\\
+                =&\frac{1}{\sqrt{2}}\left[\exp\left(\frac{-ieBt}{2mc}\right)\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\lvert s_z,-\rangle\right]
+            \end{align}
+            电子处在 $s_x=\hbar/2$ 态上的概率为
+            \begin{align}
+                \notag P(s_x=\hbar/2)=&\abs{\langle s_x=\hbar/2\vert\alpha,t\rangle}^2\\
+                \notag=&\abs{\frac{1}{\sqrt{2}}(\langle s_z,+\rvert+\langle s_z,-\rvert)\frac{1}{\sqrt{2}}\left[\exp\left(\frac{-ieBt}{2mc}\right)\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\lvert s_z,-\rangle\right]}^2\\
+                =&\cos^2\left(\frac{eBt}{2mc}\right).
+            \end{align}
+            这与利用 (a) 中结论得到的
+            \begin{align}
+                P(s_x=\hbar/2)=\frac{1}{2}\left[1+\sin\frac{\pi}{2}\cos\left(\frac{eBt}{mc}\right)\right]=\cos^2\left(\frac{eBt}{2mc}\right)
+            \end{align}
+            一致. $S_x$ 的期待值为
+            \begin{align}
+                \notag\langle S_x\rangle=&\langle\alpha,t\rvert S_x\lvert\alpha,t\rangle\\
+                \notag=&\frac{1}{\sqrt{2}}\left[\exp\left(\frac{ieBt}{2mc}\right)\langle s_z,+\rvert+\exp\left(\frac{-ieBt}{2mc}\right)\langle s_z,-\rvert\right]\frac{\hbar}{2}(\lvert s_z,+\rangle\langle s_z,-\rvert+\lvert s_z,-\rangle\langle s_z,+\rvert)\times\\
+                \notag&\frac{1}{\sqrt{2}}\left[\exp\left(\frac{-ieBt}{2mc}\right)\lvert s_z,+\rangle+\exp\left(\frac{ieBt}{2mc}\right)\lvert s_z,-\rangle\right]\\
+                =&\frac{\hbar}{2}\cos\left(\frac{eBt}{mc}\right).
+            \end{align}
+            这与利用 (b) 中结论得到的
+            \begin{align}
+                \langle S_x\rangle=\frac{\hbar}{2}\sin\frac{\hbar}{2}\cos\left(\frac{eBt}{mc}\right)=\frac{\hbar}{2}\cos\left(\frac{eBt}{mc}\right)
+            \end{align}
+            一致.
+        \end{itemize}
+        综上, (a) 和 (b) 中得到的结论应当是可靠的.
+    \end{itemize}
+\end{sol}
 \end{document}
