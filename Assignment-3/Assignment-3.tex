@@ -1,0 +1,84 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第三次作业}{截止时间: 2022 年 10 月 3 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 2.9]
+    设 $\lvert a'\rangle$ 和 $\lvert a''\rangle$ 是厄米算符 $A$ 的本征态, 本征值分别为 $a'$ 和 $a''$ ($a'\neq a''$), 哈密顿量算符由下式给出
+    \[
+        H=\lvert a'\rangle\delta\langle a''\rvert+\lvert a''\rangle\delta\langle a'\rvert,
+    \]
+    其中 $\delta$ 只是个实数.
+    \begin{itemize}
+        \item[(a)] 显然, $\lvert a'\rangle$ 和 $\lvert a''\rangle$ 不是这个哈密顿量的本征态, 写出该哈密顿量的本征态, 他们的能量本征值是什么?
+        \item[(b)] 如果已知 $t=0$ 时刻系统处在 $\lvert a'\rangle$ 态上, 在薛定谔绘景中写出 $t>0$ 时的态矢量.
+        \item[(c)] 如果已知 $t=0$ 时系统处在 $\lvert a'\rangle$ 态上, 在 $t>0$ 时找到该系统在 $\lvert a''\rangle$ 态的概率是多少?
+        \item[(d)] 你能想出与这个问题对应的一种物理情况吗?
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 以 $\{\lvert a'\rangle,\lvert a''\rangle\}$ 为基, 该哈密顿量的矩阵表示为
+        \begin{align}
+            H=\begin{bmatrix}
+                0&\delta\\
+                \delta&0
+            \end{bmatrix}.
+        \end{align}
+        其对应的特征方程为
+        \begin{align}
+            \abs{H-EI}=\begin{vmatrix}
+                -E&\delta\\
+                \delta&-E
+            \end{vmatrix}=E^2-\delta^2=0,
+        \end{align}
+        解得能量本征值为
+        \begin{align}
+            E_1=\delta,\quad E_2=-\delta.
+        \end{align}
+        将这两个能量本征值代入
+        \begin{align}
+            H\lvert E_{1/2}\rangle=E_{1/2}\lvert E_{1/2}\rangle
+        \end{align}
+        解得其对应的本征态分别为
+        \begin{align}
+            \lvert E_1\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                1
+            \end{bmatrix}=\frac{1}{\sqrt{2}}(\lvert a'\rangle+\lvert a''\rangle),\quad\lvert E_2\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                -1
+            \end{bmatrix}=\frac{1}{\sqrt{2}}(\lvert a'\rangle-\lvert a''\rangle).
+        \end{align}
+        \item[(b)] 该哈密顿量对应的时间演化算符为
+        \begin{align}
+            U(t,0)=\exp(-iHt/\hbar)=\exp(-i\delta t/\hbar)\lvert E_1\rangle\langle E_1\rvert+\exp(i\delta t/\hbar)\lvert E_2\rangle\langle E_2\rvert.
+        \end{align}
+        在薛定谔绘景中, $t>0$ 时的态矢量为
+        \begin{align}
+            \notag\lvert a',0;t\rangle=&U(t,0)\lvert a'\rangle\\
+            \notag=&[\exp(-i\delta t/\hbar)\lvert E_1\rangle\langle E_1\rvert+\exp(i\delta t/\hbar)\lvert E_2\rangle\langle E_2\rvert]\frac{1}{\sqrt{2}}(\lvert E_1\rangle+\lvert E_2\rangle)\\
+            \notag=&\frac{1}{\sqrt{2}}[\exp(-i\delta t/\hbar)\lvert E_1\rangle+\exp(i\delta t/\hbar)\lvert E_2\rangle]\\
+            =&\cos(\delta t/\hbar)\lvert a'\rangle-i\sin(\delta t/\hbar)\lvert a''\rangle.
+        \end{align}
+        \item[(c)] 在 $t>0$ 时找到该系统在 $\lvert a''\rangle$ 态的概率为
+        \begin{align}
+            P(a'')=\abs{\langle a''\vert a',0;t\rangle}^2=\sin^2(\delta t/\hbar).
+        \end{align}
+        \item[(d)] 以磁场中的电子自旋为例. 假设磁场沿 $z$ 轴方向, $\bm{B}=B\hat{\bm{z}}$. $\lvert a'\rangle=\lvert s_x,+\rangle$ 和 $\lvert a''\rangle=\lvert s_x,-\rangle$ 为厄米算符 $S_x$ 的本征态. 哈密顿量算符可表为
+        \begin{align}
+            \notag H=&-\left(\frac{eB}{mc}\right)S_z\\
+            \notag=&-\frac{e\hbar B}{2mc}\lvert s_z,+\rangle\langle s_z,+\rvert+\frac{e\hbar B}{2mc}\lvert s_z,-\rangle\langle s_z,-\rvert\\
+            \notag=&-\frac{e\hbar B}{2mc}\frac{1}{\sqrt{2}}(\lvert s_x,+\rangle+\lvert s_x,-\rangle)\frac{1}{\sqrt{2}}(\langle s_x,+\rvert+\langle s_x,-\rvert)+\frac{e\hbar B}{2mc}\frac{1}{\sqrt{2}}(\lvert s_x,+\rangle-\lvert s_x,-\rangle)\frac{1}{\sqrt{2}}(\langle s_x,+\rvert-\langle s_x,-\rvert)\\
+            \notag=&\delta\lvert s_x,+\rangle\langle s_x,-\rvert+\delta\lvert s_x,-\rangle\langle s_x,+\rvert,
+        \end{align}
+        其中 $\delta=-\frac{e\hbar B}{2mc}$. 根据 (b) 和 (c) 中得到的结论, 如果 $t=0$ 时刻电子处在 $\lvert s_x,+\rangle$ 态上, 则其在 $t>0$ 时的状态为
+        \begin{align}
+            \lvert s_x,+,0;t\rangle=\cos(\delta t/\hbar)\lvert s_x,+\rangle-i\sin(\delta t/\hbar)\lvert s_x,-\rangle.
+        \end{align}
+        此时找到电子在 $\lvert s_x,-\rangle$ 态的概率为
+        \begin{align}
+            P(s_x=-\hbar/2)=\sin^2(\delta t/\hbar).
+        \end{align}
+    \end{itemize}
+\end{sol}
+\end{document}
