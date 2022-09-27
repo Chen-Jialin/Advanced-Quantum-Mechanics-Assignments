@@ -167,13 +167,14 @@
     \end{align}
     假设 $t_0$ 时刻的归一化量子态 $\lvert\alpha,t_0\rangle=c_1\lvert 1\rangle+c_2\lvert 2\rangle$ 满足归一化条件 $\langle\alpha,t_0\vert\alpha,t_0\rangle=\abs{c_1}^2+\abs{c_2}^2=1$, 则其演化至 $t$ 时刻为
     \begin{align}
-        \lvert\alpha,t_0;t\rangle=U(t,t_0)\lvert\alpha,t_0\rangle=\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\lvert 1\rangle\langle 2\rvert\right](c_1\lvert 1\rangle+c_2\lvert 2\rangle)=\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\right]c_2\lvert 2\rangle.
+        \lvert\alpha,t_0;t\rangle=U(t,t_0)\lvert\alpha,t_0\rangle=\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\lvert 1\rangle\langle 2\rvert\right](c_1\lvert 1\rangle+c_2\lvert 2\rangle)=\left[c_1-\frac{iH_{12}(t-t_0)}{\hbar}c_2\right]\lvert 1\rangle+c_2\lvert 2\rangle.
     \end{align}
     此时量子态与自身的内积含时, 不再满足归一化条件:
     \begin{align}
-        \notag\langle\alpha,t_0;t\vert\alpha,t_0;t\rangle=&\langle 2\rvert c_2^*\left[1+\frac{iH_{12}^*(t-t_0)}{\hbar}\right]\left[1-\frac{iH_{12}(t-t_0)}{\hbar}\right]c_2\lvert 2\rangle\\
-        \notag=&\abs{c_2}^2\left[1+\frac{\abs{H_{12}}^2(t-t_0)^2}{\hbar^2}\right]\\
-        (\text{一般})\neq&1.
+        \notag\langle\alpha,t_0;t\vert\alpha,t_0;t\rangle=&\left\{\left[c_1+\frac{iH_{12}(t-t_0)}{\hbar}c_2\right]\langle 1\rvert+c_2\langle 2\rvert\right\}\left\{\left[c_1-\frac{iH_{12}(t-t_0)}{\hbar}c_2\right]\lvert 1\rangle+c_2\lvert 2\rangle\right\}\\
+        \notag=&\abs{c_1}^2+\frac{\abs{H_{12}}^2(t-t_0)^2}{\hbar^2}\abs{c_2}^2+\abs{c_2}^2\\
+        \notag=&1+\frac{\abs{H_{12}}^2(t-t_0)^2}{\hbar^2}\abs{c_2}^2\\
+        \geq&1.
     \end{align}
 \end{sol}
 
