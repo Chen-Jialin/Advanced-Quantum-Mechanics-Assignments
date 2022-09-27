@@ -24,7 +24,7 @@
                 \delta&0
             \end{bmatrix}.
         \end{align}
-        其对应的特征方程为
+        利用
         \begin{align}
             \abs{H-EI}=\begin{vmatrix}
                 -E&\delta\\
@@ -71,7 +71,7 @@
             \notag=&-\frac{e\hbar B}{2mc}\frac{1}{\sqrt{2}}(\lvert s_x,+\rangle+\lvert s_x,-\rangle)\frac{1}{\sqrt{2}}(\langle s_x,+\rvert+\langle s_x,-\rvert)+\frac{e\hbar B}{2mc}\frac{1}{\sqrt{2}}(\lvert s_x,+\rangle-\lvert s_x,-\rangle)\frac{1}{\sqrt{2}}(\langle s_x,+\rvert-\langle s_x,-\rvert)\\
             \notag=&\delta\lvert s_x,+\rangle\langle s_x,-\rvert+\delta\lvert s_x,-\rangle\langle s_x,+\rvert,
         \end{align}
-        其中 $\delta=-\frac{e\hbar B}{2mc}$. 根据 (b) 和 (c) 中得到的结论, 如果 $t=0$ 时刻电子处在 $\lvert s_x,+\rangle$ 态上, 则其在 $t>0$ 时的状态为
+        其中 $\delta=-\frac{e\hbar B}{2mc}$. 由 (b) 和 (c) 中得到的结论, 如果 $t=0$ 时刻电子处在 $\lvert s_x,+\rangle$ 态上, 则其在 $t>0$ 时的状态为
         \begin{align}
             \lvert s_x,+,0;t\rangle=\cos(\delta t/\hbar)\lvert s_x,+\rangle-i\sin(\delta t/\hbar)\lvert s_x,-\rangle.
         \end{align}
@@ -79,6 +79,134 @@
         \begin{align}
             P(s_x=-\hbar/2)=\sin^2(\delta t/\hbar).
         \end{align}
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 2.10]
+    含有一个粒子的一个盒子用一个薄的隔板分成左右两个隔间. 如果已知该粒子确定无疑地处在右 (左) 边, 则状态用 $\lvert R\rangle$ ($\lvert L\rangle$) 表示, 在那里我们忽略了在盒子的每一半中的空间变量, 然后, 最一般的态矢量可以写成
+    \[
+        \lvert\alpha\rangle=\lvert R\rangle\langle R\vert\alpha\rangle+\lvert L\rangle\langle L\vert\alpha\rvert,
+    \]
+    其中 $\langle R\vert\alpha\rangle$ 和 $\langle L\vert\alpha\rangle$ 可以看作 ``波函数'', 该粒子可以隧穿过隔板; 这种隧道效应由哈密顿量
+    \[
+        H=\Delta(\lvert L\rangle\langle R\rvert+\lvert R\rangle\langle L\rvert)
+    \]
+    表征, 其中的 $\Delta$ 是个有能量量纲的实数.
+    \begin{itemize}
+        \item[(a)] 求归一化的能量本征右矢, 相应的能量本征值是什么?
+        \item[(b)] 在薛定谔绘景中基右矢 $\lvert R\rangle$ 和 $\lvert L\rangle$ 是固定不变的, 而态矢量随时间运动. 假定系统就由上面在 $t=0$ 时给定的 $\lvert\alpha\rangle$ 表示. 通过用适当的时间演化算符作用于 $\lvert\alpha\rangle$, 求 $t>0$ 时的态矢量 $\lvert\alpha,t_0;t\rangle$.
+        \item[(c)] 假定 $t=0$ 时粒子确定无疑地处在右边, 观测到粒子在左边的、作为时间函数的概率是多少?
+        \item[(d)] 写出波函数 $\langle R\vert\alpha,t_0;t\rangle$ 和 $\langle L\vert\alpha,t_0;t\rangle$ 的耦合薛定谔方程, 证明该耦合薛定谔方程的解正是你在 (b) 中所预期的.
+        \item[(e)] 假定打印机出了个错, 把 $H$ 写成了
+        \[
+            H=\Delta\lvert L\rangle\langle R\rvert.
+        \]
+        通过明显地求解具有该哈密顿量的最普遍的时间演化问题, 证明概率守恒被破坏了.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 以 $\{\lvert R\rangle,\lvert L\rangle\}$ 为基, 该哈密顿量的矩阵表示为
+        \begin{align}
+            H=\begin{bmatrix}
+                0&\Delta\\
+                \Delta&0
+            \end{bmatrix}.
+        \end{align}
+        利用
+        \begin{align}
+            \abs{H-EI}=\begin{vmatrix}
+                -E&\Delta\\
+                \Delta&-E
+            \end{vmatrix}=E^2-\Delta^2=0,
+        \end{align}
+        解得能量本征值为
+        \begin{align}
+            E_1=\Delta,\quad E_2=-\Delta.
+        \end{align}
+        将这两个能量本征值代入
+        \begin{align}
+            H\lvert E_{1/2}\rangle=E_{1/2}\lvert E_{1/2}\rangle
+        \end{align}
+        解得其对应的归一的能量本征右矢分别为
+        \begin{align}
+            \lvert E_1\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                1
+            \end{bmatrix}=\frac{1}{\sqrt{2}}(\lvert R\rangle+\lvert L\rangle),\quad\lvert E_2\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                -1
+            \end{bmatrix}=\frac{1}{\sqrt{2}}(\lvert R\rangle-\lvert L\rangle).
+        \end{align}
+        \item[(b)] 该哈密顿量对应的时间演化算符为
+        \begin{align}
+            \notag U(t,t_0)=&\exp[-iH(t-t_0)/\hbar]\\
+            \notag=&\exp[-i\Delta(t-t_0)/\hbar]\lvert E_1\rangle\langle E_1\rvert+\exp[i\Delta(t-t_0)/\hbar]\lvert E_2\rangle\langle E_2\rvert\\
+            \notag=&\exp[-i\Delta(t-t_0)/\hbar]\frac{1}{\sqrt{2}}(\lvert R\rangle+\lvert L\rangle)\frac{1}{\sqrt{2}}(\langle R\rvert+\langle L\rvert)+\exp[i\Delta(t-t_0)/\hbar]\frac{1}{\sqrt{2}}(\lvert R\rangle-\lvert L\rangle)\frac{1}{\sqrt{2}}(\langle R\rvert-\langle L\rvert)\\
+            =&\cos[\Delta(t-t_0)/\hbar](\lvert R\rangle\langle R\rvert+\lvert L\rangle\langle L\rvert)-i\sin[\Delta(t-t_0)/\hbar](\lvert R\rangle\langle L\rvert+\lvert L\rangle\langle R\rvert).
+        \end{align}
+        $t>0$ 时的态矢量为
+        \begin{align}
+            \notag\lvert\alpha,t_0=0;t\rangle=&U(t,t_0=0)\lvert\alpha,t_0=0;t\rangle\\
+            \notag=&[\cos(\Delta t/\hbar)(\lvert R\rangle\langle R\rvert+\lvert L\rangle\langle L\rvert)-i\sin(\Delta t/\hbar)(\lvert R\rangle\langle L\rvert+\lvert L\rangle\langle R\rvert)](\lvert R\rangle\langle R\vert\alpha\rangle+\lvert L\rangle\langle L\vert\alpha\rvert)\\
+            =&[\langle R\vert\alpha\rangle\cos(\Delta t/\hbar)-i\langle L\vert\alpha\rangle\sin(\Delta t/\hbar)]\lvert R\rangle+[\langle L\vert\alpha\rangle\cos(\Delta t/\hbar)-i\langle R\vert\alpha\rangle\sin(\Delta t/\hbar)]\lvert L\rangle.
+        \end{align}
+        \item[(c)] 由 (b) 中得到的结论, 若 $\lvert\alpha,t_0=0\rangle=\lvert R\rangle$, 则 $t>0$ 时的态矢量为
+        \begin{align}
+            \lvert\alpha,t_0=0;t\rangle=\cos(\Delta t/\hbar)\lvert R\rangle-i\sin(\Delta t/\hbar)\lvert L\rangle.
+        \end{align}
+        观测到粒子在左边的概率为
+        \begin{align}
+            P(L)=\abs{\langle L\vert\alpha\rangle}^2=\sin^2(\Delta t/\hbar).
+        \end{align}
+        \item[(d)] 波函数 $\langle R\vert\alpha,t_0;t\rangle$ 和 $\langle L\vert\alpha,t_0;t\rangle$ 的耦合薛定谔方程分别为
+        \begin{align}
+            i\hbar\frac{\partial}{\partial t}\langle R\vert\alpha,t_0;t\rangle=&\langle R\rvert H\lvert\alpha,t_0;t\rangle,\\
+            i\hbar\frac{\partial}{\partial t}\langle L\vert\alpha,t_0;t\rangle=&\langle L\rvert H\lvert\alpha,t_0;t\rangle,
+        \end{align}
+        代入哈密顿量的具体形式 $H=\Delta(\lvert L\rangle\langle R\rvert+\lvert R\rangle\langle L\rvert)$, 有
+        \begin{align}
+            i\hbar\frac{\partial}{\partial t}\langle R\vert\alpha,t_0l;t\rangle=&\Delta\langle L\vert\alpha,t_0;t\rangle,\\
+            i\hbar\frac{\partial}{\partial t}\langle L\vert\alpha,t_0;t\rangle=&\Delta\langle R\vert\alpha,t_0;t\rangle.
+        \end{align}
+        将 (b) 中得到的 $\lvert\alpha,t_0;t\rangle$ 代入可得
+        \begin{align}
+            \notag\text{方程左边}=&i\hbar\frac{\partial}{\partial t}\langle R\vert\alpha,t_0;t\rangle\\
+            \notag=&i\hbar\frac{\partial}{\partial t}[\langle R\vert\alpha\rangle\cos(\Delta t/\hbar)-i\langle L\vert\alpha\rangle\sin(\Delta t/\hbar)]\\
+            \notag=&\Delta[-i\langle R\vert\alpha\rangle\sin(\Delta t/\hbar)+\langle L\vert\alpha\rangle\cos(\Delta t/\hbar)]\\
+            =&\Delta\langle L\vert\alpha,t_0;t\rangle=\text{方程右边},\\
+            \notag\text{方程左边}=&i\hbar\frac{\partial}{\partial t}\langle R\vert\alpha,t_0;t\rangle\\
+            \notag=&i\hbar\frac{\partial}{\partial t}[\langle L\vert\alpha\rangle\cos(\Delta t/\hbar)-i\langle R\vert\alpha\rangle\sin(\Delta t/\hbar)]\\
+            \notag=&\Delta[-i\langle L\vert\alpha\rangle\sin(\Delta t/\hbar)+\langle R\vert\alpha\rangle\cos(\Delta t/\hbar)]\\
+            =&\Delta\langle R\vert\alpha,t_0;t\rangle=\text{方程右边}.
+        \end{align}
+        故该耦合薛定谔方程的解正是在 (b) 中所预期的.
+        \item[(e)] 该错误哈密顿量对应的时间演化算符为
+        \begin{align}
+            \notag U(t,t_0)=&\exp\left[\frac{-iH(t-t_0)}{\hbar}\right]\\
+            \notag=&\sum_{n=0}^{\infty}\frac{1}{n!}\left[\frac{-iH(t-t_0)}{\hbar}\right]^n\\
+            \notag&(\text{利用 }H^2=\Delta\lvert L\rangle\langle R\vert L\rangle\langle R\rvert)\\
+            =&1-\frac{i\Delta(t-t_0)}{\hbar}\lvert L\rangle\langle R\rvert.
+        \end{align}
+        假设 $t=0$ 时,
+        \begin{align}
+            \langle\alpha\vert\alpha\rangle=\abs{\langle R\vert\alpha\rangle}^2+\abs{\langle L\vert\alpha\rangle}^2=1,
+        \end{align}
+        即在盒子中 (无论哪个隔间) 找到粒子的概率为 $1$.
+        $t>0$ 时系统的态矢量为
+        \begin{align}
+            \notag\lvert\alpha,t_0=0;t\rangle=&U(t,0)\lvert\alpha\rangle\\
+            \notag=&\left(1-\frac{i\Delta t}{\hbar}\lvert L\rangle\langle R\lvert\right)(\lvert R\rangle\langle R\vert\alpha\rangle+\lvert L\rangle\langle L\vert\alpha\rangle)\\
+            =&\lvert R\rangle\langle R\vert\alpha\rangle+\lvert L\rangle\left(\langle L\vert\alpha\rangle-\frac{i\Delta t}{\hbar}\langle R\vert\alpha\rangle\right).
+        \end{align}
+        此时
+        \begin{align}
+            \notag\langle\alpha,t_0;t\vert\alpha,t_0;t\rangle=&\left[\langle\alpha\vert R\rangle\langle R\rvert+\left(\langle\alpha\vert L\rangle+\frac{i\Delta t}{\hbar}\langle\alpha\vert R\rangle\right)\langle L\rvert\right]\left[\lvert R\rangle\langle R\vert\alpha\rangle+\lvert L\rangle\left(\langle L\vert\alpha\rangle-\frac{i\Delta t}{\hbar}\langle R\vert\alpha\rangle\right)\right]\\
+            \notag=&\abs{\langle R\vert\alpha\rangle}^2+\abs{\langle L\vert\alpha\rangle}^2+\left(\frac{\Delta t}{\hbar}\right)^2\abs{\langle R\vert\alpha\rangle}^2\\
+            \notag=&1+\left(\frac{\Delta t}{\hbar}\right)^2\abs{\langle R\vert\alpha\rangle}^2\\
+            \geq&1.
+        \end{align}
+        这说明概率守恒被破坏了.
     \end{itemize}
 \end{sol}
 \end{document}
