@@ -209,4 +209,35 @@
         这说明概率守恒被破坏了.
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 2.12]
+    考虑一个处在一维简谐振子位势中的粒子. 假定在 $t=0$ 时态矢量为
+    \[
+        \exp\left(\frac{-ipa}{\hbar}\right)\lvert 0\rangle,
+    \]
+    其中 $p$ 是动量算符, 而 $a$ 是某个具有长度量纲的数. $\lvert 0\rangle$ 是这样一个态, 它使 $\langle x\rangle=0=\langle p\rangle$, 利用海森堡绘景求 $t\geq 0$ 时的期待值 $\langle x\rangle$.
+\end{prob}
+\begin{sol}
+    简谐振子的哈密顿量为
+    \begin{align}
+        H=\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}.
+    \end{align}
+    在海森堡绘景中, 位置算符和动量算符的运动方程分别为
+    \begin{align}
+        \frac{\partial x}{\partial t}=&\frac{1}{i\hbar}[x,H]=\frac{1}{i\hbar}[x,\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}]=\frac{1}{2im\hbar}(p[x,p]+[x,p]p)=\frac{p}{m},\\
+        \frac{\partial p}{\partial t}=&\frac{1}{i\hbar}[p,H]=\frac{1}{i\hbar}[p,\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}]=\frac{m\omega^2}{2i\hbar}(x[p,x]+[p,x]x)=-m\omega^2x,
+    \end{align}
+    联立这两个耦合的运动方程解得 $t\geq 0$ 时刻的位置算符为
+    \begin{align}
+        x(t)=x(0)\cos(\omega t)+\frac{p(0)}{m\omega}\sin(\omega t).
+    \end{align}
+    $t\geq 0$ 时的位置期待值为
+    \begin{align}
+        \notag\langle x(t)\rangle=&\langle 0\rvert\exp\left(\frac{ipa}{\hbar}\right)x(t)\exp\left(\frac{-ipa}{\hbar}\right)\lvert 0\rangle\\
+        \notag=&\langle 0\rvert\exp\left(\frac{ipa}{\hbar}\right)x(0)\exp\left(\frac{-ipa}{\hbar}\right)\lvert 0\rangle\cos(\omega t)+\langle 0\rvert\exp\left(\frac{ipa}{\hbar}\right)p(0)\exp\left(\frac{-ipa}{\hbar}\right)\lvert 0\rangle\\
+        \notag&(\text{利用 Baker–Campbell–Hausdorff 公式})\\
+        \notag=&\langle 0\rvert[x(0)+a]\lvert 0\rangle\cos(\omega t)\\
+        =&a\cos(\omega t).
+    \end{align}
+\end{sol}
 \end{document}
