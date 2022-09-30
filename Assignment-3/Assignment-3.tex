@@ -294,17 +294,71 @@
             \langle x\frac{\mathrm{d}V}{\mathrm{d}x}\rangle=&\langle x\frac{\mathrm{d}(m\omega^2x^2/2)}{\mathrm{d}x}\rangle=\langle m\omega^2x^2\rangle=m\omega^2\langle n\rvert x^2\lvert n\rangle=\hbar\omega\left(n+\frac{1}{2}\right)\\
             \Longrightarrow\langle\frac{p^2}{m}\rangle=&\langle x\frac{\mathrm{d}V}{\mathrm{d}x}\rangle.
         \end{align}
-        三维时, 对于能量本征态 $\lvert n_1,n_2,n_3\rangle$,
+        三维时, 对于能量本征态 $\lvert n_x,n_y,n_z\rangle$,
         \begin{align}
-            \notag\langle\frac{\bm{p}^2}{m}\rangle=&\frac{1}{m}\langle n_1,n_2,n_3\rvert(p_1^2+p_2^2+p_3^2)\lvert n_1,n_2,n_3\rangle=\frac{1}{m}[\langle n_1\rvert p_1^2\lvert n_1\rangle+\langle n_2\rvert p_2^2\lvert n_2\rangle+\langle n_3\rvert p_3^2\lvert n_3\rangle]\\
-            =&\hbar\omega_1\left(n_1+\frac{1}{2}\right)+\hbar\omega_2\left(n_2+\frac{1}{2}\right)+\hbar\omega_3\left(n_3+\frac{1}{2}\right),\\
-            \notag\langle\bm{x}\cdot\nabla V\rangle=&\langle x_1\frac{\mathrm{d}(m\omega_1^2x_1^2/2)}{\mathrm{d}x_1}+x_2\frac{\mathrm{d}(m\omega_2^2x_2^2/2)}{\mathrm{d}x_2}+x_3\frac{\mathrm{d}(m\omega_3^2x_3^2/2)}{\mathrm{d}x_3}\rangle\\
-            \notag=&\langle n_1,n_2,n_3\rvert m\omega_1^2x_1^2+m\omega_2^2x_2^2+m\omega_3^2x_3^2\lvert n_1,n_2,n_3\rangle\\
-            \notag=&m\omega_1\langle n_1\rvert x_1^2\lvert  n_1\rangle+m\omega_2^2\langle n_2\rvert x_2^2\lvert n_2\rangle+m\omega_3^2\langle n_3\rvert x_3^2\lvert n_3\rangle\\
-            =&\hbar\omega_1\left(n_1+\frac{1}{2}\right)+\hbar\omega_2\left(n_2+\frac{1}{2}\right)+\hbar\omega_3\left(n_3+\frac{1}{2}\right),\\
+            \notag\langle\frac{\bm{p}^2}{m}\rangle=&\frac{1}{m}\langle n_x,n_y,n_z\rvert(p_x^2+p_y^2+p_z^2)\lvert n_x,n_y,n_z\rangle=\frac{1}{m}[\langle n_x\rvert p_x^2\lvert n_x\rangle+\langle n_y\rvert p_y^2\lvert n_y\rangle+\langle n_z\rvert p_z^2\lvert n_z\rangle]\\
+            =&\hbar\omega_x\left(n_x+\frac{1}{2}\right)+\hbar\omega_y\left(n_y+\frac{1}{2}\right)+\hbar\omega_z\left(n_z+\frac{1}{2}\right),\\
+            \notag\langle\bm{x}\cdot\nabla V\rangle=&\langle x\frac{\mathrm{d}(m\omega_x^2x^2/2)}{\mathrm{d}x}+y\frac{\mathrm{d}(m\omega_y^2y^2/2)}{\mathrm{d}y}+z\frac{\mathrm{d}(m\omega_z^2z^2/2)}{\mathrm{d}z}\rangle\\
+            \notag=&\langle n_x,n_y,n_z\rvert m\omega_x^2x^2+m\omega_y^2y^2+m\omega_z^2z^2\lvert n_x,n_y,n_z\rangle\\
+            \notag=&m\omega_x^2\langle n_x\rvert x^2\lvert n_x\rangle+m\omega_y^2\langle n_y\rvert y^2\lvert n_y\rangle+m\omega_z^2\langle n_z\rvert z^2\lvert n_z\rangle\\
+            =&\hbar\omega_x\left(n_x+\frac{1}{2}\right)+\hbar\omega_y\left(n_y+\frac{1}{2}\right)+\hbar\omega_z\left(n_z+\frac{1}{2}\right),\\
             \Longrightarrow\langle\frac{\bm{p}^2}{m}\rangle=&\langle\bm{x}\cdot\nabla V\rangle.
         \end{align}
         故对于动能和势能在一个能量本征态上的期待值, 维里定理成立.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 2.22]
+    考虑一个质量为 $m$ 的粒子处于下列形式中的一维势中:
+    \[
+        V(x)=\left\{\begin{array}{ll}
+            \frac{1}{2}kx^2,&\text{对于 }x>0\\
+            \infty,&\text{对于 }x<0.
+        \end{array}\right.
+    \]
+    \begin{itemize}
+        \item[(a)] 其基态能量是什么?
+        \item[(b)] 对于该基态的期待值 $\langle x^2\rangle$ 是什么?
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 该粒子的哈密顿量为
+        \begin{align}
+            H=\left\{\begin{array}{ll}
+                \frac{p^2}{2m}+\frac{1}{2}kx^2,&\text{对于 }x>0\\
+                \infty,&\text{对于 }x<0.
+            \end{array}\right.
+        \end{align}
+        在 $x>0$ 处, 薛定谔方程为
+        \begin{align}
+            \left(\frac{1}{2m}\frac{\partial^2}{\partial t^2}+\frac{1}{2}kx^2\right)\psi=E\psi,\quad\text{for }x>0,
+        \end{align}
+        这与谐振子的薛定谔方程相同, 因此该粒子在 $x>0$ 处的波函数应为谐振子波函数的线性叠加的形式.
+        而在 $x<0$ 处, 由于势垒无穷高, 故
+        \begin{align}
+            \psi=0,\quad\text{for }x<0.
+        \end{align}
+        考虑到波函数的连续性, 该粒子的波函数需满足 $\psi(x=0)=0$.
+
+        综合这两点来看, 该粒子的波函数在 $x>0$ 处应为谐振子的奇对称的波函数的线性叠加, 在 $x<0$ 处应 $=0$.
+        因此, 该粒子的基态波函数在 $x>0$ 处应为谐振子标号 $n=1$ 的波函数 (的 $2$ 倍), 而在 $x<0$ 处应 $=0$:
+        \begin{align}
+            \psi(x)=\left\{\begin{array}{ll}
+                \sqrt{2}\langle x\rvert 1\rangle,&\text{for }x>0\\
+                0,&\text{for }x<0,
+            \end{array}\right.
+        \end{align}
+        其中 $\lvert 1\rangle$ 为谐振子标号 $n=1$ 的态, $\langle x'\vert 1\rangle$ 为其对应的波函数.
+        该粒子的基态能量为
+        \begin{align}
+            E=\int_{-\infty}^{\infty}\mathrm{d}x'\,\psi^*(x')H\psi(x')=\hbar\omega\langle 1\rvert\left(N+\frac{1}{2}\right)\lvert 1\rangle=\frac{3}{2}\hbar\omega=\frac{3}{2}\hbar\sqrt{\frac{k}{m}}.
+        \end{align}
+        \item[(b)] 该基态的期待值
+        \begin{align}
+            \langle x^2\rangle=\int_{-\infty}^{\infty}\mathrm{d}x'\,\psi^*(x')x'^2\psi(x')=\langle 1\rvert x^2\lvert 1\rangle=\frac{3}{2}\frac{\hbar}{m\omega}.
+        \end{align}
+        (此处利用了课本习题 2.14 (a) 中得到的结论.)
     \end{itemize}
 \end{sol}
 \end{document}
