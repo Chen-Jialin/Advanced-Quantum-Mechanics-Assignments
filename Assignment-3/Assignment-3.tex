@@ -1,5 +1,5 @@
 \documentclass{assignment}
-\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第三次作业}{截止时间: 2022 年 10 月 3 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第三次作业}{截止时间: 2022 年 10 月 8 日 (周六)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
 
 \begin{document}
 \begin{prob}[课本习题 2.9]
@@ -227,7 +227,7 @@
         \frac{\partial x}{\partial t}=&\frac{1}{i\hbar}[x,H]=\frac{1}{i\hbar}[x,\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}]=\frac{1}{2im\hbar}(p[x,p]+[x,p]p)=\frac{p}{m},\\
         \frac{\partial p}{\partial t}=&\frac{1}{i\hbar}[p,H]=\frac{1}{i\hbar}[p,\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}]=\frac{m\omega^2}{2i\hbar}(x[p,x]+[p,x]x)=-m\omega^2x,
     \end{align}
-    联立这两个耦合的运动方程解得 $t\geq 0$ 时刻的位置算符为
+    联立这两个耦合的运动方程解得 $t\geq 0$ 时的位置算符为
     \begin{align}
         x(t)=x(0)\cos(\omega t)+\frac{p(0)}{m\omega}\sin(\omega t).
     \end{align}
@@ -239,5 +239,72 @@
         \notag=&\langle 0\rvert[x(0)+a]\lvert 0\rangle\cos(\omega t)\\
         =&a\cos(\omega t).
     \end{align}
+\end{sol}
+
+\begin{prob}[课本习题 2.14]
+    考虑一个一维简谐振子,
+    \begin{itemize}
+        \item[(a)] 利用
+        \[
+            \left.\begin{array}{l}
+                a\\
+                a^{\dagger}
+            \end{array}\right\}=\sqrt{\frac{m\omega}{2\hbar}}\left(x\pm\frac{ip}{m\omega}\right),\quad\left.\begin{array}{l}
+                a\lvert n\rangle\\
+                a^{\dagger}\lvert n\rangle
+            \end{array}\right\}=\left\{\begin{array}{l}
+                \sqrt{n}\lvert n-1\rangle\\
+                \sqrt{n+1}\lvert n+1\rangle
+            \end{array}\right.,
+        \]
+        计算 $\langle m\rvert x\lvert n\rangle$, $\langle m\rvert p\lvert n\rangle$, $\langle m\rvert x^2\lvert n\rangle$ 和 $\langle m\rvert p^2\lvert n\rangle$.
+        \item[(b)] 维里定理可表述为
+        \[
+            \langle\frac{\bm{p}^2}{m}\rangle=\langle\bm{x}\cdot\nabla V\rangle,\quad\text{三维时},\quad\text{或}\quad\langle\frac{p^2}{m}\rangle=\langle x\frac{\mathrm{d}V}{\mathrm{d}x}\rangle\quad\text{一维时},
+        \]
+        检验对于动能和势能在一个能量本征态上的期待值, 维里定理成立. (按勘误表要求, 这里给出了维里定理. --- 译者注)
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 利用
+        \[
+            \left.\begin{array}{l}
+                a\\
+                a^{\dagger}
+            \end{array}\right\}=\sqrt{\frac{m\omega}{\hbar}}\left(x\pm\frac{ip}{m\omega}\right),
+        \]
+        有
+        \begin{align}
+            x=&\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger}),\\
+            p=&i\sqrt{\frac{m\hbar\omega}{2}}(-a+a^{\dagger}).
+        \end{align}
+        从而
+        \begin{align}
+            \langle m\rvert x\lvert n\rangle=&\sqrt{\frac{\hbar}{2m\omega}}(\langle m\rvert a\lvert n\rangle+\langle m\rvert a^{\dagger}\lvert n\rangle)=\sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n}\delta_{m,n-1}+\sqrt{n+1}\delta_{m,n+1}),\\
+            \langle m\rvert p\lvert n\rangle=&i\sqrt{\frac{m\hbar\omega}{2}}(-\langle m\rvert a\lvert n\rangle+\langle m\rvert a^{\dagger}\lvert n\rangle)=i\sqrt{\frac{m\hbar\omega}{2}}(-\sqrt{n}\delta_{m,n-1}+\sqrt{n-1}\delta_{m,n-1}+i\sqrt{n+1}\delta_{m,n+1})\\
+            \notag\langle m\rvert x^2\lvert n\rangle=&\frac{\hbar}{2m\omega}\langle m\rvert(a+a^{\dagger})^2\lvert n\rangle=\frac{\hbar}{2m\omega}[\langle m\rvert a^2\lvert n\rangle+\langle m\rvert aa^{\dagger}\lvert n\rangle+\langle m\rvert a^{\dagger}a\lvert n\rangle+\langle m\rvert(a^{\dagger})^2\lvert n\rangle]\\
+            =&\frac{\hbar}{2m\omega}[\sqrt{n(n-1)}\delta_{m,n-2}+(2n+1)\delta_{m,n}+\sqrt{(n+1)(n+2)}\delta_{m,n+2}],\\
+            \notag\langle m\rvert p^2\lvert n\rangle=&-\frac{m\hbar\omega}{2}\langle m\rvert(-a+a^{\dagger})^2\lvert n\rangle=-\frac{m\hbar\omega}{2}[\langle m\rvert a^2\lvert n\rangle-\langle m\rvert aa^{\dagger}\lvert n\rangle-\langle m\rvert a^{\dagger}a\lvert n\rangle+\langle m\rvert(a^{\dagger})^2\lvert n\rangle]\\
+            =&-\frac{m\hbar\omega}{2}[\sqrt{n(n-1)}\delta_{m,n-2}-(2n+1)\delta_{m,n}+\sqrt{(n+1)(n+2)}\delta_{m,n+2}].
+        \end{align}
+        \item[(b)] 一维时, 对于能量本征态 $\lvert n\rangle$,
+        \begin{align}
+            \langle\frac{p^2}{m}\rangle=&-\frac{\hbar\omega}{2}\langle n\rvert p^2\lvert n\rangle=\hbar\omega\left(n+\frac{1}{2}\right),\\
+            \langle x\frac{\mathrm{d}V}{\mathrm{d}x}\rangle=&\langle x\frac{\mathrm{d}(m\omega^2x^2/2)}{\mathrm{d}x}\rangle=\langle m\omega^2x^2\rangle=m\omega^2\langle n\rvert x^2\lvert n\rangle=\hbar\omega\left(n+\frac{1}{2}\right)\\
+            \Longrightarrow\langle\frac{p^2}{m}\rangle=&\langle x\frac{\mathrm{d}V}{\mathrm{d}x}\rangle.
+        \end{align}
+        三维时, 对于能量本征态 $\lvert n_1,n_2,n_3\rangle$,
+        \begin{align}
+            \notag\langle\frac{\bm{p}^2}{m}\rangle=&\frac{1}{m}\langle n_1,n_2,n_3\rvert(p_1^2+p_2^2+p_3^2)\lvert n_1,n_2,n_3\rangle=\frac{1}{m}[\langle n_1\rvert p_1^2\lvert n_1\rangle+\langle n_2\rvert p_2^2\lvert n_2\rangle+\langle n_3\rvert p_3^2\lvert n_3\rangle]\\
+            =&\hbar\omega_1\left(n_1+\frac{1}{2}\right)+\hbar\omega_2\left(n_2+\frac{1}{2}\right)+\hbar\omega_3\left(n_3+\frac{1}{2}\right),\\
+            \notag\langle\bm{x}\cdot\nabla V\rangle=&\langle x_1\frac{\mathrm{d}(m\omega_1^2x_1^2/2)}{\mathrm{d}x_1}+x_2\frac{\mathrm{d}(m\omega_2^2x_2^2/2)}{\mathrm{d}x_2}+x_3\frac{\mathrm{d}(m\omega_3^2x_3^2/2)}{\mathrm{d}x_3}\rangle\\
+            \notag=&\langle n_1,n_2,n_3\rvert m\omega_1^2x_1^2+m\omega_2^2x_2^2+m\omega_3^2x_3^2\lvert n_1,n_2,n_3\rangle\\
+            \notag=&m\omega_1\langle n_1\rvert x_1^2\lvert  n_1\rangle+m\omega_2^2\langle n_2\rvert x_2^2\lvert n_2\rangle+m\omega_3^2\langle n_3\rvert x_3^2\lvert n_3\rangle\\
+            =&\hbar\omega_1\left(n_1+\frac{1}{2}\right)+\hbar\omega_2\left(n_2+\frac{1}{2}\right)+\hbar\omega_3\left(n_3+\frac{1}{2}\right),\\
+            \Longrightarrow\langle\frac{\bm{p}^2}{m}\rangle=&\langle\bm{x}\cdot\nabla V\rangle.
+        \end{align}
+        故对于动能和势能在一个能量本征态上的期待值, 维里定理成立.
+    \end{itemize}
 \end{sol}
 \end{document}
