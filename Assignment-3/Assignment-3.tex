@@ -332,7 +332,7 @@
         \end{align}
         在 $x>0$ 处, 薛定谔方程为
         \begin{align}
-            \left(\frac{1}{2m}\frac{\partial^2}{\partial t^2}+\frac{1}{2}kx^2\right)\psi=E\psi,\quad\text{for }x>0,
+            \left(\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+\frac{1}{2}kx^2\right)\psi=E\psi,\quad\text{for }x>0,
         \end{align}
         这与谐振子的薛定谔方程相同, 因此该粒子在 $x>0$ 处的波函数应为谐振子波函数的线性叠加的形式.
         而在 $x<0$ 处, 由于势垒无穷高, 故
@@ -361,4 +361,50 @@
         (此处利用了课本习题 2.14 (a) 中得到的结论.)
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 2.24]
+    考虑一维粒子被一个 $\delta$ 函数势
+    \[
+        V(x)=-\nu_0\delta(x),\quad(\nu_0\text{ 为正实数})
+    \]
+    束缚于一个固定的中心位置处, 求波函数和基态束缚能. 有激发的束缚态吗?
+\end{prob}
+\begin{prob}
+    该粒子的哈密顿量为
+    \begin{align}
+        H=\frac{p^2}{2m}+V(x)=\left\{\begin{array}{ll}
+            \frac{p^2}{2m},&x\neq 0,\\
+            \frac{p^2}{2m}-\nu_0\delta(x),&x=0.
+        \end{array}\right.
+    \end{align}
+    在 $x\neq 0$ 处的薛定谔方程为
+    \begin{align}
+        -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}=E\psi.
+    \end{align}
+    考虑到束缚态波函数在无穷远处的函数值为 $0$, $x<0$ 处和 $x>0$ 处波函数的通解分别为
+    \begin{align}
+        \psi(x<0)=Ae^{kx},\\
+        \psi(x>0)=Be^{-kx},
+    \end{align}
+    其中 $k=\frac{\sqrt{2mE}}{\hbar}$.
+    利用连续性条件
+    \begin{gather}
+        \psi(x=0^-)=A=\psi(x=0^+)=B,\\
+        \psi'(x=0^+)-\psi'(x=0^-)=-Ak-Bk=\int_{0^-}^{0^+}\frac{\partial^2\psi}{\partial x'^2}\,\mathrm{d}x'=\frac{2m}{\hbar^2}\int_{0^-}^{0^+}[-\nu_0\delta(x)-E]\psi(0)\,\mathrm{d}x'=-\frac{2m\nu_0}{\hbar^2}A,
+    \end{gather}
+    解得
+    \begin{align}
+        A=B,\quad k=\frac{m\nu_0}{\hbar^2}.
+    \end{align}
+    考虑到波函数满足归一化条件, 得波函数
+    \begin{align}
+        \psi(x)=\frac{\sqrt{m\nu_0}}{\hbar}e^{-m\nu_0\abs{x}/\hbar^2},
+    \end{align}
+    基态束缚能为
+    \begin{align}
+        E=\frac{\hbar^2\Omega^2}{2m}.
+    \end{align}
+
+    该系统仅有一个束缚基态, 没有激发的束缚态
+\end{prob}
 \end{document}
