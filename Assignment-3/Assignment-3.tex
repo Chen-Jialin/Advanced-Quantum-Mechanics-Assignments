@@ -362,49 +362,69 @@
     \end{itemize}
 \end{sol}
 
-\begin{prob}[课本习题 2.24]
-    考虑一维粒子被一个 $\delta$ 函数势
+\begin{prob}[课本习题 2.23]
+    一个一维粒子约束在两个刚性壁之间, 即
     \[
-        V(x)=-\nu_0\delta(x),\quad(\nu_0\text{ 为正实数})
+        V(x)=\left\{\begin{array}{ll}
+            0,&\text{对于 }0<x<L\\
+            \infty,&\text{对于 }0<x,\,x>L.
+        \end{array}\right.
     \]
-    束缚于一个固定的中心位置处, 求波函数和基态束缚能. 有激发的束缚态吗?
+    $t=0$ 时确知该粒子准确地处在 $x=L/2$ 处. 在能量的各种本征态上找到该粒子的相对概率是什么? 写出 $t\geq 0$ 时的波函数. (你无需担心绝对归一化、收敛性和其他的一些数学细节).
 \end{prob}
-\begin{prob}
-    该粒子的哈密顿量为
+\begin{sol}
+    在 $x<0$ 和 $x>L$ 处, 由于势能无穷大, 故
     \begin{align}
-        H=\frac{p^2}{2m}+V(x)=\left\{\begin{array}{ll}
-            \frac{p^2}{2m},&x\neq 0,\\
-            \frac{p^2}{2m}-\nu_0\delta(x),&x=0.
+        \psi(x)=0,\quad\text{for }x<0,\text{ or }x>L.
+    \end{align}
+    在 $0<x<L$ 处, 粒子的薛定谔方程为
+    \begin{align}
+        -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}=E\psi,\quad\text{for }0<x<L,
+    \end{align}
+    考虑到边界条件 $\psi(0)=\psi(L)=0$, 解得归一化波函数为
+    \begin{align}
+        \psi_n(x)=\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right),\quad n=1,2,3\cdots\quad\text{for }0<x<L,
+    \end{align}
+    对应的能量本征态为
+    \begin{align}
+        E_n=\frac{\hbar^2n^2\pi^2}{2mL^2},\quad n=1,2,3,\cdots
+    \end{align}
+    故能量的各本征态的波函数为
+    \begin{align}
+        \psi_n(x)=\left\{\begin{array}{ll}
+            \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right),&\text{for }0<x<L,\\
+            0,&\text{for }0<x,\text{ or }x>L.
+        \end{array}\right.\quad x=1,2,3,\cdots
+    \end{align}
+    对应的能量本征态为
+    \begin{align}
+        E_n=\frac{\hbar^2n^2\pi^2}{2mL^2},\quad n=1,2,3,\cdots
+    \end{align}
+    $t=0$ 时确知该粒子准确地处在 $x=L/2$ 处, 此时的粒子状态的波函数为
+    \begin{align}
+        \psi(x)=\sqrt{\delta\left(x-\frac{L}{2}\right)}.
+    \end{align}
+    在标号为 $n$ 的能量本征态上找到该粒子的概率为
+    \begin{align}
+        \notag P_n=&\abs{\langle\psi_n\vert\psi\rangle}^2=\abs{\int_{-\infty}^{\infty}\psi_n^*(x)\psi(x)\,\mathrm{d}x}^2=\abs{\int_{-\infty}^{\infty}\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)\sqrt{\delta\left(x-\frac{L}{2}\right)}\,\mathrm{d}x}^2=\abs{\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi}{2}\right)}^2\\
+        =&\left\{\begin{array}{ll}
+            \frac{2}{L},&\text{for odd }n,\\
+            0,&\text{for even }n.
         \end{array}\right.
     \end{align}
-    在 $x\neq 0$ 处的薛定谔方程为
-    \begin{align}
-        -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}=E\psi.
-    \end{align}
-    考虑到束缚态波函数在无穷远处的函数值为 $0$, $x<0$ 处和 $x>0$ 处波函数的通解分别为
-    \begin{align}
-        \psi(x<0)=Ae^{kx},\\
-        \psi(x>0)=Be^{-kx},
-    \end{align}
-    其中 $k=\frac{\sqrt{2mE}}{\hbar}$.
-    利用连续性条件
-    \begin{gather}
-        \psi(x=0^-)=A=\psi(x=0^+)=B,\\
-        \psi'(x=0^+)-\psi'(x=0^-)=-Ak-Bk=\int_{0^-}^{0^+}\frac{\partial^2\psi}{\partial x'^2}\,\mathrm{d}x'=\frac{2m}{\hbar^2}\int_{0^-}^{0^+}[-\nu_0\delta(x)-E]\psi(0)\,\mathrm{d}x'=-\frac{2m\nu_0}{\hbar^2}A,
-    \end{gather}
-    解得
-    \begin{align}
-        A=B,\quad k=\frac{m\nu_0}{\hbar^2}.
-    \end{align}
-    考虑到波函数满足归一化条件, 得波函数
-    \begin{align}
-        \psi(x)=\frac{\sqrt{m\nu_0}}{\hbar}e^{-m\nu_0\abs{x}/\hbar^2},
-    \end{align}
-    基态束缚能为
-    \begin{align}
-        E=\frac{\hbar^2\Omega^2}{2m}.
-    \end{align}
+    (\textit{需要注意的是, 由于该哈密顿量有无穷多个本征态, 上述方法得到的概率实际上是不归一的且不具有正确的量纲, 我们只能理解为, 在 $n$ 为奇数的能量本征态上找到粒子的概率相等, 而在 $n$ 为偶数的能量本征态上找到该粒子的概率均为 0. 更加严谨的做法是, 假定本征态的总数 $N$, 在 $n$ 为奇数的能量本征态上找到粒子的概率各为 $\frac{2}{N}$, 而在 $n$ 为偶数的能量本征态上找到粒子的概率均为 $0$, 在我们实际求解某些物理量的期望值的过程中, 这个假定的 $N$ 最终将会被消掉.})
 
-    该系统仅有一个束缚基态, 没有激发的束缚态
-\end{prob}
+    $t=0$ 时粒子的状态可用能量本征态展开为
+    \begin{align}
+        \lvert\psi,0\rangle=\sum_{n=1}^{\infty}\lvert\psi_n\rangle\langle\psi_n\vert\psi,0\rangle=\sum_{n=1}^{\infty}\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi}{2}\right)\lvert\psi_n\rangle=\sum_{\text{odd }n}(-1)^{(n-1)/2}\sqrt{\frac{2}{L}}\lvert\psi_n\rangle.
+    \end{align}
+    $t>0$ 时的波函数为
+    \begin{align}
+        \notag\psi(x,t)=&\langle x\vert\psi,t\rangle=\langle x\rvert U(t,0)\lvert\psi,0\rangle=\langle x\rvert e^{-iHt/\hbar}\sum_{\text{odd }n}(-1)^{(n-1)/2}\sqrt{\frac{2}{L}}\lvert\psi_n\rangle=\sum_{\text{odd }n}(-1)^{(n-1)/2}\sqrt{\frac{2}{L}}e^{-iE_nt/\hbar}\langle x\vert\psi_n\rangle\\
+        =&\left\{\begin{array}{ll}
+            \sum_{\text{odd }n}(-1)^{(n-1)/2}\frac{2}{L}\exp\left(-i\frac{\hbar n^2\pi^2}{2mL^2}t\right)\sin\left(\frac{n\pi x}{L}\right),&\text{for }0<x<L,\\
+            0,&\text{for }0<x,\text{ or }x>L.
+        \end{array}\right.
+    \end{align}
+\end{sol}
 \end{document}
