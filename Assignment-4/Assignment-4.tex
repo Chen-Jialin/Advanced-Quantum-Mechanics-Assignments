@@ -1,5 +1,5 @@
 \documentclass{assignment}
-\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第四次作业}{截止时间: 2022 年  月  日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第四次作业}{截止时间: 2022 年 10 月 17 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
 
 \begin{document}
 \begin{prob}[课本习题 2.24]
@@ -107,5 +107,69 @@
             E_n=\frac{\left[3\left(n+\frac{1}{4}\right)\pi\hbar\lambda\right]^{2/3}}{2m^{1/3}},\quad n=0,1,2,3,\cdots
         \end{align}
     \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 2.31]
+    导出 (2.6.16) 式, 并求得 (2.6.16) 式的三维推广.
+\end{prob}
+\begin{pf}
+    一维自由粒子的哈密顿量为
+    \begin{align}
+        H=\frac{p^2}{2m},
+    \end{align}
+    显然其与动量算符 $p$ 对易; $\{\lvert p'\rangle\}$ 为哈密顿量 $H$ 和动量算符 $p$ 的共同本征态:
+    \begin{align}
+        p\lvert p'\rangle=p'\lvert p'\rangle,\quad H\lvert p'\rangle=\left(\frac{p'^2}{2m}\right)\lvert p'\rangle.
+    \end{align}
+    由传播子的定义, 一维自由粒子的传播子为
+    \begin{align}
+        \notag K(x'',t;x',t_0)=&\int_{-\infty}^{\infty}\mathrm{d}p'\,\langle x''\vert p'\rangle\langle p'\vert x'\rangle\exp\left[\frac{-iE_{p'}(t-t_0)}{\hbar}\right]\\
+        \notag&(\text{利用 }\langle x'\vert p'\rangle=\frac{1}{\sqrt{2\pi\hbar}}\exp\left(\frac{ip'x'}{\hbar}\right))\\
+        \notag=&\frac{1}{2\pi\hbar}\int_{-\infty}^{\infty}\mathrm{d}p'\,\exp\left[\frac{ip'(x''-x')}{\hbar}-\frac{ip'^2(t-t_0)}{2m\hbar}\right]\\
+        \notag=&\frac{1}{2\pi\hbar}\int_{-\infty}^{\infty}\mathrm{d}p'\,\exp\left\{-\frac{i(t-t_0)}{2m\hbar}\left[p'-\frac{m(x''-x')}{t-t_0}\right]^2+\frac{im(x''-x')^2}{2\hbar(t-t_0)}\right\},\\
+        \notag&(\text{令 }\xi'=\sqrt{\frac{i(t-t_0)}{2m\hbar}}\left[p'-\frac{m(x''-x')}{t-t_0}\right])\\
+        \notag=&\frac{1}{2\pi\hbar}\sqrt{\frac{2m\hbar}{i(t-t_0)}}\int_{-\infty}^{\infty}\mathrm{d}\xi\,\exp(-\xi^2)\exp\left[\frac{im(x''-x')^2}{2\hbar(t-t_0)}\right],\\
+        \notag&(\text{利用高斯积分 }\int_{-\infty}^{\infty}e^{-\xi^2}\,\mathrm{d}\xi=\sqrt{\pi})\\
+        =&\sqrt{\frac{m}{2\pi i\hbar(t-t_0)}}\exp\left[\frac{im(x''-x')^2}{2\hbar(t-t_0)}\right],
+    \end{align}
+    此即 (2.6.16) 式.
+
+    下面将上式推广至三维情况. 三维自由粒子的哈密顿量为
+    \begin{align}
+        H=\frac{p_x^2+p_y^2+p_z^2}{2m},
+    \end{align}
+    显然与动量算符 $p_x$, $p_y$, $p_z$ 对易; $\{\lvert p_x',p_y',p_z'\rangle\}$ 为哈密顿量 $H$ 和动量算符 $p_x$, $p_y$, $p_z$ 的共同本征态:
+    \begin{gather}
+        p_x\lvert p_x',p_y',p_z'\rangle=p_x'\lvert p_x',p_y',p_z'\rangle,\quad p_y\lvert p_x',p_y',p_z'\rangle=p_y'\lvert p_x',p_y',p_z'\rangle,\quad p_z\lvert p_x',p_y',p_z'\rangle=p_z'\lvert p_x',p_y',p_z'\rangle,\\
+        H\lvert p_x',p_y',p_z'\rangle=\frac{p_x'^2+p_y'^2+p_z'^2}{2m}\lvert p_x',p_y',p_z'\rangle.
+    \end{gather}
+    由传播子的定义, 三维自由粒子的传播子为
+    \begin{align}
+        \notag K(\bm{x}'',t;\bm{x},t_0)=&\int_{-\infty}^{\infty}\mathrm{d}p_x'\int_{-\infty}^{\infty}\mathrm{d}p_y'\int_{-\infty}^{\infty}\mathrm{d}p_z'\,\langle\bm{x}''\vert p_x',p_y',p_z'\rangle\langle p_x',p_y',p_z'\vert\bm{x}'\rangle\exp\left[-\frac{iE_{p_x',p_y',p_z'}(t-t_0)}{\hbar}\right]\\
+        \notag&(\text{利用 }\langle\bm{x}'\vert\bm{p}'\rangle=\frac{1}{(2\pi\hbar)^{3/2}}\exp\left(\frac{i\bm{p}'\cdot\bm{x}'}{\hbar}\right))\\
+        \notag=&\frac{1}{(2\pi\hbar)^3}\int_{-\infty}^{\infty}\mathrm{d}p_x'\int_{-\infty}^{\infty}\mathrm{d}p_y'\int_{-\infty}^{\infty}\mathrm{d}p_z'\times\\
+        \notag&\exp\left\{\frac{i[p_x'(x''-x')+p_y'(y''-y')+p_z'(z''-z')]}{\hbar}-\frac{i(p_x'^2+p_y'^2+p_z'^2)(t-t_0)}{2m\hbar}\right\}\\
+        \notag=&\frac{1}{(2\pi\hbar)^3}\int_{-\infty}^{\infty}\mathrm{d}p_x'\,\exp\left\{-\frac{i(t-t_0)}{2m\hbar}[p_x'-\frac{m(x''-x')}{t-t_0}]^2+\frac{im(x''-x')}{2\hbar(t-t_0)}\right\}\times\\
+        \notag&\int_{-\infty}^{\infty}\mathrm{d}p_y'\,\exp\left\{-\frac{i(t-t_0)}{2m\hbar}[p_y'-\frac{m(y''-y')}{t-t_0}]^2+\frac{im(y''-y')}{2\hbar(t-t_0)}\right\}\times\\
+        \notag&\int_{-\infty}^{\infty}\mathrm{d}p_z'\,\exp\left\{-\frac{i(t-t_0)}{2m\hbar}[p_z'-\frac{m(z''-z')}{t-t_0}]^2+\frac{im(z''-z')}{2\hbar(t-t_0)}\right\}\\
+        =&\left(\frac{m}{2\pi i\hbar(t-t_0)}\right)^{3/2}\exp\left\{\frac{im[(x''-x')^2+(y''-y')^2+(z''-z')^2]}{2\hbar(t-t_0)}\right\}.
+    \end{align}
+\end{pf}
+
+\begin{prob}
+    求一维自由粒子搞碎波包坐标与动量测不准关系随时间的变化.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[2.34]
+    \begin{itemize}
+        \item[(a)] 写出一个简谐振子对于一个有限时间间隔的经典作用量.
+        \item[(b)] 对于一个简谐振子, 利用费曼方法构造出微小的 $t_n-t_{n-1}=\Delta t$ 情况下的 $\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle$. 只保留到 $(\Delta t)^2$ 量级的项. 证明它与由 (2.6.26) 式给出的传播子在 $t-t_0\rightarrow 0$ 时的极限完全一致.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    
 \end{sol}
 \end{document}
