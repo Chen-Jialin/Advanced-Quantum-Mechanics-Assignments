@@ -243,10 +243,43 @@
 \begin{prob}[2.34]
     \begin{itemize}
         \item[(a)] 写出一个简谐振子对于一个有限时间间隔的经典作用量.
-        \item[(b)] 对于一个简谐振子, 利用费曼方法构造出微小的 $t_n-t_{n-1}=\Delta t$ 情况下的 $\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle$. 只保留到 $(\Delta t)^2$ 量级的项. 证明它与由 (2.6.26) 式给出的传播子在 $t-t_0\rightarrow 0$ 时的极限完全一致.
+        \item[(b)] 对于一个简谐振子, 利用费曼方法构造出微小的 $t_n-t_{n-1}=\Delta t$ 情况下的 $\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle$. 只保留到 $(\Delta t)^2$ 量级的项, 证明它与由 (2.6.26) 式给出的传播子在 $t-t_0\rightarrow 0$ 时的极限完全一致.
     \end{itemize}
 \end{prob}
 \begin{sol}
-    
+    \begin{itemize}
+        \item[(a)] 简谐振子的经典拉格朗日量为
+        \begin{align}
+            L(x,\dot{x})=\frac{m\dot{x}}{2}-\frac{m\omega^2x^2}{2}.
+        \end{align}
+        对于一个有限时间间隔 $(t_{n-1},t_n)$ 的经典作用量为
+        \begin{align}
+            \notag S(n,n-1)=&\int_{t_{n-1}}^{t_n}\mathrm{d}t\,L(x,\dot{x})\\
+            \notag\approx&(t_n-t_{n-1})\left[\frac{m}{2}\left(\frac{x_n-x_{n-1}}{t_n-t_{n-1}}\right)^2-\frac{m\omega^2}{2}\left(\frac{x_n+x_{n-1}}{2}\right)^2\right]\\
+            \approx&\frac{m(\Delta x)^2}{2\Delta t}-\frac{m\omega^2x_n^2\Delta t^2}{2},
+        \end{align}
+        其中时间间隔 $\Delta t=t_n-t_{n-1}$, $\Delta x=x_n-x_{n-1}=x(t_n)-x(t_{n-1})$.
+        \item[(b)] 微小的 $t_n-t_{n-1}\equiv\Delta t$ 情况下,
+        \begin{align}
+            \notag\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle=&\sqrt{\frac{m}{2\pi i\hbar\Delta t}}\exp\left[\frac{iS(n,n-1)}{\hbar}\right]\\
+            =&\sqrt{\frac{m}{2\pi i\hbar\Delta t}}\exp\left\{\frac{i}{\hbar}\left[\frac{m(\Delta x)^2}{2\Delta t}-\frac{m\omega^2x_n^2\Delta t}{2}\right]\right\}.
+        \end{align}
+
+        由课本 (2.6.26) 式和 (2.6.18),
+        \begin{align}
+            \notag\langle x'',t\vert x',t_0\rangle=&K(x'',t;x',t_0)\\
+            \notag=&\sqrt{\frac{m\omega}{2\pi i\hbar\sin[\omega(t-t_0)]}}\exp\left[\left\{\frac{im\omega}{2\hbar\sin[\omega(t-t_0)]}\right\}\times\right.\\
+            \notag&\left.\{(x''^2+x'^2)\cos[\omega(t-t_0)]-2x''x'\}\right],
+        \end{align}
+        在 $t-t_0\rightarrow 0$ 的极限下, $\sin[\omega(t-t_0)]\approx\omega(t-t_0)$, $\cos[\omega(t-t_0)]\approx 1-\frac{\omega^2(t-t_0)^2}{2}$, 值保留 $(\Delta t)^2$ 量级的项, 上式可简化为
+        {\small
+        \begin{align}
+            \notag\langle x'',t\vert x',t_0\rangle\approx&\sqrt{\frac{m}{2\pi i\hbar(t-t_0)}}\exp\left[\frac{im}{2\hbar(t-t_0)}\left\{[x'^2+(x'+(x''-x'))^2]\left[1-\frac{\omega^2(t-t_0)^2}{2}\right]-2[x'+(x''-x')]x'\right\}\right]\\
+            \approx&\sqrt{\frac{m}{2\pi i\hbar(t-t_0)}}\exp\left[\frac{im}{\hbar}\left(\frac{(x''-x')^2}{2(t-t_0)}-\frac{\omega^2x'^2(t-t_0)}{2}\right)\right].
+        \end{align}
+        }
+
+        可见, 利用高斯方法构造的微小的 $t_n-t_{n-1}=\Delta t$ 情况下的 $\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle$ 与 传播子在 $t-t_0\rightarrow 0$ 时的极限具有一致的形式.
+    \end{itemize}
 \end{sol}
 \end{document}
