@@ -157,10 +157,87 @@
 \end{pf}
 
 \begin{prob}
-    求一维自由粒子搞碎波包坐标与动量测不准关系随时间的变化.
+    求一维自由粒子高斯波包坐标与动量测不准关系随时间的变化.
 \end{prob}
 \begin{sol}
-    
+    $t=0$ 时刻一维自由粒子高斯波包的波函数为
+    \begin{align}
+        \psi(x',0)=e^{ip_0x'/\hbar}\frac{\exp\left(-\frac{x'^2}{2d_0^2}\right)}{(\pi d_0^2)^{1/4}}.
+    \end{align}
+    一维自由粒子的传播子为
+    \begin{align}
+        K(x'',t;x',t_0)=\sqrt{\frac{m}{2\pi i\hbar(t-t_0)}}\exp\left[\frac{im(x''-x')^2}{2\hbar(t-t_0)}\right].
+    \end{align}
+    $t$ 时刻该波包的波函数演化为
+    {\small
+    \begin{align}
+        \notag\psi(x,t)=&\int K(x,t;x',0)\psi(x',0)\,\mathrm{d}x'\\
+        \notag=&\int_{-\infty}^{\infty}\sqrt{\frac{m}{2\pi i\hbar t}}\exp\left[\frac{im(x-x')^2}{2\hbar t}\right]e^{ip_0x'/\hbar}\frac{\exp\left(-\frac{x'^2}{2d_0^2}\right)}{(\pi d_0^2)^{1/4}}\,\mathrm{d}x'\\
+        \notag=&\sqrt{\frac{m}{2\pi i\hbar t}}\frac{1}{(\pi d_0^2)^{1/4}}\int_{-\infty}^{\infty}\exp\left\{\left(\frac{im}{2\hbar t}-\frac{1}{2d_0^2}\right)x'^2-\left(\frac{imx}{\hbar t}-\frac{ip_0}{\hbar}\right)x'+\frac{imx^2}{2\hbar t}\right\}\,\mathrm{d}x'\\
+        \notag=&\sqrt{\frac{m}{2\pi i\hbar t}}\frac{1}{(\pi d_0^2)^{1/4}}\int_{-\infty}^{\infty}\exp\left\{-\left(-\frac{im}{2\hbar t}+\frac{1}{2d_0^2}\right)\left[x'^2-2\frac{x-\frac{p_0t}{m}}{1+i\frac{\hbar t}{md_0^2}}+\frac{x^2}{1+i\frac{\hbar t}{md_0^2}}\right]\right\}\,\mathrm{d}x'\\
+        \notag=&\sqrt{\frac{m}{2\pi i\hbar t}}\frac{1}{(\pi d_0^2)^{1/4}}\int_{-\infty}^{\infty}\exp\left\{-\left(-\frac{im}{2\hbar t}+\frac{1}{2d_0^2}\right)\left(x'-\frac{x-\frac{p_0t}{m}}{1+i\frac{\hbar t}{md_0^2}}\right)^2+\frac{-\frac{im}{2\hbar t}\left(x-\frac{p_0t}{m}\right)^2+\left(\frac{im}{2\hbar t}-\frac{1}{2d_0^2}\right)x^2}{1+\frac{i\hbar t}{md_0^2}}\right\}\,\mathrm{d}x'\\
+        \notag&(\text{令 }\xi=\left(\frac{im}{2\hbar t}-\frac{1}{2d_0^2}\right)^{1/2}\left(x'-\frac{x-\frac{p_0t}{m}}{1+i\frac{\hbar t}{md_0^2}}\right))\\
+        \notag=&\sqrt{\frac{m}{2\pi i\hbar t}}\frac{1}{(\pi d_0^2)^{1/4}}\left(-\frac{im}{2\hbar t}+\frac{1}{2d_0^2}\right)^{-1/2}\int_{-\infty}^{\infty}\exp\left\{-\xi^2+\frac{-\frac{im}{2\hbar t}\left(x-\frac{p_0t}{m}\right)^2+\left(\frac{im}{2\hbar t}-\frac{1}{2d_0^2}\right)x^2}{1+\frac{i\hbar t}{md_0^2}}\right\}\,\mathrm{d}\xi\\
+        \notag&(\text{利用高斯积分 }\int_{-\infty}^{\infty}e^{-\xi^2}=\sqrt{\pi})\\
+        \notag=&\left[\pi^{1/2}\left(d_0+\frac{i\hbar t}{md_0}\right)\right]^{-1/2}\exp\left[\frac{-\frac{im}{2\hbar t}\left(x-\frac{p_0t}{m}\right)^2+\left(\frac{im}{2\hbar t}-\frac{1}{2d_0^2}\right)x^2}{1+\frac{i\hbar t}{md_0^2}}\right]\\
+        =&\left[\pi^{1/2}\left(d_0+\frac{i\hbar t}{md_0}\right)\right]^{-1/2}\exp\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2\left(1-\frac{i\hbar t}{md_0^2}\right)}{2d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\exp\left[\frac{ip_0}{\hbar}\left(x-\frac{p_0t}{2m}\right)\right].
+    \end{align}
+    }
+    此时位置坐标的期望值为
+    \begin{align}
+        \langle x\rangle=\int_{-\infty}^{\infty}\psi^*(x',t)x\psi(x',t)\,\mathrm{d}x'=\frac{p_0t}{m}.
+    \end{align}
+    位置坐标的平方的期望值为
+    \begin{align}
+        \notag\langle x^2\rangle=&\int_{-\infty}^{\infty}\psi^*(x',t)x^2\psi(x',t)\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]x'^2\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left[\left(x'-\frac{p_0t}{m}\right)^2+2\frac{p_0t}{m}\left(x'-\frac{p_0t}{m}\right)+\left(\frac{p_0t}{m}\right)^2\right]\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\left\{\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left(x'-\frac{p_0t}{m}\right)^2\,\mathrm{d}x'\right.\\
+        \notag&+2\frac{p_0t}{m}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left(x'-\frac{p_0t}{m}\right)\,\mathrm{d}x'\\
+        \notag&\left.+\left(\frac{p_0t}{m}\right)^2\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\,\mathrm{d}x'\right\}\\
+        \notag&(\text{利用 }\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\,\mathrm{d}\xi'=\frac{\pi^{1/2}}{\alpha^{1/2}},\quad\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\xi\,\mathrm{d}\xi=0,\quad\text{及}\quad\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\xi^2\,\mathrm{d}\xi=\frac{\pi^{1/2}}{2\alpha^{3/2}})\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\left\{\frac{1}{2}\pi^{1/2}d_0^3\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{3/2}+\left(\frac{p_0t}{m}\right)^2\pi^{1/2}d_0\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{1/2}\right\}\\
+        =&\frac{1}{2}d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)+\left(\frac{p_0t}{m}\right)^2.
+    \end{align}
+    位置坐标的不确定度为
+    \begin{align}
+        \langle(\Delta x)^2\rangle^{1/2}=[\langle x^2\rangle-\langle x\rangle^2]^{1/2}=\frac{1}{\sqrt{2}}d_0\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{1/2}.
+    \end{align}
+    动量的期望值为
+    \begin{align}
+        \notag\langle p\rangle=&\int_{-\infty}^{\infty}\psi^*(x',t)\left(-i\hbar\frac{\partial}{\partial x'}\right)\psi(x',t)\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{1/2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2\left(1-\frac{i\hbar t}{md_0^2}\right)}{2d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\exp\left[\frac{ip_0}{\hbar}\left(x-\frac{p_0t}{2m}\right)\right]\times\\
+        \notag&\left(-i\hbar\frac{\partial}{\partial x}\right)\exp\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2\left(1+\frac{i\hbar t}{md_0^2}\right)}{2d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\exp\left[-\frac{ip_0}{\hbar}\left(x-\frac{p_0t}{2m}\right)\right]\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left[\frac{i\hbar\left(x-\frac{p_0t}{m}\right)\left(1+\frac{i\hbar t}{md_0^2}\right)}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}-p_0\right]\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\left\{\frac{i\hbar\left(1+\frac{i\hbar t}{md_0^2}\right)}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left(x-\frac{p_0t}{m}\right)\,\mathrm{d}x'\right.\\
+        \notag&\left.-p_0\int_{-\infty}^{\infty}\left[\frac{-\left(x-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\,\mathrm{d}x'\right\}\\
+        \notag&(\text{利用 }\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\,\mathrm{d}\xi=\frac{\pi^{1/2}}{\alpha^{1/2}}\quad\text{及}\quad\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\xi\,\mathrm{d}\xi=0)\\
+        =&p_0.
+    \end{align}
+    动量的平方的期望值为
+    \begin{align}
+        \notag\langle p^2\rangle=&\int_{-\infty}^{\infty}\psi^*(x',t)\left(-\hbar^2\frac{\partial^2}{\partial x'^2}\right)\psi(x',t)\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2\left(1-\frac{i\hbar t}{md_0^2}\right)}{2d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\exp\left[\frac{ip_0}{\hbar}\left(x'-\frac{p_0t}{2m}\right)\right]\times\\
+        \notag&\left(-\hbar^2\frac{\partial^2}{\partial x'^2}\right)\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2\left(1+\frac{i\hbar t}{md_0^2}\right)}{2d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\exp\left[-\frac{ip_0}{\hbar}\left(x'-\frac{p_0t}{2m}\right)\right]\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}(-\hbar^2)\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\times\\
+        \notag&\left\{-\frac{1+\frac{i\hbar t}{md_0^2}}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}+\left[\frac{\left(x'-\frac{p_0t}{m}\right)\left(1+\frac{i\hbar t}{md_0^2}\right)}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}+\frac{ip_0}{\hbar}\right]^2\right\}\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}(-\hbar^2)\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\times\\
+        \notag&\left\{\frac{\left(1+\frac{i\hbar t}{md_0^2}\right)^2}{d_0^4\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^2}\left(x'-\frac{p_0t}{m}\right)^2+\frac{2ip_0\left(1+\frac{i\hbar t}{md_0^2}\right)}{\hbar d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\left(x'-\frac{p_0t}{m}\right)-\frac{p_0^2}{\hbar^2}-\frac{1+\frac{i\hbar t}{md_0^2}}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right\}\,\mathrm{d}x'\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}(-\hbar^2)\left\{\frac{\left(1+\frac{i\hbar t}{md_0^2}\right)^2}{d_0^4\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^2}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left(x'-\frac{p_0t}{m}\right)^2\,\mathrm{d}x'\right.\\
+        \notag&+\frac{2ip\left(1+\frac{i\hbar t}{md_0^2}\right)}{\hbar d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\left(x'-\frac{p_0t}{m}\right)\,\mathrm{d}x'\\
+        \notag&\left.-\left[\frac{p_0^2}{\hbar^2}+\frac{1+\frac{i\hbar t}{md_0^2}}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\int_{-\infty}^{\infty}\exp\left[\frac{-\left(x'-\frac{p_0t}{m}\right)^2}{d_0^2\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)}\right]\,\mathrm{d}x'\right\}\\
+        \notag&(\text{利用 }\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\,\mathrm{d}\xi'=\frac{\pi^{1/2}}{\alpha^{1/2}},\quad\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\xi\,\mathrm{d}\xi=0,\quad\text{及}\quad\int_{-\infty}^{\infty}e^{-\alpha\xi^2}\xi^2\,\mathrm{d}\xi=\frac{\pi^{1/2}}{2\alpha^{3/2}})\\
+        \notag=&\pi^{-1/2}\left(d_0^2+\frac{\hbar^2t^2}{m^2d_0^2}\right)^{-1/2}(-\hbar^2)\left[-\frac{\pi^{1/2}\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{1/2}}{2d_0}-\frac{\pi^{1/2}p_0^2d_0\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{1/2}}{\hbar^2}\right]\\
+        =&\frac{\hbar^2}{2d_0^2}+p_0^2.
+    \end{align}
+    动量的不确定度为
+    \begin{align}
+        \langle(\Delta p)^2\rangle^{1/2}=[\langle p^2\rangle-\langle p\rangle^2]^{1/2}=\frac{\hbar}{\sqrt{2}d_0}.
+    \end{align}
+    此时位置坐标和动量满足不确定性关系:
+    \begin{align}
+        \langle(\Delta x)^2\rangle^{1/2}\langle(\Delta p)^2\rangle^{1/2}=\frac{\hbar}{2}\left(1+\frac{\hbar^2t^2}{m^2d_0^4}\right)^{1/2}\geq\frac{\hbar}{2}.
+    \end{align}
 \end{sol}
 
 \begin{prob}[2.34]
