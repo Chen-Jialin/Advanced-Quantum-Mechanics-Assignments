@@ -445,9 +445,24 @@
     \[
         \Delta B=\frac{4\pi\hbar c}{|e|g_n\bar{\lambda}l},
     \]
-    其中 $g_s=(-1.91)$ 是中子磁矩. 单位为 $-e\hbar/2m_nc$. (假如你在 1967 年解出了这个问题的话, 你就会在 Physical Review Letters 上发表你的解!)
+    其中 $g_n=(-1.91)$ 是中子磁矩. 单位为 $-e\hbar/2m_nc$. (假如你在 1967 年解出了这个问题的话, 你就会在 Physical Review Letters 上发表你的解!)
 \end{prob}
 \begin{pf}
-    
+    中子磁矩在磁场中的势能为
+    \begin{align}
+        V=-g_n\left(-\frac{e\hbar}{2m_nc}\right)B=\frac{g_ne\hbar}{2m_nc}B.
+    \end{align}
+    由上下两臂到达干涉区的中子束的相位差为
+    \begin{align}
+        \Delta\phi=-\frac{V}{\hbar}\frac{l}{p/m_n}=-\frac{g_ne}{2m_nc}B\frac{l}{(\hbar/\bar{\lambda})/m_n}.
+    \end{align}
+    计数中产生两个相继极大值的情形的相位差为 $2\pi$:
+    \begin{align}
+        \Delta\phi_2-\Delta\phi_1=-\frac{g_ne}{2m_nc}B_2\frac{l}{(\hbar/\bar{\lambda})/m_n}+\frac{g_ne}{2m_nc}B_1\frac{l}{(\hbar/\bar{\lambda})/m_n}=2\pi,
+    \end{align}
+    对应的磁场差为
+    \begin{align}
+        \Delta B=\abs{B_2-B_1}=\frac{4\pi\hbar c}{\abs{eg_n}\bar{\lambda}l}.
+    \end{align}
 \end{pf}
 \end{document}
