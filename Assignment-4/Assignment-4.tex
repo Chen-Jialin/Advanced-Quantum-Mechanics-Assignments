@@ -282,4 +282,144 @@
         可见, 利用高斯方法构造的微小的 $t_n-t_{n-1}=\Delta t$ 情况下的 $\langle x_n,t_n\vert x_{n-1},t_{n-1}\rangle$ 与 传播子在 $t-t_0\rightarrow 0$ 时的极限具有一致的形式.
     \end{itemize}
 \end{sol}
+
+\begin{prob}[课本习题 2.37]
+    \begin{itemize}
+        \item[(a)] 证明 (2.7.25) 式和 (2.7.27) 式的正确性.
+        \item[(b)] 证明具有由 (2.7.31) 式给定的 $\bm{j}$ 的连续性方程 (2.7.30) 的正确性.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[(a)] 课本 (2.7.25) 式:
+        \begin{align}
+            \notag[\Pi_i,\Pi_j]=&[p_i-\frac{eA_i}{c},p_j-\frac{eA_j}{c}]\\
+            \notag=&-\frac{e}{c}([p_i,A_j]+[A_i,p_j])\\
+            \notag=&i\hbar\frac{e}{c}\left(\frac{\partial A_j}{\partial x_i}-\frac{\partial A_i}{\partial x_j}\right)\\
+            \notag=&\frac{i\hbar e}{c}\varepsilon_{ijk}(\nabla\times\bm{A})_k\\
+            =&\frac{i\hbar e}{c}\varepsilon_{ijk}B_k,
+        \end{align}
+        其中 $\varepsilon_{ijk}=\left\{\begin{array}{ll}
+            1,&i,j,k\text{ 为偶排列},\\
+            -1,&i,j,k\text{ 为奇排列},\\
+            0,&i,j,k\text{ 中有重复}.
+        \end{array}\right.$
+
+        课本式 (2.7.27):
+        \begin{align}
+            \notag m\frac{\mathrm{d}^2\bm{x}}{\mathrm{d}t^2}=&\frac{\mathrm{d}\bm{\Pi}}{\mathrm{d}t}=\frac{1}{i\hbar}[\bm{\Pi},H]\\
+            \notag=&\frac{1}{i\hbar}[\bm{\Pi},\frac{\bm{\Pi}^2}{2m}+e\phi]\\
+            \notag=&\frac{1}{2i\hbar m}[\Pi_x\hat{x}+\Pi_y\hat{y}+\Pi_z\hat{z},\bm{\Pi}^2]+\frac{e}{i\hbar}[\Pi_x\hat{x}+\Pi_y\hat{y}+\Pi_z\hat{z},\phi]\\
+            =&\frac{1}{2i\hbar m}([\Pi_x,\bm{\Pi}^2]\hat{x}+[\Pi_y,\bm{\Pi}^2]\hat{y}+[\Pi_z,\bm{\Pi}^2]\hat{z})+\frac{e}{i\hbar}([\Pi_x,\phi]\hat{x}+[\Pi_y,\phi]\hat{y}+[\Pi_z,\phi]\hat{z}),
+        \end{align}
+        其中
+        \begin{align}
+            [\Pi_i,\Pi_j^2]=\Pi_j[\Pi_i,\Pi_j]+[\Pi_i,\Pi_j]\Pi_j=\frac{i\hbar e}{c}\varepsilon_{ijk}(\Pi_jB_k+B_k\Pi_j),
+        \end{align}
+        \begin{align}
+            \notag\Longrightarrow[\Pi_x,\bm{\Pi}^2]=&[\Pi_x,\Pi_x^2+\Pi_y^2+\Pi_z^2]\\
+            \notag=&[\Pi_x,\Pi_x^2]+[\Pi_x,\Pi_y^2]+[\Pi_x,\Pi_z^2]\\
+            \notag=&\frac{i\hbar e}{c}[(\Pi_yB_z+B_z\Pi_y)-(\Pi_zB_y+B_y\Pi_z)]\\
+            =&\frac{i\hbar e}{c}[(\bm{\Pi}\times\bm{B})_x-(\bm{B}\times\bm{\Pi})_x],
+        \end{align}
+        以及
+        \begin{align}
+            [\Pi_i,\phi]=[p_i-\frac{e\bm{A}(\bm{x})}{c},\phi(\bm{x})]=[p_i,\phi]=-i\hbar\frac{\partial\phi}{\partial x_i},
+        \end{align}
+        从而
+        \begin{align}
+            \notag m\frac{\mathrm{d}^2\bm{x}}{\mathrm{d}t^2}=&\frac{1}{2i\hbar m}\frac{i\hbar e}{c}[(\bm{\Pi}\times\bm{B})_x\hat{x}-(\bm{B}\times\bm{\Pi})_x\hat{x}+(\bm{\Pi}\times\bm{B})_y\hat{y}-(\bm{B}\times\bm{\Pi})_y\hat{y}+(\bm{\Pi}\times\bm{B})_z\hat{z}-(\bm{B}\times\bm{\Pi})_z\hat{z}]\\
+            \notag&+\frac{e}{i\hbar}(-i\hbar)\left(\frac{\partial\phi}{\partial x}\hat{x}+\frac{\partial\phi}{\partial y}\hat{y}+\frac{\partial\phi}{\partial z}\hat{z}\right)\\
+            \notag=&\frac{e}{2mc}(\bm{\Pi}\times\bm{B}-\bm{B}\times\bm{\Pi})-e\nabla\phi\\
+            =&e\left[\bm{E}+\frac{1}{2c}\left(\frac{\mathrm{d}\bm{x}}{\mathrm{d}t}\times\bm{B}-\bm{B}\times\frac{\mathrm{d}\bm{x}}{\mathrm{d}t}\right)\right].
+        \end{align}
+        \item[(b)] 电磁场中粒子的薛定谔方程为
+        \begin{align}
+            \notag i\hbar\frac{\partial}{\partial t}\langle\bm{x}'\vert\alpha,t_0;t\rangle=&\langle\bm{x}'\rvert H\lvert\alpha,t_0;t\rangle\\
+            \notag=&\langle\bm{x}'\rvert\left\{\frac{1}{2m}\left[p-\frac{e\bm{A}(\bm{x})}{c}\right]^2+e\phi(\bm{x})\right\}\lvert\alpha,t_0;t\rangle\\
+            \notag=&\frac{1}{2m}\left[-i\hbar\nabla'-\frac{e\bm{A}(\bm{x}')}{c}\right]\cdot\left[-i\hbar\nabla'-\frac{e\bm{A}(\bm{x}')}{c}\right]\langle\bm{x}'\vert\alpha,t_0;t\rangle+e\phi(\bm{x'})\langle\bm{x}'\vert\alpha,t_0;t\rangle\\
+            =&\frac{1}{2m}\left\{-\hbar^2\nabla'^2+\frac{i\hbar e}{c}\nabla'\cdot\bm{A}(\bm{x}')+\frac{i\hbar e\bm{A}(\bm{x}')}{c}\cdot\nabla'+\frac{e^2\bm{A}^2(\bm{x}')}{c}+e\phi(\bm{x}')\right\}\langle\bm{x}'\vert\alpha,t_0;t\rangle,
+        \end{align}
+        即
+        \begin{align}
+            \label{4-7-Schrodinger-eq}
+            i\hbar\frac{\partial}{\partial t}\psi=\frac{1}{2m}\left\{-\hbar^2\nabla'^2+\frac{i\hbar e}{c}\nabla'\cdot\bm{A}(\bm{x}')+\frac{i\hbar e\bm{A}(\bm{x}')}{c}\cdot\nabla'+\frac{e^2\bm{A}^2(\bm{x}')}{c}+e\phi(\bm{x}')\right\}\psi,
+        \end{align}
+        其中 $\psi=\langle\bm{x}'\vert\alpha,t_0;t\rangle$, 注意大括号中第二项的 $\nabla'$ 是同时作用在 $\bm{A}'(\bm{x}')\psi$ 上.
+        上式的厄米共轭为
+        \begin{align}
+            \label{4-7-Schrodinger-eq-dag}
+            -i\hbar\frac{\partial}{\partial t}\psi^*=\frac{1}{2m}\left\{-\hbar^2\nabla'^2-\frac{i\hbar e}{c}\nabla'\cdot\bm{A}(\bm{x}')-\frac{i\hbar e\bm{A}(\bm{x}')}{c}\cdot\nabla'+\frac{e^2\bm{A}^2(\bm{x}')}{c}+e\phi(\bm{x}')\right\}\psi^*.
+        \end{align}
+        $-$ 式 \eqref{4-7-Schrodinger-eq-dag} $\times\psi+\psi^*\times$ 式 \eqref{4-7-Schrodinger-eq} 得
+        \begin{align}
+            \label{4-7-main}
+            \notag i\hbar\frac{\partial\psi^*}{\partial t}\psi+i\hbar\psi^*\frac{\partial\psi}{\partial t}=&\frac{\hbar^2}{2m}[(\nabla'^2\psi^*)\psi-\psi^*\nabla'^2\psi]\\
+            &+\frac{i\hbar e}{2mc}\left\{(\nabla'\cdot[\bm{A}(\bm{x}')\psi^*])\psi+\bm{A}(\bm{x}')\cdot(\nabla'\psi^*)\psi+\psi^*\nabla'\cdot[\bm{A}'(\bm{x}')\psi]+\psi^*\bm{A}(\bm{x}')\cdot\nabla'\psi\right\},
+        \end{align}
+        其中,
+        \begin{align}
+            \text{式 \eqref{4-7-main} 左边}=i\hbar\frac{\partial(\psi^*\psi)}{\partial t}=i\hbar\frac{\partial\psi}{\partial t},
+        \end{align}
+        此处 $\rho=\psi^*\psi$,
+        \begin{align}
+            \notag\frac{\hbar^2}{2m}[(\nabla'^2\psi^*)\psi-\psi^*\nabla'^2\psi]=&\frac{\hbar^2}{2m}[(\nabla'^2\psi^*)\psi+\nabla'\psi^*\cdot\nabla'\psi-\nabla'\psi^*\cdot\nabla'\psi-\psi^*\nabla'^2\psi]\\
+            \notag=&\frac{\hbar^2}{2m}\nabla'\cdot[(\nabla'\psi^*)\psi-\psi^*\nabla'\psi]\\
+            \notag=&\frac{\hbar^2}{2m}\nabla'\cdot[-2i\im(\psi^*\nabla'\psi)]\\
+            =&-\frac{i\hbar^2}{m}\nabla'\cdot\im(\psi^*\nabla'\psi),
+        \end{align}
+        \begin{align}
+            \frac{i\hbar e}{2mc}\left\{(\nabla'\cdot[\bm{A}(\bm{x}')\psi^*])\psi+\bm{A}(\bm{x}')\cdot(\nabla'\psi^*)\psi+\psi^*\nabla'\cdot[\bm{A}'(\bm{x}')\psi]+\psi^*\bm{A}(\bm{x}')\cdot\nabla'\psi\right\}=\frac{i\hbar e}{mc}\nabla'\cdot[\bm{A}(\bm{x}')\psi^*\psi].
+        \end{align}
+        将以上三式代回式 \eqref{4-7-main} 得
+        \begin{gather}
+            i\hbar\frac{\partial\rho}{\partial t}=-\frac{i\hbar^2}{m}\nabla'\cdot\im(\psi^*\nabla\psi)+\frac{i\hbar e}{mc}\nabla'\cdot[\bm{A}(\bm{x}')\psi^*\psi],\\
+            \Longrightarrow\frac{\partial\rho}{\partial t}+\nabla'\cdot\bm{j}=0,
+        \end{gather}
+        此即课本式 (2.7.30), 其中概率流 $j$ 为课本式 (2.7.31) 式所给定的形式:
+        \begin{align}
+            \bm{j}=\left(\frac{\hbar}{m}\right)\im(\psi^*\nabla'\psi)-\left(\frac{e}{mc}\right)\bm{A}\abs{\psi}^2.
+        \end{align}
+    \end{itemize}
+\end{pf}
+
+\begin{prob}[课本习题 2.39]
+    一个电子在一个均匀的、沿 $z$ 方向的磁场 ($\bm{B}=B\hat{z}$) 中运动.
+    \begin{itemize}
+        \item[(a)] 求
+        \[
+            [\Pi_x,\Pi_y],
+        \]
+        其中
+        \[
+            \Pi_x\equiv p_x-\frac{eA_x}{c},\quad\Pi_y\equiv p_y-\left(\frac{eA_y}{c}\right).
+        \]
+        \item[(b)] 通过将哈密顿量及 (a) 中得到的对易关系与一维谐振子问题中相应的结果比较, 展示我们怎样能够立即写出能量本征值
+        \[
+            E_{k,n}=\frac{\hbar^2k^2}{2m}+\left(\frac{\abs{eB}\hbar}{m}\right)\left(n+\frac{1}{2}\right).
+        \]
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 2.40]
+    考虑中子干涉仪
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.5\columnwidth]{4-9.png}
+    \end{figure}
+    证明在计数率中产生两个相继极大值的磁场差由下式给出
+    \[
+        \Delta B=\frac{4\pi\hbar c}{|e|g_n\bar{\lambda}l},
+    \]
+    其中 $g_s=(-1.91)$ 是中子磁矩. 单位为 $-e\hbar/2m_nc$. (假如你在 1967 年解出了这个问题的话, 你就会在 Physical Review Letters 上发表你的解!)
+\end{prob}
+\begin{pf}
+    
+\end{pf}
 \end{document}
