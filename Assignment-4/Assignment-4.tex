@@ -269,7 +269,7 @@
         \begin{align}
             \notag\langle x'',t\vert x',t_0\rangle=&K(x'',t;x',t_0)\\
             \notag=&\sqrt{\frac{m\omega}{2\pi i\hbar\sin[\omega(t-t_0)]}}\exp\left[\left\{\frac{im\omega}{2\hbar\sin[\omega(t-t_0)]}\right\}\times\right.\\
-            \notag&\left.\{(x''^2+x'^2)\cos[\omega(t-t_0)]-2x''x'\}\right],
+            &\left.\{(x''^2+x'^2)\cos[\omega(t-t_0)]-2x''x'\}\right],
         \end{align}
         在 $t-t_0\rightarrow 0$ 的极限下, $\sin[\omega(t-t_0)]\approx\omega(t-t_0)$, $\cos[\omega(t-t_0)]\approx 1-\frac{\omega^2(t-t_0)^2}{2}$, 值保留 $(\Delta t)^2$ 量级的项, 上式可简化为
         {\small
@@ -396,14 +396,42 @@
         \]
         \item[(b)] 通过将哈密顿量及 (a) 中得到的对易关系与一维谐振子问题中相应的结果比较, 展示我们怎样能够立即写出能量本征值
         \[
-            E_{k,n}=\frac{\hbar^2k^2}{2m}+\left(\frac{\abs{eB}\hbar}{m}\right)\left(n+\frac{1}{2}\right).
+            E_{k,n}=\frac{\hbar^2k^2}{2m}+\left(\frac{\abs{eB}\hbar}{mc}\right)\left(n+\frac{1}{2}\right).
         \]
     \end{itemize}
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 由上一题 (a) 中的结论,
+        \begin{align}
+            [\Pi_x,\Pi_y]=\frac{i\hbar e}{c}B_z=\frac{i\hbar e}{c}B.
+        \end{align}
+        \item[(b)] 由于磁场 $\bm{B}=B\hat{z}=\nabla\times\bm{A}$ 沿 $z$ 方向, 故 $\bm{A}$ 仅有沿 $y$ 和 $x$ 方向的分量. 该电子的哈密顿量为
+        \begin{align}
+            H=\frac{\Pi_x^2}{2m}+\frac{\Pi_y^2}{2m}+\frac{p_z^2}{2m}.
+        \end{align}
+
+        回顾一维谐振子问题: 哈密顿量为
+        \begin{align}
+            H_{\text{1D HO}}=\frac{p^2}{2m}+\frac{m\omega x^2}{2},
+        \end{align}
+        且有对易关系
+        \begin{align}
+            [x,p]=i\hbar.
+        \end{align}
+
+        受此启发, 我们可以定义 $Y=\frac{c\Pi_x}{eB}$, 从而该电子的哈密顿量为
+        \begin{align}
+            H=\frac{\left(\frac{eBY}{c}\right)^2}{2m}+\frac{\Pi_y^2}{2m}+\frac{p_z^2}{2m}=\frac{m\left(\frac{eB}{mc}\right)^2Y^2}{2}+\frac{\Pi_y^2}{2m}+\frac{p_z^2}{2m},
+        \end{align}
+        且有对易关系
+        \begin{align}
+            [Y,\Pi_y]=i\hbar.
+        \end{align}
+        可见, 该电子的哈密顿量相当于一个本征频率 $\omega=\frac{\abs{eB}}{mc}$ 的一维谐振子的哈密顿量和沿 $z$ 方向运动的自由粒子的哈密顿量之和, 从而其能量本征值为
+        \begin{align}
+            E_{k,n}=\frac{\hbar^2k^2}{2m}+\frac{\abs{eB}\hbar}{mc}\left(n+\frac{1}{2}\right).
+        \end{align}
     \end{itemize}
 \end{sol}
 
