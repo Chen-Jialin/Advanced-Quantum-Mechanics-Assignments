@@ -97,6 +97,42 @@
     的矩阵元.
 \end{prob}
 \begin{pf}
+    以 $\{\lvert s_z=+\hbar\rangle,\lvert s_z=0\rangle,\lvert s_z=-\hbar\rangle\}$ 为基, $S_z$ 的矩阵表示为
+    \begin{align}
+        S_z=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}.
+    \end{align}
+    将其代入题干中的式子可得
+    \begin{align}
+        S_z(S_z+\hbar)(S_x-\hbar)=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}\hbar\begin{bmatrix}
+            2&0&0\\
+            0&1&0\\
+            0&0&0
+        \end{bmatrix}\hbar\begin{bmatrix}
+            0&0&0\\
+            0&-1&0\\
+            0&0&-2
+        \end{bmatrix}=\begin{bmatrix}
+            0&0&0\\
+            0&0&0\\
+            0&0&0
+        \end{bmatrix}.
+    \end{align}
 
+    考虑到 $x$ 轴和 $z$ 轴是等价的, 故有
+    \begin{align}
+        S_x(S_x+\hbar)(S_x-\hbar)=\begin{bmatrix}
+            0&0&0\\
+            0&0&0\\
+            0&0&0
+        \end{bmatrix}.
+    \end{align}
 \end{pf}
 \end{document}
