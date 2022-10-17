@@ -69,7 +69,24 @@
     的本征值.
 \end{prob}
 \begin{sol}
-    
+    该粒子的哈密顿量可用泡利矩阵表为
+    \begin{align}
+        H=-\frac{2\mu}{\hbar}\frac{\hbar}{2}(\sigma_x\hat{\bm{x}}+\sigma_y\hat{\bm{y}}+\sigma_z\hat{\bm{z}})\cdot(B_x\hat{\bm{x}}+B_y\hat{\bm{y}}+B_z\hat{\bm{z}})=-\mu(B_x\sigma_x+B_y\sigma_y+B_z\sigma_z)=-\mu\begin{bmatrix}
+            B_z&B_x-iB_y\\
+            B_x+iB_y&-B_z
+        \end{bmatrix}.
+    \end{align}
+    通过
+    \begin{align}
+        \abs{H-EI}=\begin{vmatrix}
+            -\mu B_z-E&-\mu(B_x-iB_y)\\
+            -\mu(\mu B_x+iB_y)&\mu B_z-E
+        \end{vmatrix}=(-\mu B_z-E)(\mu B_z-E)-\mu^2(B_x-iB_y)(B_x+iB_y)=0,
+    \end{align}
+    解得哈密顿量的本征值为
+    \begin{align}
+        E_1=\mu\sqrt{B_x^2+B_y^2+B_z^2},\quad E_1=-\mu\sqrt{B_x^2+B_y^2+B_z^2}.
+    \end{align}
 \end{sol}
 
 \begin{prob}[课本习题 3.5]
