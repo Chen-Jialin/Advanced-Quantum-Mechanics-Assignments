@@ -1,0 +1,85 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第五次作业}{截止时间: 2022 年 10 月 24 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 3.1]
+    求 $\bm{\sigma}_y=\begin{pmatrix}
+        0&-i\\
+        i&0
+    \end{pmatrix}$ 的本征值和本征矢. 假定一个电子处在自旋态 $\begin{pmatrix}
+        \alpha\\
+        \beta
+    \end{pmatrix}$ 上. 如果测得 $s_y$, 结果为 $\hbar/2$ 的概率是什么?
+\end{prob}
+\begin{sol}
+    通过
+    \begin{align}
+        \abs{\sigma-\lambda I}=\begin{vmatrix}
+            -\lambda&-i\\
+            i&-\lambda
+        \end{vmatrix}=\lambda^2-1=0,
+    \end{align}
+    解得 $\bm{\sigma}$ 的本征值为
+    \begin{align}
+        \lambda_1=1,\quad\lambda_2=-1.
+    \end{align}
+    将这两个本征值代入本征方程
+    \begin{align}
+        \bm{\sigma}_y\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix}=\begin{bmatrix}
+            0&-i\\
+            i&0
+        \end{bmatrix}\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix}=\lambda_{1,2}\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix},
+    \end{align}
+    解得对应的归一化本征态分别为
+    \begin{align}
+        \frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            i
+        \end{bmatrix},\quad\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            -i
+        \end{bmatrix}.
+    \end{align}
+
+    测得该电子的 $s_y$ 为 $\hbar/2$ 的概率为
+    \begin{align}
+        P(s_y=\frac{\hbar}{2})=\abs{\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1&i
+        \end{bmatrix}\begin{bmatrix}
+            \alpha\\
+            \beta
+        \end{bmatrix}}^2=\frac{1}{2}\abs{\alpha-i\beta}^2.
+    \end{align}
+\end{sol}
+
+\begin{prob}[课本习题 3.2]
+    对于一个自旋 $\frac{1}{2}$ 的粒子, 在存在一个磁场 $\bm{B}=B_x\hat{\bm{x}}+B_y\hat{\bm{y}}+B_z\hat{\bm{z}}$ 情况下, 通过利用泡利矩阵显示结构, 求哈密顿量
+    \[
+        H=-\frac{2\mu}{\hbar}\bm{S}\cdot\bm{B}
+    \]
+    的本征值.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 3.5]
+    考虑一个自旋为 $1$ 的粒子. 求
+    \[
+        S_z(S_z+\hbar)(S_z-\hbar)\quad\text{和}\quad S_x(S_x+\hbar)(S_x-\hbar)
+    \]
+    的矩阵元.
+\end{prob}
+\begin{pf}
+
+\end{pf}
+\end{document}
