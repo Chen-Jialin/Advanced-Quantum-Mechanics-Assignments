@@ -135,4 +135,79 @@
         \end{bmatrix}.
     \end{align}
 \end{pf}
+
+\begin{prob}[课本习题 3.9]
+    考虑一个由下式表示的欧拉转动序列
+    \[
+        \mathcal{D}^{(1/2)}=\exp\left(\frac{-i\sigma_3\alpha}{2}\right)\exp\left(\frac{-i\sigma_2\beta}{2}\right)\exp\left(\frac{-i\sigma_3\gamma}{2}\right).
+    \]
+    由于转动的群性质, 这一序列操作等价于绕某个轴转一个 $\theta$ 角的单一转动. 求 $\theta$.
+\end{prob}
+\begin{sol}
+    该欧拉转动序列
+    \begin{align}
+        \notag\mathcal{D}^{(1/2)}=&\exp\left(\frac{-i\sigma_3\alpha}{2}\right)\exp\left(\frac{-i\sigma_2\beta}{2}\right)\exp\left(\frac{-i\sigma_3\gamma}{2}\right)\\
+        \notag=&\begin{bmatrix}
+            e^{-i\alpha/2}&0\\
+            0&e^{i\alpha/2}
+        \end{bmatrix}\begin{bmatrix}
+            \cos(\beta/2)&-\sin(\beta/2)\\
+            \sin(\beta/2)&\cos(\beta/2)
+        \end{bmatrix}\begin{bmatrix}
+            e^{-i\gamma/2}&0\\
+            0&e^{i\gamma/2}
+        \end{bmatrix}\\
+        =&\begin{bmatrix}
+            e^{-i(\alpha+\gamma)/2}\cos(\beta/2)&-e^{-i(\alpha-\gamma)/2}\sin(\beta/2)\\
+            e^{i(\alpha-\gamma)/2}\sin(\beta/2)&e^{i(\alpha+\gamma)/2}\cos(\beta/2)
+        \end{bmatrix}.
+    \end{align}
+    对比自旋 $\frac{1}{2}$ 系统中绕轴 $\hat{\bm{n}}$ 旋转 $\theta$ 角的算符
+    \begin{align}
+        U=\exp\left(\frac{-i\bm{\sigma}\cdot\hat{\bm{n}}\theta}{2}\right)=\begin{bmatrix}
+            \cos\left(\frac{\theta}{2}\right)-in_z\sin\left(\frac{\theta}{2}\right)&(-in_x-n_y)\sin\left(\frac{\theta}{2}\right)\\
+            (-in_x+n_y)\sin\left(\frac{\theta}{2}\right)&\cos\left(\frac{\theta}{2}\right)+in_z\sin\left(\frac{\phi}{2}\right)
+        \end{bmatrix}
+    \end{align}
+    可知, 矩阵对角元之和即为旋转角 $\theta$ 的 $\frac{1}{2}$ 的余弦的 2 倍,
+    \begin{align}
+        e^{-i(\alpha+\gamma)/2}\cos(\beta/2)+e^{i(\alpha+\gamma)/2}\cos(\beta/2)=2\cos(\frac{\alpha+\gamma}{2})\cos\left(\frac{\beta}{2}\right)=2\cos\left(\frac{\theta}{2}\right),
+    \end{align}
+    解得等价转动的角度为
+    \begin{align}
+        \theta=2\arccos\left[\cos\left(\frac{\alpha+\gamma}{2}\right)\cos\left(\frac{\beta}{2}\right)\right].
+    \end{align}
+\end{sol}
+
+\begin{prob}[课本习题 3.14]
+    已知 $3\times 3$ 矩阵 $G_i(i=1,2,3)$, 其矩阵元由下式给出:
+    \[
+        (G_i)_{jk}=-i\hbar\varepsilon_{ijk},
+    \]
+    其中 $j$ 和 $k$ 是行和列指标, 证明它满足角动量对易关系. 把 $G_i$ 与比较常用的角动量算符 $J_i$, 在 $J_3$ 取为对角的情况下的 $3\times 3$ 表示联系起来, 实现该联系的变换矩阵的物理 (或几何) 意义是什么? 把得到的结果与无穷小转动下的
+    \[
+        \bm{V}\rightarrow\bm{V}+\hat{\bm{n}}\delta\phi\times\bm{V}
+    \]
+    联系起来. (注: 这个问题可能有助于理解光子的自旋.)
+\end{prob}
+\begin{pf}
+    
+\end{pf}
+
+\begin{prob}[课本习题 3.15]
+    \begin{itemize}
+        \item[(a)] 令 $\bm{J}$ 是角动量. (它可以是轨道角动量 $\bm{L}$, 自旋 $\bm{S}$, 或 $\bm{J}_{\text{总}}$.) 利用 $J_x$, $J_y$, $J_z$ ($J_{\pm}\equiv J_x\pm iJ_y$) 满足通常角动量对易关系的事实, 证明
+        \[
+            \bm{J}^2=J_z^2+J_+J_--\hbar J_z.
+        \]
+        \item[(b)] 利用 (a) (或其他方式) 推导出在
+        \[
+            J_-\psi_{jm}=c_-\psi_{j,m-1}
+        \]
+        中的系数 $c_-$ 的 ``著名'' 的表达式.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    
+\end{pf}
 \end{document}
