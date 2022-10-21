@@ -275,6 +275,32 @@
     \end{itemize}
 \end{prob}
 \begin{pf}
-    
+    \begin{itemize}
+        \item[(a)] 
+        \begin{align}
+            \text{式子左边}=\bm{J}^2=J_x^2+J_y^2+J_z^2,
+        \end{align}
+        \begin{align}
+            \text{式子右边}=J_z^2+J_+J_--\hbar J_z=J_z^2+(J_x+iJ_y)(J_x-iJ_y)-i[J_x,J_y]=J_x^2+J_y^2+J_z^2.
+        \end{align}
+        故原式成立:
+        \begin{align}
+            \bm{J}^2=J_z^2+J_+J_--\hbar J_z.
+        \end{align}
+        \item[(b)] 由 (a) 中的结论有
+        \begin{align}
+            J_+J_-=\bm{J}^2-J_z^2+\hbar J_z,
+        \end{align}
+        从而
+        \begin{align}
+            \notag\abs{c_-}^2=&\langle j,m-1\rvert c_-^*c_-\lvert j,m-1\rangle=\langle j,m-1\rvert J_-^{\dagger}J_-\lvert j,m-1\rangle=\langle j,m-1\rvert J_+J_-\lvert j,m-1\rangle\\
+            \notag=&\langle j,m-1\rvert\bm{J}^2-J_z^2-\hbar J_z\lvert j,m-1\rangle\\
+            \notag=&j(j+1)\hbar^2-(m-1)^2\hbar^2-(m-1)\hbar^2\\
+            =&(j+m)(j-m+1)\hbar^2,
+        \end{align}
+        \begin{align}
+            \Longrightarrow c_-=\sqrt{(j+m)(j-m+1)}\hbar.
+        \end{align}
+    \end{itemize}
 \end{pf}
 \end{document}
