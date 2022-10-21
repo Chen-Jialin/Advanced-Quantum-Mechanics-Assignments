@@ -191,7 +191,74 @@
     联系起来. (注: 这个问题可能有助于理解光子的自旋.)
 \end{prob}
 \begin{pf}
-    
+    根据矩阵 $G_i$ 的定义及矩阵乘法的规则,
+    \begin{align}
+        \notag[G_i,G_j]_{ln}=&(G_iG_j)_{ln}-(G_iG_j)_{ln}=\sum_m(G_{ilm}G_{jmn}-G_{jlm}G_{imn})\\
+        \notag=&(-i\hbar)^2\sum_m(\varepsilon_{ilm}\varepsilon_{jmn}-\varepsilon_{jlm}\varepsilon_{imn})\\
+        \notag=&(-i\hbar)^2\sum_m(-\delta_{ij}\delta_{ln}\varepsilon_{ilm}+\delta_{in}\delta_{lj}\varepsilon_{ilm}+\delta_{ji}\delta_{ln}\varepsilon_{jlm}-\delta_{jn}\delta_{li}\varepsilon_{jlm})\\
+        \notag=&(-i\hbar)^2[-\delta_{ij}\delta_{ln}(1-\delta_{il})+\delta_{in}\delta_{lj}(1-\delta_{il})+\delta_{ji}\delta_{ln}(1-\delta_{jl})-\delta_{jn}\delta_{li}(1-\delta_{jl})]\\
+        \notag=&(-i\hbar)^2(-\delta_{ij}\delta_{ln}+\delta_{in}\delta_{lj}+\delta_{ji}\delta_{ln}-\delta_{jn}\delta_{li})\\
+        \notag=&(-i\hbar)^2(\delta_{in}\delta_{lj}-\delta_{jn}\delta_{li})\\
+        \notag=&(-i\hbar)^2[\delta_{in}\delta_{lj}(1-\delta_{ij})-\delta_{jn}\delta_{li}(1-\delta_{ij})]\\
+        \notag=&(-i\hbar)^2\sum_k[\delta_{in}\delta_{lj}\varepsilon_{ijk}-\delta_{jn}\delta_{li}\varepsilon_{ijk}]\\
+        \notag=&(-i\hbar)^2\sum_k(\delta_{in}\delta_{lj}-\delta_{jn}\delta_{li})\varepsilon_{ijk}\\
+        \notag=&(-i\hbar)^2\sum_k[\delta_{in}\delta_{lj}(1-\delta)-\delta_{jn}\delta_{li}]\varepsilon_{ijk}\\
+        \notag=&(-i\hbar)^2\sum_k(-\varepsilon_{kln})\varepsilon_{ijk}\\
+        =&i\hbar\sum_k\varepsilon_{ijk}(G_k)_{ln},
+    \end{align}
+    故 $G_i$ 满足角动量对易关系.
+
+    变换矩阵 $U$ 将 $G_i$ 与 $J_i$ 联系在一起,
+    \begin{align}
+        U^{\dagger}G_iU=J_i,
+    \end{align}
+    注意到 $J_3$ 为对角矩阵, 故上述过程实际上为 $G_i$ 的对角化操作, 变换矩阵 $U$ 由 $G_3$ 的本征向量构成. 通过
+    \begin{align}
+        \abs{G_3-\lambda I}=\begin{vmatrix}
+            -\lambda&-i\hbar&0\\
+            i\hbar&-\lambda&0\\
+            0&0&-\lambda
+        \end{vmatrix}=-(\lambda^2-\hbar^2)\lambda=0
+    \end{align}
+    解得 $G_3$ 的本征值为
+    \begin{align}
+        \lambda_1=\hbar,\quad\lambda_2=0,\quad\lambda_3=-\hbar.
+    \end{align}
+    将这三个本征值代入本征方程
+    \begin{align}
+        G_3\lvert\lambda_i\rangle=\lambda_i\lvert\lambda_i\rangle,
+    \end{align}
+    解得对应的归一化本征矢分别为
+    \begin{align}
+        \lvert\lambda_1\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            i\\
+            0
+        \end{bmatrix},\quad\lvert\lambda_2\rangle=\begin{bmatrix}
+            0\\
+            0\\
+            1
+        \end{bmatrix},\quad\lvert\lambda_3\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            -i\\
+            0
+        \end{bmatrix},
+    \end{align}
+    故变换矩阵为
+    \begin{align}
+        U=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1&0&1\\
+            i&0&-i\\
+            0&\sqrt{2}&0
+        \end{bmatrix}.
+    \end{align}
+
+    联系 $G_i$ 和角动量算符 $J_i$ ($J_3$ 取对角) 的变换矩阵的物理意义: 变换矩阵对应了基的旋转操作 --- 在变换前的基表示下, 角动量算符的矩阵表示为 $G_i$; 当进行变换矩阵对应的基旋转操作后, 得到的角动量算符的新的矩阵表示为 $J_i$, 其中 $J_3$ 为对角形式. 由于仅仅是基矢的旋转, 因此虽然角动量算符在矩阵表示上有所变化, 但其基本性质 (如对易关系) 依然成立.
+
+    该有限角度的旋转可以拆解为无穷多个无穷小转动:
+    \begin{align}
+        U^{\dagger}\bm{G}U=\lim_N(1+\hat{\bm{n}}\frac{\phi}{N})^N\times\bm{G}.
+    \end{align}
 \end{pf}
 
 \begin{prob}[课本习题 3.15]
