@@ -1,0 +1,55 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第六次作业}{截止时间: 2022 年 10 月 31 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 3.18]
+    已知一个在球对称势中的粒子处在 $\bm{L}^2$ 和 $L_z$ 的本征态, 本征值分别为 $l(l+1)\hbar^2$ 和 $m\hbar$. 证明在 $\lvert lm\rangle$ 态之间的期待值满足
+    \[
+        \langle L_x\rangle=\langle L_y\rangle=0,\qquad\langle L_x^2\rangle=\langle L_y^2\rangle=\frac{[l(l+1)\hbar^2-m^2\hbar^2]}{2},
+    \]
+    半经典地解释这个结果.
+\end{prob}
+\begin{pf}
+    对 $\lvert lm\rangle$ 态,
+    \begin{align}
+        \notag\langle L_x\rangle=&\langle lm\rvert L_x\lvert lm\rangle=\langle lm\rvert\frac{L_++L_-}{2}\lvert lm\rangle=\frac{1}{2}(\langle lm\rvert L_+\lvert lm\rangle+\langle lm\rvert L_-\lvert lm\rangle)\\
+        \notag=&\frac{1}{2}[\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\lvert l,m+1\rangle+\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\lvert l,m-1\rangle]\\
+        =&0,\\
+        \notag\langle L_y\rangle=&\langle lm\rvert L_y\lvert lm\rangle=\langle lm\rvert\frac{L_+-L_-}{2i}\lvert lm\rangle=\frac{1}{2i}(\langle lm\rvert L_+\lvert lm\rangle-\langle lm\rvert L_-\lvert lm\rangle)\\
+        \notag=&\frac{1}{2i}[\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\lvert l,m+1\rangle+\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\lvert l,m-1\rangle]\\
+        =&0,\\
+        \notag\langle L_x^2\rangle=&\langle lm\rvert L_x^2\lvert lm\rangle=\langle lm\rvert\left(\frac{L_++L_-}{2}\right)^2\lvert lm\rangle=\frac{1}{4}(\langle lm\rvert L_+^2\lvert lm\rangle+\langle lm\rvert L_+L_-\lvert lm\rangle+\langle lm\rvert L_-L_+\lvert lm\rangle+\langle lm\rvert L_-^2\lvert lm\rangle)\\
+        \notag=&\frac{1}{4}[\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\sqrt{(l-m-1)(l+m+2)}\hbar\lvert l,m+2\rangle\\
+        \notag&+\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\sqrt{(l-m+1)(l+m)}\hbar\lvert lm\rangle\\
+        \notag&+\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\sqrt{(l+m+1)(l-m)}\hbar\lvert lm\rangle\\
+        \notag&+\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\sqrt{(l+m-1)(l-m+2)}\hbar\lvert l,m-2\rangle]\\
+        =&\frac{[l(l+l)\hbar^2-m^2\hbar^2]}{2},\\
+        \notag\langle L_y^2\rangle=&\langle lm\rvert L_y^2\lvert lm\rangle=\langle lm\rvert\left(\frac{L_+-L_-}{2i}\right)\lvert lm\rangle=-\frac{1}{4}(\langle lm\rvert L_+^2\lvert lm\rangle-\langle lm\rvert L_+L_-\lvert lm\rangle-\langle lm\rvert L_-L_+\lvert lm\rangle+\langle lm\rvert L_-^2\lvert lm\rangle)\\
+        \notag=&-\frac{1}{4}[\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\sqrt{(l-m-1)(l+m+2)}\hbar\lvert l,m+2\rangle\\
+        \notag&-\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\sqrt{(l-m+1)(l+m)}\hbar\lvert lm\rangle\\
+        \notag&-\langle lm\rvert\sqrt{(l-m)(l+m+1)}\hbar\sqrt{(l+m+1)(l-m)}\hbar\lvert lm\rangle\\
+        \notag&+\langle lm\rvert\sqrt{(l+m)(l-m+1)}\hbar\sqrt{(l+m-1)(l-m+2)}\hbar\lvert l,m-2\rangle]\\
+        =&\frac{[l(l+l)\hbar^2-m^2\hbar^2]}{2}.
+    \end{align}
+
+    对上述结果的半经典解释: $\lvert lm\rangle$ 为 $\bm{L}^2$ 和 $L_z$ 的共同本征态, $\bm{L}^2\lvert ml\rangle=l(l+1)\hbar^2\lvert lm\rangle$, $L_z\lvert ml\rangle=m\hbar\lvert ml\rangle$, 该本征态关于 $z$ 轴对称, 故角动量的 $L_x$ 和 $L_y$ 分量的均值为零, 此外考虑到经典力学中 $\bm{L}^2=L_x^2+L_y^2+L_z^2$, 故 $\langle L_x^2\rangle=\langle L_y^2\rangle=\frac{1}{2}(\langle\bm{L}^2\rangle-\langle L_z\rangle^2)=\frac{[l(l+1)\hbar^2-m^2\hbar^2]}{2}$.
+\end{pf}
+
+\begin{prob}[课本习题 3.20]
+    考虑一个轨道角动量的本征态 $\lvert l=2,m=0\rangle$. 假定这个态绕 $y$ 轴转了 $\beta$ 角. 求在 $m=0,\pm 1$ 和 $\pm 2$ 的态上找到这个新态的概率. (在附录 B 的 B.5 节中给出的 $l=0,1$ 和 $2$ 的球谐函数可能是有用的.)
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 3.24]
+    通过把 $j_1=1$ 和 $j_2=1$ 相加, 求出所形成的 $j=2,1,0$ 的所有 $9$ 个 $\lvert j,m\rangle$ 态, 利用简化符号, 以 $\pm,0$ 分别代表 $m_{1,2}=\pm 1,0$. 写出 $\lvert j,m\rangle$ 的显示式, 例如
+    \[
+        \lvert 1,1\rangle=\frac{1}{\sqrt{2}}\lvert+0\rangle-\frac{1}{\sqrt{2}}\lvert 0+\rangle
+    \]
+    可以利用阶梯算符 $J_{\pm}$, 或递推关系以及正交性. 找一个克莱布什-戈丹系数表用来做比较, 检验你的结果.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+\end{document}
