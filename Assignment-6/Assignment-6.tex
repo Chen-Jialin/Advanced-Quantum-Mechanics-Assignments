@@ -39,7 +39,24 @@
     考虑一个轨道角动量的本征态 $\lvert l=2,m=0\rangle$. 假定这个态绕 $y$ 轴转了 $\beta$ 角. 求在 $m=0,\pm 1$ 和 $\pm 2$ 的态上找到这个新态的概率. (在附录 B 的 B.5 节中给出的 $l=0,1$ 和 $2$ 的球谐函数可能是有用的.)
 \end{prob}
 \begin{sol}
-    
+    态 $\lvert l=2,m=0\rangle$ 绕 $y$ 轴转动 $\beta$ 角后变为 $\mathcal{D}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle$, 在 $m=0,\pm 1,\pm 2$ 的态上找到这个新态的概率分别为
+    \begin{align}
+        \notag P(m=0)=&\abs{\langle l=2,m=0\rvert\mathcal{D}^{(l=2)}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle}^2=\abs{\mathcal{D}_{00}^{(l=2)}(\alpha=0,\beta,\gamma=0)}^2\\
+        \notag=&\abs{\sqrt{\frac{4\pi}{5}}Y_2^{0*}(\beta,0)}^2\\
+        =&\frac{1}{4}(3\cos^2\beta-1)^2,\\
+        \notag P(m=1)=&\abs{\langle l=2,m=1\rvert\mathcal{D}^{(l=2)}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle}^2=\abs{\mathcal{D}_{10}^{(l=2)}(\alpha=0,\beta,\gamma=0)}^2\\
+        \notag=&\abs{\sqrt{\frac{4\pi}{5}}Y_2^{1*}(\beta,0)}^2\\
+        =&\frac{3}{2}\sin^2\beta\cos^2\beta,\\
+        \notag P(m=-1)=&\abs{\langle l=2,m=-1\rvert\mathcal{D}^{(l=2)}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle}^2=\abs{\mathcal{D}_{-10}^{(l=2)}(\alpha=0,\beta,\gamma=0)}^2\\
+        \notag=&\abs{\sqrt{\frac{4\pi}{5}}Y_2^{-1*}(\beta,0)}^2\\
+        =&\frac{3}{2}\sin^2\beta\cos^2\beta,\\
+        \notag P(m=2)=&\abs{\langle l=2,m=2\rvert\mathcal{D}^{(l=2)}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle}^2=\abs{\mathcal{D}_{20}^{l=2}(\alpha=0,\beta,\gamma=0)}^2\\
+        \notag=&\abs{\sqrt{\frac{4\pi}{5}}Y_2^{2*}(\beta,0)}^2\\
+        =&\frac{3}{8}\sin^4\theta,\\
+        \notag P(m=-2)=&\abs{\langle l=2,m=-2\rvert\mathcal{D}^{(l=2)}(\alpha=0,\beta,\gamma=0)\lvert l=2,m=0\rangle}^2=\abs{\mathcal{D}_{-20}^{l=2}(\alpha=0,\beta,\gamma=0)}^2\\
+        \notag=&\abs{\sqrt{\frac{4\pi}{5}}Y_2^{-2*}(\beta,0)}^2\\
+        =&\frac{3}{8}\sin^4\theta.
+    \end{align}
 \end{sol}
 
 \begin{prob}[课本习题 3.24]
