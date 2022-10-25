@@ -67,6 +67,57 @@
     可以利用阶梯算符 $J_{\pm}$, 或递推关系以及正交性. 找一个克莱布什-戈丹系数表用来做比较, 检验你的结果.
 \end{prob}
 \begin{sol}
-    
+    $j_1=1$ 和 $j_2=1$ 相加所形成的所有 $9$ 个 $\lvert j,m\rangle$ 态分别为
+    \begin{gather*}
+        \lvert j=2,m=2\rangle,\quad\lvert j=2,m=1\rangle,\quad\lvert j=2,m=0\rangle,\quad\lvert j=2,m=-1\rangle,\quad\lvert j=2,m=-2\rangle,\\
+        \lvert j=1,m=1\rangle,\quad\lvert j=1,m=0\rangle,\quad\lvert j=1,m=-1\rangle,\\
+        \lvert j=0,m=0\rangle.
+    \end{gather*}
+
+    \uline{对于 $j=2$ 的态:} 由于 $m=m_1+m_2$, 易得
+    \begin{align}
+        \lvert j=2,m=2\rangle=&\lvert++\rangle,\\
+        \lvert j=2,m=-2\rangle=&\lvert--\rangle.
+    \end{align}
+    利用 $J_+=J_{1+}+J_{2+}$ 和 $J_-=J_{1-}+J_{2-}$ 及 $J_{\pm}\lvert jm\rangle=\sqrt{(j\mp m)(j\pm m+1)}\lvert j,m\pm 1\rangle$, $J_{1(2)\pm}\lvert j_{1(2)}m_{1(2)}\rangle=\sqrt{(j_{1(2)}\mp m_{1(2)})(j_{1(2)}\pm m_{1(2)}+1)}\lvert j_{1(2)},m_{1(2)}\pm 1\rangle$, 有
+    \begin{gather}
+        J_-\lvert j=2,m=2\rangle=2\hbar\lvert j=2,m=1\rangle=(J_{1-}+J_{2-})\lvert++\rangle=\sqrt{2}\hbar\lvert 0+\rangle+\sqrt{2}\hbar\lvert +0\rangle,\\
+        \Longrightarrow\lvert j=2,m=1\rangle=\frac{1}{\sqrt{2}}\lvert 0+\rangle+\frac{1}{\sqrt{2}}\lvert+0\rangle,\\
+        J_-\lvert j=2,m=1\rangle=\sqrt{6}\hbar\lvert j=2,m=0\rangle=(J_{1-}+J_{2-})\frac{1}{\sqrt{2}}(\lvert 0+\rangle+\lvert+0\rangle)=\lvert-+\rangle+2\lvert 00\rangle+\lvert+-\rangle,\\
+        \Longrightarrow\lvert j=2,m=0\rangle=\frac{1}{\sqrt{6}}\lvert-+\rangle+\frac{2}{\sqrt{6}}\lvert 00\rangle+\frac{1}{\sqrt{6}}\lvert+-\rangle,\\
+        J_+\lvert j=2,m=-2\rangle=2\hbar\lvert j=2,m=-1\rangle=(J_{1+}+J_{2+})\lvert--\rangle=\sqrt{2}\hbar\lvert 0-\rangle+\sqrt{2}\hbar\lvert-0\rangle,\\
+        \Longrightarrow\lvert j=2,m=-1\rangle=\frac{1}{\sqrt{2}}\lvert 0-\rangle+\frac{1}{\sqrt{2}}\lvert-0\rangle.
+    \end{gather}
+
+    \uline{对于 $j=1$ 的态:} 由于 $m=m_1+m_2$, 故 $\lvert j=1,m=1\rangle$ 具有 $a\lvert+0\rangle+b\lvert 0+\rangle$ 的形式, 考虑到归一化条件 $\abs{a}^2+\abs{b}^2$ 以及 $\lvert j,m\rangle$ 态之间的正交性, $\lvert j=1,m=1\rangle$ 需与 $\lvert j=2,m=1\rangle=\frac{1}{\sqrt{2}}\lvert 0+\rangle+\frac{1}{\sqrt{2}}\lvert+0\rangle$ 正交, 故必有
+    \begin{align}
+        \lvert j=1,m=1\rangle=\frac{1}{\sqrt{2}}\lvert+0\rangle-\frac{1}{\sqrt{2}}\lvert 0+\rangle.
+    \end{align}
+    由此出发, 利用与上面类似的方法有
+    \begin{gather}
+        J_-\lvert j=1,m=1\rangle=\sqrt{2}\lvert j=1,m=0\rangle=(J_{1-}+J_{2-})\frac{1}{\sqrt{2}}(\lvert+0\rangle-\lvert 0+\rangle)=-\hbar\lvert-+\rangle+\hbar\lvert+-\rangle,\\
+        \Longrightarrow\lvert j=1,m=0\rangle=-\frac{1}{\sqrt{2}}\lvert-+\rangle+\frac{1}{\sqrt{2}}\lvert+-\rangle,\\
+        J_-\lvert j=1,m=0\rangle=\sqrt{2}\hbar\lvert j=1,m=-1\rangle=(J_{1-}+J_{2-})\frac{1}{\sqrt{2}}(-\lvert-+\rangle+\lvert+-\rangle)=\lvert 0-\rangle-\lvert-0\rangle,\\
+        \Longrightarrow\lvert j=1,m=-1\rangle=\frac{1}{\sqrt{2}}\lvert 0-\rangle-\frac{1}{\sqrt{2}}\lvert-0\rangle.
+    \end{gather}
+
+    \uline{对于 $\lvert j=0,m=0\rangle$ 态:} 由于 $m=m_1+m_2$, 故 $\lvert j=0,m=0\rangle$ 具有 $\lvert j=0,m=0\rangle=c\lvert+-\rangle+d\lvert 00\rangle+e\lvert-+\rangle$ 的形式, 考虑到归一化条件 $\abs{c}^2+\abs{d}^2+\abs{e}^2=1$ 以及 $\lvert j,m\rangle$ 态之间的正交性,
+    \begin{gather}
+        \langle j=1,m=0\vert j=0,m=0\rangle=\frac{1}{\sqrt{2}}c-\frac{1}{\sqrt{2}}e=0,\\
+        \langle j=2,m=0\vert j=0,m=0\rangle=\frac{1}{\sqrt{6}}c+\frac{2}{\sqrt{6}}d+\frac{1}{\sqrt{6}}e=0,\\
+        \Longrightarrow c=\frac{1}{\sqrt{3}},\quad d=-\frac{1}{\sqrt{3}},\quad e=\frac{1}{\sqrt{3}},
+    \end{gather}
+    故
+    \begin{align}
+        \lvert j=0,m=0\rangle=\frac{1}{\sqrt{3}}\lvert+-\rangle-\frac{1}{\sqrt{3}}\lvert 00\rangle+\frac{1}{\sqrt{3}}\lvert-+\rangle.
+    \end{align}
+
+    上述分解结果与 Clebsch-Gordan 系数表 (图 \ref{6-3-fig}) 一致, 例如, $\lvert j=2,m=1\rangle$ 的展开系数就对应了 $m=1$ 表中 $j=2$ 列的 $\sqrt{\frac{1}{2}},\sqrt{\frac{1}{2}}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.25\columnwidth]{6-3.png}
+        \caption{$j_1=1$ 和 $j_2=1$ 叠加的 Clebsch-Gordan 系数表.}
+        \label{6-3-fig}
+    \end{figure}
 \end{sol}
 \end{document}
