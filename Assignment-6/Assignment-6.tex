@@ -120,4 +120,37 @@
         \label{6-3-fig}
     \end{figure}
 \end{sol}
+
+\begin{prob}[课本习题 3.23]
+    在角动量的施温格方案中, 算符
+    \[
+        K_+\equiv a_+^{\dagger}a_-^{\dagger}\quad\text{和}\quad K_-\equiv a_+a_-
+    \]
+    的物理意义是什么? 给出 $K_{\pm}$ 的非零矩阵元.
+\end{prob}
+\begin{sol}
+    将 $K_+$ 作用于 $\lvert n_+n_-\rangle$ 上有
+    \begin{align}
+        K_+\lvert n_+n_-\rangle=a_+^{\dagger}a_-^{\dagger}\lvert n_+n_-\rangle=\sqrt{(n_++1)(n_-+1)}\lvert n_++1,n_-+1\rangle,
+    \end{align}
+    即 $K_+$ 代表同时产生 (加入) 一个自旋朝上的粒子和一个自旋朝下的粒子, 在 $K_+$ 作用下系统的 $j=\frac{n_++n_-}{2}$ 变为 $j+1=\frac{(n_++1)+(n_-+1)}{2}$, 但角动量的 $z$ 分量 $m=\frac{n_+-n_-}{2}=\frac{(n_++1)-(n_-+1)}{2}$ 不变. $K_+$ 的矩阵元
+    \begin{align}
+        \notag\langle j'm'\rvert K_+\lvert jm\rangle=&\langle n_+'=j'+m',n_-'=j'-m'\rvert K_+\lvert n_+=j+m,n_-=j-m\rangle\\
+        \notag=&\langle n_+'=j'+m',n_-'=j'-m'\rvert\sqrt{(n_++1)(n_-+1)}\lvert n_+=j+m+1,n_-=j-m+1\rangle\\
+        \notag=&\langle j'm'\rvert\sqrt{(j+m+1)(j-m+1)}\lvert j+1,m\rangle\\
+        =&\sqrt{(j+m+1)(j-m+1)}\delta_{j',j+1}\delta_{m'm}.
+    \end{align}
+
+    类似地, 将 $K_-$ 作用于 $\lvert n_+n_-\rangle$ 上有
+    \begin{align}
+        K_-\lvert n_+n_-\rangle=a_+a_-\lvert n_+n_-\rangle=\sqrt{n_+n_-}\lvert n_+-1,n_--1\rangle,
+    \end{align}
+    即 $K_-$ 代表同时湮灭 (拿走) 一个自旋朝上的粒子和一个自旋朝下的粒子, 在 $K_-$ 作用下系统的 $j=\frac{n_++n_-}{2}$ 变为 $j-1=\frac{(n_+-1)+(n_--1)}{2}$, 但角动量的 $z$ 分量 $m=\frac{n_+-n_-}{2}=\frac{(n_+-1)-(n_--1)}{2}$ 不变. $K_-$ 的矩阵元
+    \begin{align}
+        \notag\langle j'm'\rvert K_-\lvert jm\rangle=&\langle n_+'=j'+m',n_-'=j'-m'\rvert K_-\lvert n_+=j+m,n_-=j-m\rangle\\
+        \notag=&\langle n_+'=j'+m',n_-'=j'-m'\rvert\sqrt{n_+n_-}\lvert n_+=j+m-1,n_-=j-m-1\rangle\\
+        \notag=&\langle j'm'\rvert\sqrt{(j+m)(j-m)}\lvert j-1,m\rangle\\
+        =&\sqrt{(j+m)(j-m)}\delta_{j',j-1}\delta_{m'm}.
+    \end{align}
+\end{sol}
 \end{document}
