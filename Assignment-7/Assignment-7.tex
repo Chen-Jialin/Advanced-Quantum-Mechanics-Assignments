@@ -1,0 +1,111 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第七次作业}{截止时间: 2022 年 11 月 7 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 3.28]
+    考虑两个自旋 $\frac{1}{2}$ 的粒子组成的一个系统. 观察者 A 专门测量其中一个离子的自旋分量 ($s_{1z}$, $s_{1x}$, 等等), 同时观察者 B 测量另一个粒子的自旋分量. 假定已知系统处在自旋单态, 即 $S_{\text{总}}=0$.
+    \begin{itemize}
+        \item[(a)] 当观察者 B 不做任何测量时, 观察者 A 得到 $s_{1z}=\hbar/2$ 的概率是什么? 对于 $s_{1x}=\hbar/2$ 求解同样问题.
+        \item[(b)] 观察者 B 肯定地确认粒子 2 的自旋处于 $s_{2z}=\hbar/2$ 态. 如果观察者 A (i) 测量 $s_{1z}$; (ii) 测 $s_{1x}$, 则对观察者 A 的测量结果能给出的结论是什么? 解释你的答案.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 这两个粒子组成的系统的状态为
+        \begin{align}
+            \lvert\psi\rangle=
+        \end{align}
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 3.30]
+    \begin{itemize}
+        \item[(a)] 用两个不同的矢量 $\bm{U}=(U_x,U_y,U_z)$ 和 $\bm{V}=(V_x,V_y,V_z)$ 构造一个秩为 $1$ 的球张量. 明确地用 $U_{x,y,z}$ 和 $V_{x,y,z}$ 写出 $T_{\pm 1,0}^{(1)}$.
+        \item[(b)] 用两个不同的矢量 $\bm{U}$ 和 $\bm{V}$ 构造一个秩为 $2$ 的球张量. 明确地用 $U_{x,y,z}$ 和 $V_{x,y,z}$ 写出 $\bm{T}_{\pm 2,\pm 1,0}^{(2)}$.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 3.32]
+    \begin{itemize}
+        \item[(a)] 把 $xy$, $xz$ 和 $(x^2-y^2)$ 写成一个秩为 $2$ 的球 (不可约) 张量的分量.
+        \item[(b)] 期待值
+        \[
+            Q=e\langle\alpha,j,m=j\rvert(3z^2-r^2)\lvert\alpha,j,m=j\rangle
+        \]
+        被称为 \textit{四极矩}. 利用 $Q$ 和适当的克莱布什-戈丹系数, 求
+        \[
+            e\langle\alpha,j,m'\rvert(x^2-y^2)\lvert\alpha,j,m=j\rangle,
+        \]
+        其中 $m'=j,j-1,j-2,\cdots$.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 3.10]
+    \begin{itemize}
+        \item[(a)] 考虑全同制备的自旋 $\frac{1}{2}$ 系统的一个纯系综. 假定期待值 $\langle S_x\rangle$ 和 $\langle S_z\rangle$ 已知, 而 $\langle S_y\rangle$ 的符号也已知. 证明如何确定态矢量. 为什么不必知道 $\langle S_y\rangle$ 的大小?
+        \item[(b)] 假定在 $t=0$ 时有一个纯系综. 假定系综平均值 $[S_x]$, $[S_y]$, $[S_z]$ 都是已知的, 证明如何可以构造表表征这个系综的 $2\times 2$ 密度矩阵.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{pf}
+
+\begin{prob}[课本习题 3.11]
+    \begin{itemize}
+        \item[(a)] 证明密度算符 (在薛定谔绘景中) 的时间演化由下式给定
+        \[
+            \rho(t)=\mathcal{U}(t,t_0)\rho(t_0)\mathcal{U}^{\dagger}(t,t_0).
+        \]
+        \item[(b)] 假定在 $t=0$ 时有一个纯系统. 证明只要时间演化由薛定谔方程控制, 则它不可能演化成一个混合系统.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[(a)] 设 $t_0$ 时刻密度算符为
+        \begin{align}
+            \rho(t_0)=\sum_iw_i\lvert\alpha^{(i)},t_0\rangle\langle\alpha^{(i)},t_0\rvert.
+        \end{align}
+        在薛定谔绘景中, 任意纯态 $\lvert\alpha^{(i)}\rangle$ 按照
+        \begin{align}
+            \lvert\alpha,t_0;t\rangle=\mathcal{U}(t,t_0)\lvert\alpha^{(i)},t_0\rangle
+        \end{align}
+        的形式演化, 其中 $\mathcal{U}(t,t_0)$ 为时刻 $t_0$ 时刻至 $t$ 时刻的演化算符.
+        故 $t$ 时刻密度算符演化为
+        \begin{align}
+            \notag\rho(t)=&\sum_iw_i\mathcal{U}(t,t_0)\lvert\alpha^{(i)},t_0\rangle\langle\alpha^{(i)},t_0\rvert\mathcal{U}^{\dagger}(t,t_0)\\
+            \notag=&\mathcal{U}(t,t_0)\left[\sum_iw_i\lvert\alpha^{(i)},t_0\rangle\langle\alpha^{(i)},t_0\rvert\right]\mathcal{U}^{\dagger}(t,t_0)\\
+            =&\mathcal{U}(t,t_0)\rho(t_0)\mathcal{U}^{\dagger}(t,t_0).
+        \end{align}
+        \item[(b)] $t=0$ 时刻该纯态系统的密度算符 $\rho(t=0)$ 满足
+        \begin{align}
+            \tr[\rho^2(t=0)]=1.
+        \end{align}
+        任意 $t$ 时刻该系统的密度算符仍然满足
+        \begin{align}
+            \notag\tr[\rho^2(t)]=&\tr[U(t,0)\rho(t=0)U^{\dagger}(t,0)U(t,0)\rho(t=0)U^{\dagger}(t,0)]\\
+            \notag=&\tr[U(t,0)\rho^2(t=0)U^{\dagger}(t,0)]\\
+            \notag=&\tr[U^{\dagger}(t,0)U(t,0)\rho^2(t=0)]\\
+            \notag=&\tr[\rho^2(t=0)]\\
+            =&1,
+        \end{align}
+        即该系统仍然为一纯态系统.
+        因此只要时间演化由薛定谔方程控制, 则它不可能演化成一个混合系统.
+    \end{itemize}
+\end{pf}
+\end{document}
