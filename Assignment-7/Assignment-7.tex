@@ -11,11 +11,20 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 这两个粒子组成的系统的状态为
+        \item[(a)] 这两个粒子组成的系统处于自旋单态, 可表为
         \begin{align}
-            \lvert\psi\rangle=
+            \lvert\psi\rangle=\frac{1}{\sqrt{2}}(\hat{\bm{z}}+;\hat{\bm{z}}-\rangle+\lvert\hat{\bm{z}}-;\hat{\bm{z}}+\rangle)=\frac{1}{\sqrt{2}}(\hat{\bm{x}}-;\hat{\bm{x}}+\rangle+\lvert\hat{\bm{x}}+;\hat{\bm{x}}-\rangle).
         \end{align}
-        \item[(b)] 
+        当观察者 B 不做任何测量时, 观察者 A 得到 $s_{1z}=\hbar/2$ 的概率为 $\frac{1}{2}$;\\
+        当观察者 B 不做任何测量时, 观察者 A 得到 $s_{1x}=\hbar/2$ 的概率为 $\frac{1}{2}$.
+        \item[(b)] 当观察者 B 肯定地确认粒子 2 的自旋处于 $s_{2z}=\hbar/2$ 后, 系统的状态塌缩至
+        \begin{align}
+            \lvert\psi'\rangle=\lvert\hat{\bm{z}}-;\hat{\bm{z}}+\rangle=\lvert\hat{\bm{z}}-\rangle\otimes\frac{1}{\sqrt{2}}(\lvert\hat{\bm{x}}+\rangle-\lvert\hat{\bm{x}}-\rangle).
+        \end{align}
+        \begin{itemize}
+            \item[(i)] 如果观察者测量 $s_{1z}$, 则有 $100\%$ 的概率得到 $s_{1z}=-\hbar/2$.
+            \item[(ii)] 如果观察者测量 $s_{1x}$, 则有 $\frac{1}{2}$ 的概率得到 $s_{1x}=\hbar/2$, 有 $\frac{1}{2}$ 的概率得到 $s_{1x}=-\hbar/2$.
+        \end{itemize}
     \end{itemize}
 \end{sol}
 
