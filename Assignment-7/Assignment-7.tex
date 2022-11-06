@@ -56,13 +56,79 @@
 \begin{prob}[课本习题 3.10]
     \begin{itemize}
         \item[(a)] 考虑全同制备的自旋 $\frac{1}{2}$ 系统的一个纯系综. 假定期待值 $\langle S_x\rangle$ 和 $\langle S_z\rangle$ 已知, 而 $\langle S_y\rangle$ 的符号也已知. 证明如何确定态矢量. 为什么不必知道 $\langle S_y\rangle$ 的大小?
-        \item[(b)] 假定在 $t=0$ 时有一个纯系综. 假定系综平均值 $[S_x]$, $[S_y]$, $[S_z]$ 都是已知的, 证明如何可以构造表表征这个系综的 $2\times 2$ 密度矩阵.
+        \item[(b)] 考虑一个自旋 $\frac{1}{2}$ 系统的混合系综. 假定系综平均值 $[S_x]$, $[S_y]$, $[S_z]$ 都是已知的, 证明如何可以构造表征这个系综的 $2\times 2$ 密度矩阵.
     \end{itemize}
 \end{prob}
 \begin{pf}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 设该纯系综的状态为
+        \begin{align}
+            \lvert\alpha\rangle=\cos\frac{\beta}{2}\lvert+\rangle+e^{i\alpha}\sin\frac{\beta}{2}\lvert-\rangle.
+        \end{align}
+        期待值
+        \begin{align}
+            \notag\langle S_x\rangle=&\langle\alpha\rvert S_x\lvert\alpha\rangle=\left(\cos\frac{\beta}{2}\langle+\rvert+e^{-i\alpha}\sin\frac{\beta}{2}\langle-\rvert\right)\frac{\hbar}{2}(\lvert+\rangle\langle-\rvert+\lvert-\rangle\langle+\rvert)\left(\cos\frac{\beta}{2}\lvert+\rangle+e^{i\alpha}\sin\frac{\beta}{2}\lvert-\rangle\right)\\
+            =&\frac{\hbar}{2}\left(e^{i\alpha}\cos\frac{\beta}{2}\sin\frac{\beta}{2}+e^{-i\alpha}\sin\frac{\beta}{2}\cos\frac{\beta}{2}\right)=\frac{\hbar}{2}\cos\alpha\sin\beta,\\
+            \notag\langle S_z\rangle=&\langle\alpha\rvert S_z\lvert\alpha\rangle=\left(\cos\frac{\beta}{2}\langle+\rvert+e^{-i\alpha}\sin\frac{\beta}{2}\langle-\rvert\right)\frac{\hbar}{2}(\lvert+\rangle\langle+\rvert-\lvert-\rangle\langle-\rvert)\left(\cos\frac{\beta}{2}\lvert+\rangle+e^{i\alpha}\sin\frac{\beta}{2}\lvert-\rangle\right)\\
+            =&\frac{\hbar}{2}\left(\cos^2\frac{\beta}{2}-\sin^2\frac{\beta}{2}\right)=\frac{\hbar}{2}\cos\beta,\\
+            \notag\langle S_y\rangle=&\langle\alpha\rvert S_y\lvert\alpha\rangle=\langle\alpha\rvert S_z\lvert\alpha\rangle=\left(\cos\frac{\beta}{2}\langle+\rvert+e^{-i\alpha}\sin\frac{\beta}{2}\langle-\rvert\right)\frac{\hbar}{2}(-i\lvert+\rangle\langle-\rvert+i\lvert-\rangle\langle+\rvert)\left(\cos\frac{\beta}{2}\lvert+\rangle+e^{i\alpha}\sin\frac{\beta}{2}\lvert-\rangle\right)\\
+            =&\frac{\hbar}{2}\left(-ie^{i\alpha}\cos\frac{\beta}{2}\sin\frac{\beta}{2}+ie^{-i\alpha}\sin\frac{\beta}{2}\cos\frac{\beta}{2}\right)=\frac{\hbar}{2}\sin\alpha\sin\beta.
+        \end{align}
+        因此由已知的 $\langle S_x\rangle$ 和 $\langle S_z\rangle$ 就可得
+        \begin{align}
+            \langle S_y\rangle=\pm\sqrt{\left(\frac{\hbar}{2}\right)^2-\langle S_x\rangle^2-\langle S_z\rangle^2}.
+        \end{align}
+        当 $\langle S_y\rangle$ 符号已知, $\langle S_y\rangle$ 就可被完全确定下来.
+        此时, $\alpha$ 和 $\beta$ 也被确定下来:
+        \begin{align}
+            \alpha=&\arctan\frac{\langle S_y\rangle}{\langle S_x\rangle},\\
+            \beta=&\arccos\frac{\langle S_z\rangle}{\hbar/2},
+        \end{align}
+        即可确定态矢量 $\lvert\alpha\rangle$.
+        \item[(b)] 设该混合系综的密度矩阵为
+        \begin{align}
+            \rho=\begin{bmatrix}
+                a&b\\
+                c&d
+            \end{bmatrix},
+        \end{align}
+        其满足
+        \begin{gather}
+            \rho=\rho^{\dagger}\Longrightarrow b=c^*,\text{ and }a,d\in\mathbb{R},\\
+            \tr(\rho)=a+d=1.
+        \end{gather}
+        系综平均值
+        \begin{align}
+            [S_x]=&\tr(\rho S_x)=\tr\left(\begin{bmatrix}
+                a&b\\
+                c&d
+            \end{bmatrix}\frac{\hbar}{2}\begin{bmatrix}
+                0&1\\
+                1&0
+            \end{bmatrix}\right)=\frac{\hbar}{2}(b+c),\\
+            [S_y]=&\tr(\rho S_y)=\tr\left(\begin{bmatrix}
+                a&b\\
+                c&d
+            \end{bmatrix}\frac{\hbar}{2}\begin{bmatrix}
+                0&-i\\
+                i&0
+            \end{bmatrix}\right)=i\frac{\hbar}{2}(b-c),\\
+            [S_z]=&\tr(\rho S_z)=\tr\left(\begin{bmatrix}
+                a&b\\
+                c&d
+            \end{bmatrix}\frac{\hbar}{2}\begin{bmatrix}
+                1&0\\
+                0&-1
+            \end{bmatrix}\right)=\frac{\hbar}{2}(a-d).
+        \end{align}
+        当 $[S_x]$, $[S_y]$, $[S_z]$ 已知, 则
+        \begin{align}
+            a=&\frac{1}{2}\left(1+\frac{[S_z]}{\hbar/2}\right),\\
+            b=&\frac{1}{\hbar}([S_x]-i[S_y]),\\
+            c=&\frac{1}{\hbar}([S_x]+i[S_y]),\\
+            d=&\frac{1}{2}\left(1-\frac{[S_z]}{\hbar/2}\right),
+        \end{align}
+        由此可以构造出表征该混合系综的 $2\times 2$ 密度矩阵.
     \end{itemize}
 \end{pf}
 
