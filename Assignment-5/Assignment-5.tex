@@ -208,9 +208,9 @@
     \end{align}
     故 $G_i$ 满足角动量对易关系.
 
-    变换矩阵 $U$ 将 $G_i$ 与 $J_i$ 联系在一起,
+    变换矩阵 $U_i$ 将 $G_i$ 与 $J_i$ 联系在一起,
     \begin{align}
-        U^{\dagger}G_iU=J_i,
+        U_i^{\dagger}G_iU_i=J_i,
     \end{align}
     注意到 $J_3$ 为对角矩阵, 故上述过程实际上为 $G_i$ 的对角化操作, 变换矩阵 $U$ 由 $G_3$ 的本征向量构成. 通过
     \begin{align}
@@ -222,23 +222,23 @@
     \end{align}
     解得 $G_3$ 的本征值为
     \begin{align}
-        \lambda_1=\hbar,\quad\lambda_2=0,\quad\lambda_3=-\hbar.
+        \lambda_1^{(3)}=\hbar,\quad\lambda_2^{(3)}=0,\quad\lambda_3^{(3)}=-\hbar.
     \end{align}
     将这三个本征值代入本征方程
     \begin{align}
-        G_3\lvert\lambda_i\rangle=\lambda_i\lvert\lambda_i\rangle,
+        G_3\lvert\lambda_i^{(3)}\rangle=\lambda_i^{(3)}\lvert\lambda_i^{(3)}\rangle,
     \end{align}
     解得对应的归一化本征矢分别为
     \begin{align}
-        \lvert\lambda_1\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        \lvert\lambda_1^{(3)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
             1\\
             i\\
             0
-        \end{bmatrix},\quad\lvert\lambda_2\rangle=\begin{bmatrix}
+        \end{bmatrix},\quad\lvert\lambda_2^{(3)}\rangle=\begin{bmatrix}
             0\\
             0\\
             1
-        \end{bmatrix},\quad\lvert\lambda_3\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        \end{bmatrix},\quad\lvert\lambda_3^{(3)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
             1\\
             -i\\
             0
@@ -246,10 +246,236 @@
     \end{align}
     故变换矩阵为
     \begin{align}
-        U=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        U_3=\frac{1}{\sqrt{2}}\begin{bmatrix}
             1&0&1\\
             i&0&-i\\
             0&\sqrt{2}&0
+        \end{bmatrix}.
+    \end{align}
+
+    通过
+    \begin{align}
+        \abs{G_1-\lambda I}=\begin{vmatrix}
+            -\lambda&0&0\\
+            0&-\lambda&-i\hbar\\
+            0&i\hbar&-\lambda
+        \end{vmatrix}=-\lambda(\lambda+\hbar)(\lambda-\hbar)=0
+    \end{align}
+    解得 $G_1$ 的本征值为
+    \begin{align}
+        \lambda_1^{(1)}=\hbar,\quad\lambda_2^{(1)}=0,\quad\lambda_3^{(1)}=-\hbar.
+    \end{align}
+    将这三个本征值代入本征方程
+    \begin{align}
+        G_1\lvert\lambda_i^{(1)}\rangle=\lambda_i^{(1)}\lvert\lambda_i^{(1)}\rangle,
+    \end{align}
+    解得对应的归一化本征矢分别为
+    \begin{align}
+        \lvert\lambda_1^{(1)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            0\\
+            1\\
+            i
+        \end{bmatrix},\quad\lvert\lambda_2^{(1)}\rangle=\begin{bmatrix}
+            1\\
+            0\\
+            0
+        \end{bmatrix},\quad\lvert\lambda_3^{(1)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            0\\
+            i\\
+            1
+        \end{bmatrix}.
+    \end{align}
+    故
+    \begin{align}
+        \frac{1}{\sqrt{2}}\begin{bmatrix}
+            0&1&-i\\
+            \sqrt{2}&0&0\\
+            0&-i&0
+        \end{bmatrix}G_1\frac{1}{\sqrt{2}}\begin{bmatrix}
+            0&\sqrt{2}&0\\
+            1&0&i\\
+            i&0&1
+        \end{bmatrix}=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}.
+    \end{align}
+    通过
+    \begin{align}
+        \abs{J_1-\xi I}=\begin{vmatrix}
+            -\xi&\frac{\hbar}{\sqrt{2}}&0\\
+            \frac{\hbar}{\sqrt{2}}&-\xi&\frac{\hbar}{\sqrt{2}}\\
+            0&\frac{\hbar}{\sqrt{2}}&-\xi
+        \end{vmatrix}=-\xi(\xi+\hbar)(\xi-\hbar)=0
+    \end{align}
+    解得 $J_1$ 的本征值为
+    \begin{align}
+        \xi_1^{(1)}=\hbar,\quad\xi_2^{(1)}=0,\quad\xi_3^{(1)}=-\hbar.
+    \end{align}
+    将这三个本征值代入本征方程
+    \begin{align}
+        J_1\lvert\xi_i^{(1)}\rangle=\xi_i^{(1)}\lvert\xi_i^{(1)}\rangle,
+    \end{align}
+    解得对应的归一化本征矢分别为
+    \begin{align}
+        \lvert\xi_1^{(1)}\rangle=\frac{1}{2}\begin{bmatrix}
+            1\\
+            \sqrt{2}\\
+            1
+        \end{bmatrix},\quad\lvert\xi_2^{(1)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            0\\
+            -1
+        \end{bmatrix},\quad\lvert\xi_3^{(1)}\rangle=\frac{1}{2}\begin{bmatrix}
+            1\\
+            -\sqrt{2}\\
+            1
+        \end{bmatrix}.
+    \end{align}
+    故
+    \begin{align}
+        \frac{1}{2}\begin{bmatrix}
+            1&\sqrt{2}&1\\
+            \sqrt{2}&0&-\sqrt{2}\\
+            1&-\sqrt{2}&1
+        \end{bmatrix}J_1\frac{1}{2}\begin{bmatrix}
+            1&\sqrt{2}&1\\
+            \sqrt{2}&0&-\sqrt{2}\\
+            1&-\sqrt{2}&1
+        \end{bmatrix}=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}.
+    \end{align}
+    因此,
+    \begin{align}
+        U_1=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            0&\sqrt{2}&0\\
+            1&0&i\\
+            i&0&1
+        \end{bmatrix}\frac{1}{2}\begin{bmatrix}
+            1&\sqrt{2}&1\\
+            \sqrt{2}&0&-\sqrt{2}\\
+            1&-\sqrt{2}&1
+        \end{bmatrix}=\frac{1}{2\sqrt{2}}\begin{bmatrix}
+            2&0&-2\\
+            1+i&\sqrt{2}-\sqrt{2}i&1+i\\
+            1+i&-\sqrt{2}+\sqrt{2}i&1+i
+        \end{bmatrix}.
+    \end{align}
+
+    通过
+    \begin{align}
+        \abs{G_2-\lambda I}=\begin{vmatrix}
+            -\lambda&0&i\hbar\\
+            0&-\lambda&0\\
+            -i\hbar&0&-\lambda
+        \end{vmatrix}=-\lambda(\lambda+\hbar)(\lambda-\hbar)=0
+    \end{align}
+    解得 $G_2$ 的本征值为
+    \begin{align}
+        \lambda_1^{(2)}=\hbar,\quad\lambda_2^{(2)}=0,\quad\lambda_3^{(2)}=-\hbar.
+    \end{align}
+    将这三个本征值代入本征方程
+    \begin{align}
+        G_2\lvert\lambda_i^{(2)}\rangle=\lambda_i^{(2)}\lvert\lambda_i^{(2)}\rangle,
+    \end{align}
+    解得对应的归一化本征矢分别为
+    \begin{align}
+        \lvert\lambda_1^{(2)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            i\\
+            0\\
+            1
+        \end{bmatrix},\quad\lvert\lambda_2^{(2)}\rangle=\begin{bmatrix}
+            0\\
+            1\\
+            0
+        \end{bmatrix},\quad\lvert\lambda_3^{(2)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            0\\
+            i
+        \end{bmatrix}.
+    \end{align}
+    故
+    \begin{align}
+        \frac{1}{\sqrt{2}}\begin{bmatrix}
+            -i&0&1\\
+            0&\sqrt{2}&0\\
+            1&0&-i
+        \end{bmatrix}G_2\frac{1}{\sqrt{2}}\begin{bmatrix}
+            i&0&1\\
+            0&\sqrt{2}&0\\
+            1&0&i
+        \end{bmatrix}=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}.
+    \end{align}
+    通过
+    \begin{align}
+        \abs{J_2-\xi I}=\begin{vmatrix}
+            -\xi&-i\frac{\hbar}{\sqrt{2}}&0\\
+            i\frac{\hbar}{\sqrt{2}}&-\xi&-i\frac{\hbar}{\sqrt{2}}\\
+            0&i\frac{\hbar}{\sqrt{2}}&-\xi
+        \end{vmatrix}=-\xi(\xi+\hbar)(\xi-\hbar)=0
+    \end{align}
+    解得 $J_2$ 的本征值为
+    \begin{align}
+        \xi_1^{(2)}=\hbar,\quad\xi_2^{(2)}=0,\quad\xi_3^{(2)}=-\hbar.
+    \end{align}
+    将这撒呢个本征值代入本征方程
+    \begin{align}
+        J_2\lvert\xi_i^{(2)}\rangle=\xi_i^{(2)}\lvert\xi_i^{(2)}\rangle,
+    \end{align}
+    解得对应的归一化本征矢分别为
+    \begin{align}
+        \lvert\xi_1^{(1)}\rangle=\frac{1}{2}\begin{bmatrix}
+            1\\
+            i\sqrt{2}\\
+            -1
+        \end{bmatrix},\quad\lvert\xi_2^{(2)}\rangle=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            1\\
+            0\\
+            1
+        \end{bmatrix},\quad\lvert\xi_3^{(2)}\rangle=\frac{1}{2}\begin{bmatrix}
+            1\\
+            -i\sqrt{2}\\
+            -1
+        \end{bmatrix}.
+    \end{align}
+    故
+    \begin{align}
+        \frac{1}{2}\begin{bmatrix}
+            1&-i\sqrt{2}&-1\\
+            \sqrt{2}&0&\sqrt{2}\\
+            1&i\sqrt{2}&-1
+        \end{bmatrix}J_2\frac{1}{2}\begin{bmatrix}
+            1&\sqrt{2}&1\\
+            i\sqrt{2}&0&-i\sqrt{2}\\
+            -1&\sqrt{2}&-1
+        \end{bmatrix}=\hbar\begin{bmatrix}
+            1&0&0\\
+            0&0&0\\
+            0&0&-1
+        \end{bmatrix}.
+    \end{align}
+    因此
+    \begin{align}
+        U_2=\frac{1}{\sqrt{2}}\begin{bmatrix}
+            i&0&1\\
+            0&\sqrt{2}&0\\
+            1&0&i
+        \end{bmatrix}\frac{1}{2}\begin{bmatrix}
+            1&-i\sqrt{2}&-1\\
+            \sqrt{2}&0&\sqrt{2}\\
+            1&i\sqrt{2}&-1
+        \end{bmatrix}=\frac{1}{2\sqrt{2}}\begin{bmatrix}
+            1+i&\sqrt{2}+i\sqrt{2}&-1-i\\
+            2&0&2\\
+            1+i&-\sqrt{2}-i\sqrt{2}&-1-i
         \end{bmatrix}.
     \end{align}
 
