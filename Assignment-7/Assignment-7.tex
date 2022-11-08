@@ -36,8 +36,65 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 由
+        \begin{align}
+            Y_{l=1}^{m=0}(\bm{U})=&\sqrt{\frac{3}{4\pi}}\cos\theta=\sqrt{\frac{3}{4\pi}}\frac{U_z}{\abs{U}},\\
+            Y_{l=1}^{m=\pm 1}(\bm{U})=&\mp\sqrt{\frac{3}{8\pi}}\sin\theta e^{\pm i\theta}=\mp\sqrt{\frac{3}{4\pi}}\frac{U_x\pm iU_y}{\abs{U}},
+        \end{align}
+        得单由 $\bm{U}$ 构造的秩为 $1$ 的球张量
+        \begin{align}
+            U_0^{(1)}=&U_z,\\
+            U_{\pm 1}^{(1)}=&\mp\frac{U_x\pm iU_y}{\sqrt{2}}.
+        \end{align}
+
+        对 $\bm{V}$ 同理有
+        \begin{align}
+            V_0^{(1)}=&V_z,\\
+            V_{\pm 1}^{(1)}=&\mp\frac{V_x\pm iV_y}{\sqrt{2}}.
+        \end{align}
+
+        利用定理
+        \begin{align}
+            T_q^{(k)}=\sum_{q_1}\sum_{q_2}\langle k_1k_2;q_1q_2\vert k_1k_2;kq\rangle X_{q_1}^{(k_1)}Z_{q_2}^{(k_2)},
+        \end{align}
+        有
+        \begin{align}
+            T_{q}^{(1)}=\sum_{q_1}\sum_{q_2}\langle 11;q_1q_2\vert 11;1q\rangle U_{q_1}^{(1)}V_{q_2}^{(2)},
+        \end{align}
+        从而
+        \begin{align}
+            \notag T_{+1}^{(1)}=&\langle 11;0,+1\vert 11;1,+1\rangle U_{0}^{(1)}V_{+1}^{(1)}+\langle 11;+1,0\vert 11;1,+1\rangle U_{+1}^{(1)}V_{0}^{(1)}\\
+            \notag=&-\frac{1}{\sqrt{2}}U_z\frac{-V_x-iV_y}{\sqrt{2}}+\frac{1}{\sqrt{2}}\frac{-U_x-iU_y}{\sqrt{2}}V_z\\
+            =&\frac{1}{2}(U_zV_x+iU_zV_y-U_xV_z-iU_yV_z),\\
+            \notag T_{0}^{(1)}=&\langle 11;-1,+1\vert 11;10\rangle U_{-1}^{(1)}V_{+1}^{(1)}+\langle 11;00\vert 11;10\rangle U_{0}^{(1)}V_{0}^{(1)}+\langle 11;+1,-1\vert 11;10\rangle U_{+1}^{(1)}V_{-1}^{(1)}\\
+            \notag=&-\frac{1}{\sqrt{2}}\frac{U_x-iU_y}{\sqrt{2}}\frac{-V_x-iV_y}{\sqrt{2}}+\frac{1}{\sqrt{2}}\frac{-U_x-iU_y}{\sqrt{2}}\frac{V_x-iV_y}{\sqrt{2}}\\
+            =&\frac{i}{\sqrt{2}}(U_xV_y-U_yV_x),\\
+            \notag T_{-1}^{(1)}=&\langle 11;-1,0\vert 11;1,-1\rangle U_{-1}^{(1)}V_{0}^{(1)}+\langle 11;0,-1\vert 11;1,-1\rangle U_{0}^{(1)}V_{-1}^{(1)}\\
+            \notag=&-\frac{1}{\sqrt{2}}\frac{U_x-iU_y}{\sqrt{2}}V_z+\frac{1}{\sqrt{2}}U_z\frac{V_x-iV_y}{\sqrt{2}}\\
+            =&\frac{1}{2}(-U_xV_z+iU_yV_z+U_zV_x-iU_zV_y).
+        \end{align}
+        \item[(b)] 利用定理
+        \begin{align}
+            T_q^{(k)}=\sum_{q_1}\sum_{q_2}\langle k_1k_2;q_1q_2\vert k_1k_2;kq\rangle X_{q_1}^{(k_1)}Z_{q_2}^{(k_2)},
+        \end{align}
+        有
+        \begin{align}
+            T_q^{(2)}=\sum_{q_1}\sum_{q_2}\langle 11;q_1q_2\vert 11;2q\rangle U_{q_1}^{(1)}V_{q_2}^{(1)},
+        \end{align}
+        从而
+        \begin{align}
+            T_{+2}^{(2)}=&\langle 11;+1,+1\vert 11;2,+2\rangle U_{+1}^{(1)}V_{+1}^{(1)}=\frac{-U_x-iU_y}{\sqrt{2}}\frac{-V_x-iU_y}{\sqrt{2}}=\frac{1}{2}(U_xV_x+iU_xV_y+iU_yV_x+U_yV_y),\\
+            \notag T_{+1}^{(2)}=&\langle 11;0,+1\vert 11;2,+1\rangle U_{0}^{(1)}V_{+1}^{(1)}+\langle 11;+1,0\vert 11;2,+1\rangle U_{+1}^{(1)}V_{0}^{(1)}\\
+            \notag=&\frac{1}{\sqrt{2}}U_z\frac{-V_x-iV_y}{\sqrt{2}}+\frac{1}{\sqrt{2}}\frac{-U_x-iU_y}{\sqrt{2}}V_z\\
+            =&-\frac{1}{2}[U_z(V_x+iV_y)+(U_x+iU_y)V_z],\\
+            \notag T_{0}^{(2)}=&\langle 11;-1,+1\vert 11;20\rangle U_{-1}^{(1)}V_{+1}^{(1)}+\langle 11;00\vert 11;20\rangle U_{0}^{(1)}V_{0}^{(1)}+\langle 11;+1,-1\vert 11;20\rangle U_{+1}^{(1)}V_{-1}^{(1)}\\
+            \notag=&\frac{1}{\sqrt{6}}\frac{U_x-iU_y}{\sqrt{2}}\frac{-V_x-iV_y}{\sqrt{2}}+\frac{2}{\sqrt{6}}U_zV_z+\frac{1}{\sqrt{6}}\frac{-U_x-iU_y}{\sqrt{2}}\frac{V_x-iV_y}{\sqrt{2}}\\
+            =&\frac{1}{\sqrt{6}}(-U_xV_x-U_yV_y+2U_zV_z),\\
+            \notag T_{-1}^{(2)}=&\langle 11;-1,0\vert 11;2,-1\rangle U_{-1}^{(1)}V_{0}^{(1)}+\langle 11;0,-1\vert 11;2,-1\rangle U_{0}^{(1)}V_{-1}^{(1)}\\
+            \notag=&\frac{1}{\sqrt{2}}\frac{U_x-iU_y}{\sqrt{2}}V_z+\frac{1}{\sqrt{2}}U_z\frac{V_x-iV_y}{\sqrt{2}}\\
+            =&\frac{1}{2}(U_xV_z-iU_yV_z+U_zV_x-iU_zV_y),\\
+            \notag T_{-2}^{(2)}=&\langle 11;-1,-1\vert 11;2,-2\rangle U_{-1}^{(1)}V_{-1}^{(1)}=\frac{U_x-iU_y}{\sqrt{2}}\frac{V_x-iU_y}{\sqrt{2}}=\frac{1}{2}(U_xV_x-iU_xV_y-iU_yV_x-U_yV_y).
+        \end{align}
     \end{itemize}
 \end{sol}
 
@@ -57,8 +114,37 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 由
+        \begin{align}
+            Y_2^0(\bm{r})=&\sqrt{\frac{5}{16\pi}}(3\cos^2\theta-1)=\sqrt{\frac{5}{16\pi}}\left(3\frac{z^2}{r^2}-1\right),\\
+            Y_2^{\pm 1}(\bm{r})=&\mp\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta e^{\pm i\phi}=\mp\sqrt{\frac{15}{8\pi}}\frac{(x\pm iy)z}{r^2},\\
+            Y_2^{\pm 2}(\bm{r})=&\sqrt{\frac{15}{32\pi}}\sin^2\theta e^{\pm 2i\phi}=\sqrt{\frac{15}{32\pi}}\frac{(x\pm iy)^2}{r^2},
+        \end{align}
+        得
+        \begin{align}
+            xy=&\frac{1}{4i}\left[\sqrt{\frac{32\pi}{15}}r^2Y_2^{+2}(\bm{r})-\sqrt{\frac{32\pi}{15}}r^2Y_2^{-2}(\bm{r})\right]=i\sqrt{\frac{2\pi}{15}}r^2[Y_2^{-2}(\bm{r})-Y_2^{+2}(\bm{r})],\\
+            xz=&\frac{1}{2}\left[\sqrt{\frac{8\pi}{15}}r^2Y_2^{-1}(\bm{r})-\sqrt{\frac{8\pi}{15}}r^2Y_2^{+1}(\bm{r})\right]=\sqrt{\frac{2\pi}{15}}r^2[Y_2^{-1}(\bm{r})-Y_2^{+1}(\bm{r})],\\
+            (x^2-y^2)=&\frac{1}{2}\left[\sqrt{\frac{32\pi}{15}}r^2Y_2^{+2}(\bm{r})+\sqrt{\frac{32\pi}{15}}r^2Y_2^{-2}(\bm{r})\right]=\sqrt{\frac{8\pi}{15}}r^2[Y_2^{+2}(\bm{r})+Y_2^{-2}(\bm{r})].
+        \end{align}
+        \item[(b)] 利用前一小题的结论,
+        \begin{align}
+            e\langle\alpha,j,m'\rvert(x^2-y^2)\lvert\alpha,j,m=j\rangle=e\sqrt{\frac{8\pi}{15}}\langle\alpha,j,m'\rvert r^2[Y_2^{-2}(\bm{r})+Y_2^{+2}(\bm{r})]\lvert\alpha,j,m=j\rangle.
+        \end{align}
+        利用 Wigner-Eckart 定理,
+        \begin{align}
+            \notag e\langle\alpha,j,m'\rvert(x^2-y^2)\lvert\alpha,j,m=j\rangle=&e\sqrt{\frac{8\pi}{15}}[\langle j2;j,-2\vert j2;jm'\rangle+\langle j2;j,+2\vert j2;jm'\rangle]\frac{\langle\alpha,j\rVert Y^{(2)}\lVert\alpha,j\rangle}{\sqrt{2j+1}}\\
+            =&e\sqrt{\frac{8\pi}{15}}\langle j2;j,-2\vert j2;jm'\rangle\frac{\langle\alpha,j\rVert Y^{(2)}\lVert\alpha,j\rangle}{\sqrt{2j+1}}
+        \end{align}
+
+        另一方面,
+        \begin{align}
+            \notag Q=&e\langle\alpha,j,m=j\rvert(3z^2-r^2)\lvert\alpha,j,m=j\rangle=e\sqrt{\frac{16\pi}{5}}\langle\alpha,j,m'\rvert Y_2^0(\bm{r})\lvert\alpha,j,m=j\rangle\\
+            =&e\sqrt{\frac{16\pi}{5}}\langle j2;j0\vert j2;jj\rangle\frac{\langle\alpha,j\rVert Y^{(2)}\lVert\alpha,j\rangle}{\sqrt{2j+1}}.
+        \end{align}
+        故
+        \begin{align}
+            e\langle\alpha,j,m'\rvert(x^2-y^2)\lvert\alpha,j,m=j\rangle=\frac{Q}{\sqrt{2}}\frac{\langle j2;j,-2\vert j2,jm'\rangle}{\langle j2;j0\vert j2;jj\rangle}.
+        \end{align}
     \end{itemize}
 \end{sol}
 
