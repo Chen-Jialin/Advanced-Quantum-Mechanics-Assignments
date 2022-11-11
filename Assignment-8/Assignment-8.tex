@@ -90,11 +90,65 @@
 
 \begin{prob}[课本习题 4.7]
     \begin{itemize}
-        \item[(a)] 设 $\psi(\bm{x},t)$ 是一个无自旋粒子的波函数, 相应于一个三维平面波, 证明 $\psi'(\bm{x}',-t)$ 是动量方向反转的平面波波函数.
+        \item[(a)] 设 $\psi(\bm{x},t)$ 是一个无自旋粒子的波函数, 相应于一个三维平面波, 证明 $\psi^*(\bm{x}',-t)$ 是动量方向反转的平面波波函数.
         \item[(b)] 设 $\chi(\hat{\bm{n}})$ 是 $\bm{\sigma}\cdot\hat{\bm{n}}$ 的二分量本征旋量, 本征值为 $+1$, 利用 $\chi(\hat{\bm{n}})$ (借助于表征 $\hat{\bm{n}}$ 的极角和方位角 $\beta$ 和 $\gamma$) 的显示形式, 证明 $-i\sigma_2\chi^*(\hat{\bm{n}})$ 是自旋方向反转的二分量本征旋量.
     \end{itemize}
 \end{prob}
 \begin{pf}
-    
+    \begin{itemize}
+        \item[(a)] 由于该波函数相当于一个三维平面波, 其具有如下形式:
+        \begin{align}
+            \psi(\bm{x},t)=e^{i(\bm{p}'\cdot\bm{x}-Et)/\hbar},
+        \end{align}
+        对应动量为 $\bm{p}'$
+
+        而
+        \begin{align}
+            \psi^*(\bm{x},-t)=e^{-i(\bm{p}'\cdot\bm{x}+Et)/\hbar}=e^{i(-\bm{p}'\cdot\bm{x}-Et)/\hbar},
+        \end{align}
+        对应动量为 $-\bm{p}'$.
+        \item[(b)] 该 $\bm{\sigma}\cdot\hat{\bm{n}}$ 的二分量本征旋量的显示形式为
+        \begin{align}
+            \chi(\hat{\bm{n}})=\begin{bmatrix}
+                \cos\left(\frac{\beta}{2}\right)e^{-i\gamma/2}\\
+                \sin\left(\frac{\beta}{2}\right)e^{i\gamma/2}
+            \end{bmatrix}.
+        \end{align}
+        自旋方向反转的二分量本征旋量为
+        \begin{align}
+            \notag\chi'(\hat{\bm{n}})=&\left[\cos\left(\frac{\gamma}{2}\right)-i\sigma_3\sin\left(\frac{\gamma}{2}\right)\right]\left[\cos\left(\frac{\beta}{2}\right)-i\bm{\sigma}_2\sin\left(\frac{\beta}{2}\right)\right]\begin{bmatrix}
+                0\\
+                1
+            \end{bmatrix}\\
+            \notag=&\begin{bmatrix}
+                \cos\left(\frac{\gamma}{2}\right)-i\sin\left(\frac{\gamma}{2}\right)&0\\
+                0&\cos\left(\frac{\gamma}{2}\right)+i\sin\left(\frac{\gamma}{2}\right)
+            \end{bmatrix}\begin{bmatrix}
+                \cos\left(\frac{\beta}{2}\right)&-\sin\left(\frac{\beta}{2}\right)\\
+                \sin\left(\frac{\beta}{2}\right)&\cos\left(\frac{\beta}{2}\right)
+            \end{bmatrix}\begin{bmatrix}
+                0\\
+                1
+            \end{bmatrix}\\
+            =&\begin{bmatrix}
+                -\sin\left(\frac{\beta}{2}\right)e^{-i\gamma/2}\\
+                \cos\left(\frac{\beta}{2}\right)e^{i\gamma/2}
+            \end{bmatrix}.
+        \end{align}
+        故
+        \begin{align}
+            -i\sigma_2\chi^*(\hat{\bm{n}})=-i\begin{bmatrix}
+                0&-i\\
+                i&0
+            \end{bmatrix}\begin{bmatrix}
+                \cos\left(\frac{\beta}{2}\right)e^{i\gamma/2}\\
+                \sin\left(\frac{\beta}{2}\right)e^{-i\gamma/2}
+            \end{bmatrix}=\begin{bmatrix}
+                -\sin\left(\frac{\beta}{2}\right)e^{-i\gamma/2}\\
+                \cos\left(\frac{\beta}{2}\right)e^{i\gamma/2}
+            \end{bmatrix},
+        \end{align}
+        即 $-i\sigma_2\chi^*(\hat{\bm{n}})$ 是自旋方向反转的二分量本征旋量.
+    \end{itemize}
 \end{pf}
 \end{document}
