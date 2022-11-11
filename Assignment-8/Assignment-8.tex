@@ -1,0 +1,84 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第八次作业}{截止时间: 2022 年 11 月 14 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 4.2]
+    设 $\mathscr{T}_{\bm{d}}$ 代表平移算符 (位移矢量为 $\bm{d}$); 设 $\mathscr{D}(\hat{\bm{n}},\phi)$ 代表转动算符 ($\hat{\bm{n}}$ 和 $\phi$ 分别为转轴和转角); 而设 $\pi$ 代表宇称算符. 下列的各对算符中, 如果有的话, 哪几对是对易的? 为什么?
+    \begin{itemize}
+        \item[(a)] $\mathscr{T}_{\bm{d}}$ 和 $\mathscr{T}_{\bm{d}'}$ ($\bm{d}$ 和 $\bm{d}'$ 沿不同方向),
+        \item[(b)] $\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\mathscr{D}(\hat{\bm{n}}',\phi')$ ($\hat{\bm{n}}$ 和 $\hat{\bm{n}}'$ 沿不同方向).
+        \item[(c)] $\mathscr{T}_{\bm{d}}$ 和 $\pi$.
+        \item[(d)] $\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\pi$.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] \uline{$\mathscr{T}_{\bm{d}}$ 和 $\mathscr{T}_{\bm{d}'}$ 对易.} 证明如下:
+
+        由于 $[p_i,p_j]=0$, 故
+        \begin{align}
+            \notag[\mathscr{T}_{\bm{d}},\mathscr{T}_{\bm{d}'}]=&\mathscr{T}_{\bm{d}}\mathscr{T}_{\bm{d}'}-\mathscr{T}_{\bm{d}'}\mathscr{T}_{\bm{d}}=\exp\left(-\frac{i\bm{d}\cdot\bm{p}}{\hbar}\right)\exp\left(-\frac{i\bm{d}'\cdot\bm{p}}{\hbar}\right)-\exp\left(-\frac{i\bm{d}'\cdot\bm{p}}{\hbar}\right)\exp\left(-\frac{i\bm{d}\cdot\bm{p}}{\hbar}\right)\\
+            =&\exp\left(-\frac{i(\bm{d}+\bm{d}')\cdot\bm{p}}{\hbar}\right)-\exp\left(-\frac{i(\bm{d}+\bm{d}')\cdot\bm{p}}{\hbar}\right)=0,
+        \end{align}
+        即 $\mathscr{T}_{\bm{d}}$ 和 $\mathscr{T}_{\bm{d}'}$ 对易.
+        \item[(b)] \uline{$\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\mathscr{D}(\hat{\bm{d}}',\phi')$ 不对易.} 证明如下:
+
+        不妨假设 $\hat{\bm{n}}=\hat{\bm{z}}$, $\hat{\bm{n}}=\hat{\bm{x}}$, 则由于 $[J_z,J_x]=i\hbar J_y$, 故
+        \begin{align}
+            \notag[\mathscr{D}(\hat{\bm{n}},\phi),\mathscr{D}(\hat{\bm{n}}',\phi')]=&\mathscr{D}(\hat{\bm{n}},\phi)\mathscr{D}(\hat{\bm{n}}',\phi')-\mathscr{D}(\hat{\bm{n}}',\phi')\mathscr{D}(\hat{\bm{n}},\phi)\\
+            \notag=&\exp\left(\frac{-iJ_z\phi}{\hbar}\right)\exp\left(\frac{-iJ_x\phi'}{\hbar}\right)-\exp\left(\frac{-iJ_x\phi'}{\hbar}\right)\exp\left(\frac{-iJ_z\phi}{\hbar}\right)\\
+            \notag=&\left(1-\frac{iJ_z\phi}{\hbar}-\frac{J_z^2\phi^2}{\hbar^2}+\cdots\right)\left(1-\frac{iJ_x\phi'}{\hbar}-\frac{J_x^2\phi'^2}{\hbar^2}+\cdots\right)\\
+            \notag&-\left(1-\frac{iJ_x\phi'}{\hbar}-\frac{J_x^2\phi'^2}{\hbar^2}+\cdots\right)\left(1-\frac{iJ_z\phi}{\hbar}-\frac{J_z^2\phi^2}{\hbar^2}+\cdots\right)\\
+            \notag=&-\frac{(J_zJ_x-J_xJ_z)\phi\phi'}{\hbar^2}+\cdots\\
+            \notag=&-\frac{iJ_y\phi\phi'}{\hbar}+\cdots\\
+            \neq&0,
+        \end{align}
+        即 $\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\mathscr{D}(\hat{\bm{d}}',\phi')$ 不对易.
+        \item[(c)] \uline{$\mathscr{T}_{\bm{d}}$ 和 $\pi$ 不对易.} 证明如下:
+
+        对位置算符 $\bm{x}$ 的任意本征矢 $\lvert\bm{x}'\rangle$, 有
+        \begin{align}
+            \notag[\mathscr{T}_{\bm{d}},\pi]\lvert\bm{x}'\rangle=&(\mathscr{T}_{\bm{d}}\pi-\pi\mathscr{T}_{\bm{d}})\lvert\bm{x}'\rangle=\mathscr{T}_{\bm{d}}\pi\lvert\bm{x}'\rangle-\pi\mathscr{T}_{\bm{d}}\lvert\bm{x}'\rangle=\pm\mathscr{T}_{\bm{d}}\lvert-\bm{x}'\rangle-\pi\lvert\bm{x}'+\bm{d}\rangle=\pm(\lvert-\bm{x}'+\bm{d}\rangle-\lvert-\bm{x}'-\bm{d}\rangle)\\
+            \neq&0,
+        \end{align}
+        故
+        \begin{align}
+            [\mathscr{T}_{\bm{d}},\pi]\neq 0,
+        \end{align}
+        即 $\mathscr{T}_{\bm{d}}$ 和 $\pi$ 不对易.
+        \item[(d)] \uline{$\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\pi$ 对易.} 证明如下:
+
+        对位置算符 $\bm{x}$ 的任意本征矢 $\lvert\bm{x}'\rangle$, 假设 $\mathscr{D}(\hat{\bm{n}},\phi)\lvert\bm{x}'\rangle=\lvert\bm{x}''\rangle$, 则有
+        \begin{align}
+            \notag[\mathscr{D}(\hat{\bm{n}},\phi),\pi]\lvert\bm{x}'\rangle=&[\mathscr{D}(\hat{\bm{n}},\phi)\pi-\pi\mathscr{D}(\hat{\bm{n}},\phi)]\lvert\bm{x}'\rangle=\mathscr{D}(\hat{\bm{n}},\phi)\pi\lvert\bm{x}'\rangle-\pi\mathscr{D}(\hat{\bm{n}},\phi)\lvert\bm{x}'\rangle=\pm\mathscr{D}(\hat{\bm{n}},\phi)\lvert-\bm{x}'\rangle-\pi\lvert\bm{x}''\rangle\\
+            =&\pm(\lvert-\bm{x}''\rangle-\lvert-\bm{x}''\rangle)=0,
+        \end{align}
+        考虑到 $\lvert\bm{x}'\rangle$ 的任意性和完备性, 故
+        \begin{align}
+            [\mathscr{D}(\hat{\bm{n}},\phi),\pi]=0,
+        \end{align}
+        即 $\mathscr{D}(\hat{\bm{n}},\phi)$ 和 $\pi$ 对易.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 4.3]
+    已知一个量子力学态 $\Psi$ 是两个厄米算符 $A$ 和 $B$ 的一个共同本征态, 且 $A$ 和 $B$ 反对易:
+    \[
+        AB+BA=0.
+    \]
+    关于 $\lvert\Psi\rangle$ 态上 $A$ 和 $B$ 的本征值能说些什么? 用宇称算符 (可以选择它来满足 $\pi=\pi^{-1}=\pi^{\dagger}$) 和动量算符为例来说明你的观点.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 4.7]
+    \begin{itemize}
+        \item[(a)] 设 $\psi(\bm{x},t)$ 是一个无自旋粒子的波函数, 相应于一个三维平面波, 证明 $\psi'(\bm{x}',-t)$ 是动量方向反转的平面波波函数.
+        \item[(b)] 设 $\chi(\hat{\bm{n}})$ 是 $\bm{\sigma}\cdot\hat{\bm{n}}$ 的二分量本征旋量, 本征值为 $+1$, 利用 $\chi(\hat{\bm{n}})$ (借助于表征 $\hat{\bm{n}}$ 的极角和方位角 $\beta$ 和 $\gamma$) 的显示形式, 证明 $-i\sigma_2\chi^*(\hat{\bm{n}})$ 是自旋方向反转的二分量本征旋量.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+
+\end{pf}
+\end{document}
