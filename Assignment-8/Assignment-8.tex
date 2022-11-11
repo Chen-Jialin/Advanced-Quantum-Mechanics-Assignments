@@ -69,7 +69,23 @@
     关于 $\lvert\Psi\rangle$ 态上 $A$ 和 $B$ 的本征值能说些什么? 用宇称算符 (可以选择它来满足 $\pi=\pi^{-1}=\pi^{\dagger}$) 和动量算符为例来说明你的观点.
 \end{prob}
 \begin{sol}
-    
+    假设本征态 $\Psi$ 对应的算符 $A$ 和 $B$ 的本征值分别为 $a$ 和 $b$, 将 $AB+BA=0$ 作用于该本征态 $\Psi$ 上有
+    \begin{gather}
+        (AB+BA)\lvert\Psi\rangle=(ab+ba)\lvert\Psi\rangle=2ab\lvert\Psi\rangle=0,\\
+        \Longrightarrow ab=0,\\
+        \Longrightarrow a=0\quad\text{or}\quad b=0.
+    \end{gather}
+
+    宇称算符 $\pi$ 和动量算符 $\bm{p}$ 反对易: $[\pi,\bm{p}]=0$. 动量算符 $\bm{p}$ 的本征态为
+    \begin{align}
+        \lvert\bm{p}'\rangle=\frac{1}{\sqrt{2\pi\hbar}}\int\mathrm{d}\bm{x}'\,\exp\left(\frac{i\bm{p}'\cdot\bm{x}'}{\hbar}\right)\lvert\bm{x}'\rangle.
+    \end{align}
+    将宇称算符 $\pi$ 作用于动量算符 $\bm{p}$ 的本征态上有
+    \begin{align}
+        \pi\lvert\bm{p}'\rangle=&\pi\frac{1}{\sqrt{2\pi\hbar}}\int\mathrm{d}\bm{x}'\,\exp\left(\frac{i\bm{p}'\cdot\bm{x}'}{\hbar}\right)\lvert\bm{x}'\rangle=\pm\frac{1}{\sqrt{2\pi\hbar}}\int\mathrm{d}\bm{x}'\,\exp\left(\frac{i\bm{p}'\cdot\bm{x}'}{\hbar}\right)\lvert-\bm{x}'\rangle,
+    \end{align}
+    故仅有 $\lvert\bm{p}'=0\rangle$ 为宇称算符 $\pi$ 和 $\bm{p}$ 的共同本征态.
+    宇称算符 $\pi$ 的本征值必为 $\pm 1$, 而对该共同本征态 $\lvert\bm{p}'=0\rangle$, 动量算符 $\bm{p}$ 的本征值为 $0$, 这与我们在前文得到的结论一致.
 \end{sol}
 
 \begin{prob}[课本习题 4.7]
@@ -79,6 +95,6 @@
     \end{itemize}
 \end{prob}
 \begin{pf}
-
+    
 \end{pf}
 \end{document}
