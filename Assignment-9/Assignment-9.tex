@@ -1,0 +1,58 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第九次作业}{截止时间: 2022 年 11 月 21 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 4.8]
+    \begin{itemize}
+        \item[(a)] 假定哈密顿量在时间反演下不变, 证明对一个无自旋非简并系统在任意给定时刻的波函数总可以选择为实的.
+        \item[(b)] 对于 $t=0$ 时刻的一个平面波, 其波函数由一个复函数 $e^{j\bm{p}\cdot\bm{x}/\hbar}$ 给出. 为什么这不破坏时间反演不变性.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[(a)] 假设能量本征态 $\lvert n\rangle$, 对应的能量本征值为 $E_n$. 由于哈密顿量在时间反演下不变, 即哈密顿量与时间反演算符对易
+        \begin{align}
+            [H,\Theta]=H\Theta-\Theta H=0,
+        \end{align}
+        从而有
+        \begin{align}
+            H\Theta\lvert n\rangle=\Theta H\lvert n\rangle=E_n\Theta\lvert n\rangle,
+        \end{align}
+        即 $\Theta\lvert n\rangle$ 与 $\lvert n\rangle$ 具有相同的本征值, 又因为该系统非简并, 故 $\Theta\lvert n\rangle$ 与 $\lvert n\rangle$ 为同一个态 (至多相差一个相因子).
+        不妨设 $\Theta\lvert n\rangle=e^{i\phi}\lvert n\rangle$.
+        $\lvert n\rangle$ 和 $\Theta\lvert n\rangle$ 的波函数分别为 $\langle\bm{x}'\vert n\rangle$ 和 $\langle\bm{x}'\rvert\Theta\lvert n\rangle=e^{i\phi}\langle\bm{x}'\vert n\rangle$.
+        由于 $\lvert\bm{x}'\rangle$ 在时间反演下不变, 即 $\lvert\bm{x}'\rangle=\Theta\lvert\bm{x}'\rangle$, 以及时间反演算符的反幺正性, 有
+        \begin{gather}
+            e^{i\phi}\langle\bm{x}'\vert n\rangle=\langle\bm{x}'\rvert\Theta\lvert n\rangle=\langle\bm{x}'\vert n\rangle^*,\\
+            \Longrightarrow(e^{i\phi/2}\langle\bm{x}'\vert n\rangle)=(e^{-i\phi/2}\langle\bm{x}'\rvert n\rangle)^*
+        \end{gather}
+        故总是可以将 $\langle\bm{x}'\vert n\rangle$ 分解成带有一个不含时也与 $\bm{x}'$ 无关的相位与一个实函数的乘积的形式, 而一个整体相位无任何实质影响, 因此总是可以将本征态波函数选择为实的.
+
+        该系统在任意给定时刻的波函数总是可表为这些本征态波函数的线性叠加, 从而也可被选择为实的.
+        \item[(b)] 上一小题的结论的逆否命题是说: 若一个无自旋非简并系统在某时刻的波函数无法被选择为正的, 则时间反演不变性破坏.
+
+        该平面波的波函数有一个依赖于 $\bm{x}$ 的相位, 从而无法给选择为实的.
+        但注意到该波函数与 $e^{-j\bm{p}\cdot\bm{x}'/\hbar}$ 等波函数具有简并的能量, 这违反了非简并系统这一前提条件, 因此无法根据上一小题的结论推出时间反演不变性破坏的这件事.
+    \end{itemize}
+\end{pf}
+
+\begin{prob}[课本习题 4.10]
+    \begin{itemize}
+        \item[(a)] 用 (4.5.53) 式证明 $\Theta\lvert j,m\rangle$ 等于 $\lvert j,-m\rangle$, 至多一个包含有因子 $(-1)^m$ 的相因子. 这就是说, 证明 $\Theta\lvert j,m\rangle=e^{i\delta}(-1)^m\lvert j,-m\rangle$, 其中的 $\delta$ 不依赖于 $m$.
+        \item[(b)] 利用同样的相位约定求相应于 $\mathscr{D}(R)\lvert j,m\rangle$ 的时间反演态, 先用无穷小形式 $\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)$ 处理, 然后推广到有限转动.
+        \item[(c)] 从这些结果出发说明, 不依赖于 $\delta$, 有
+        \[
+            \mathscr{D}_{m'm}^{(j)*}(R)=(-1)^{m-m'}\mathscr{D}_{-m',-m}^{(j)}(R).
+        \]
+        \item[(d)] 可以得出如下结论: 可以自由地选取 $\delta=0$, 以及 $\Theta\lvert j,m\rangle=(-1)^m\lvert j,-m\rangle=i^{2m}\lvert j,-m\rangle$.
+    \end{itemize}
+\end{prob}
+\begin{prob}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+        \item[(c)] 
+        \item[(d)] 
+    \end{itemize}
+\end{prob}
+\end{document}
