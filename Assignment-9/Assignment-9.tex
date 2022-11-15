@@ -24,9 +24,9 @@
         由于 $\lvert\bm{x}'\rangle$ 在时间反演下不变, 即 $\lvert\bm{x}'\rangle=\Theta\lvert\bm{x}'\rangle$, 以及时间反演算符的反幺正性, 有
         \begin{gather}
             e^{i\phi}\langle\bm{x}'\vert n\rangle=\langle\bm{x}'\rvert\Theta\lvert n\rangle=\langle\bm{x}'\vert n\rangle^*,\\
-            \Longrightarrow(e^{i\phi/2}\langle\bm{x}'\vert n\rangle)=(e^{-i\phi/2}\langle\bm{x}'\rvert n\rangle)^*
+            \Longrightarrow(e^{i\phi/2}\langle\bm{x}'\vert n\rangle)=(e^{i\phi/2}\langle\bm{x}'\rvert n\rangle)^*
         \end{gather}
-        故总是可以将 $\langle\bm{x}'\vert n\rangle$ 分解成带有一个不含时也与 $\bm{x}'$ 无关的相位与一个实函数的乘积的形式, 而一个整体相位无任何实质影响, 因此总是可以将本征态波函数选择为实的.
+        故总是可以将 $\langle\bm{x}'\vert n\rangle$ 分解成带有一个不含时也与 $\bm{x}'$ 无关的相因子与一个实函数的乘积的形式, 而一个整体相位无任何实质影响, 因此总是可以将本征态波函数选择为实的.
 
         该系统在任意给定时刻的波函数总是可表为这些本征态波函数的线性叠加, 从而也可被选择为实的.
         \item[(b)] 上一小题的结论的逆否命题是说: 若一个无自旋非简并系统在某时刻的波函数无法被选择为正的, 则时间反演不变性破坏.
@@ -47,12 +47,67 @@
         \item[(d)] 可以得出如下结论: 可以自由地选取 $\delta=0$, 以及 $\Theta\lvert j,m\rangle=(-1)^m\lvert j,-m\rangle=i^{2m}\lvert j,-m\rangle$.
     \end{itemize}
 \end{prob}
-\begin{prob}
+\begin{pf}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
-        \item[(c)] 
-        \item[(d)] 
+        \item[(a)] 课本式 (4.5.53)
+        \begin{align}
+            \Theta\bm{J}\Theta^{-1}=-\bm{J}
+        \end{align}
+        说明 $\bm{J}$ 具有时间反演奇对称性, 故其包括 $J_z$ 在内的各分量算符以及算符 $J_{\pm}$ 均与时间反演算符 $\Theta$ 反对易.
+        由此有
+        \begin{align}
+            J_z\Theta\lvert j,m\rangle=-\Theta J_z\lvert j,m\rangle=-m\hbar\Theta\lvert j,m\rangle,
+        \end{align}
+        即 $\Theta\lvert j,m\rangle$ 和 $\lvert j,-m\rangle$ 至多相差一个相因子.
+        又有
+        \begin{align}
+            J_{\pm}\Theta\lvert j,m\rangle=-\Theta J_{\pm}\lvert j,m\rangle=-\sqrt{(j\mp m)(j\pm m+1)}\hbar\Theta\lvert j,m\pm 1\rangle,
+        \end{align}
+        故 $\Theta\lvert j,m\rangle$ 总是与相邻的 $\Theta\lvert j,m\pm 1\rangle$ 相差一个负号.
+
+        综上, $\Theta\lvert j,m\rangle$ 与 $\lvert j,-m\rangle$ 至多相差一个包含有因子 $(-1)^m$ 的相因子, 即
+        \begin{align}
+            \Theta\lvert j,m\rangle=e^{i\delta}(-1)^m\lvert j,-m\rangle.
+        \end{align}
+        \item[(b)] 无穷小形式的转动算符
+        \begin{align}
+            \mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)=1-\frac{i\bm{J}\cdot\hat{\bm{n}}\mathrm{d}\phi}{\hbar},
+        \end{align}
+        由于角动量 $\hat{J}$ 在时间反演下是奇的, 且复数单位 $i$ 在反线性的时间反演下反号, 故无穷小形式的转动算符 $\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)$ 与时间反演算符 $\Theta$ 对易:
+        \begin{align}
+            \Theta\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)\Theta^{-1}=\Theta\left[1-\frac{i\bm{J}\cdot\hat{\bm{n}}\mathrm{d}\phi}{\hbar}\right]\Theta^{-1}=1+i\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)\frac{\bm{J}\cdot\hat{\bm{n}}\mathrm{d}\phi}{\hbar}\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)=1-i\frac{\bm{J}\cdot\hat{\bm{n}}\mathrm{d}\phi}{\hbar}=\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi).
+        \end{align}
+        利用上式有
+        \begin{align}
+            \Theta\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)\lvert j,m\rangle=\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)\Theta\lvert j,m\rangle=e^{i\delta}(-1)^m\mathscr{D}(\hat{\bm{n}},\mathrm{d}\phi)\lvert j,-m\rangle
+        \end{align}
+
+        推广到有限转动:
+        \begin{align}
+            \notag\Theta\mathscr{D}(\hat{\bm{n}},\phi)\Theta^{-1}=&\Theta\lim_{n\rightarrow\infty}\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]^n\Theta^{-1}=\lim_{n\rightarrow\infty}\Theta\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]^n\Theta^{-1}\\
+            \notag=&\lim_{n\rightarrow\infty}\overbrace{\Theta\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]\Theta^{-1}\Theta\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]\Theta^{-1}\cdots\Theta\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]\Theta^{-1}}^{\text{共 }n\text{ 个相乘}}\\
+            \notag=&\lim_{n\rightarrow\infty}\left[1-i\frac{\bm{J}\cdot\hat{\bm{n}}}{\hbar}\frac{\phi}{n}\right]^n=\exp\left(\frac{-i\bm{J}\cdot\hat{\bm{n}}\mathrm{d}\phi}{\hbar}\right)\\
+            =&\mathscr{D}(\hat{\bm{n}},\phi).
+        \end{align}
+        从而有
+        \begin{align}
+            \Theta\mathscr{D}(\hat{\bm{n}},\phi)\lvert j,m\rangle=\mathscr{D}(\hat{\bm{n}},\phi)\Theta\lvert j,m\rangle=e^{i\delta}(-1)^m\mathscr{D}(\hat{\bm{n}},\phi)\lvert j,-m\rangle.
+        \end{align}
+        \item[(c)] 利用线性算符的性质:
+        \begin{align}
+            \langle\beta\rvert A\lvert\alpha\rangle=\pm\langle\tilde{\beta}\rvert A\lvert\tilde{\alpha}\rangle^*,
+        \end{align}
+        (其中 $\pm$ 分别对应线性算符 $A$ 在时间反演下的奇偶对称性)
+        有
+        \begin{align}
+            \notag\mathscr{D}_{m'm}^{(j)*}(R)=&\langle j,m'\rvert\mathscr{D}(R)\lvert j,m\rangle^*=\langle\widetilde{j,m}\rvert\mathscr{D}(R)\lvert\widetilde{j,m'}\rangle=e^{-i\delta}(-1)^{m'}\langle j,-m'\rvert\mathscr{D}(R)e^{i\delta}(-1)^m\lvert j,-m\rangle\\
+            \notag=&(-1)^{m'+m}\mathscr{D}_{m'm}(R)\\
+            =&(-1)^{m-m'}\mathscr{D}_{m'm}(R).
+        \end{align}
+        \item[(d)] 由 (a) 可知 $\Theta\lvert j,m\rangle=e^{i\delta}(-1)^m\lvert j,-m\rangle$, 而由 (c) 可知, 相因子 $e^{i\delta}$ 的选取不影响算符矩阵元, 因此不妨选取 $\delta=0$, 从而
+        \begin{align}
+            \Theta\lvert j,m\rangle=(-1)^m\lvert j,-m\rangle=i^{2m}\lvert j,-m\rangle.
+        \end{align}
     \end{itemize}
-\end{prob}
+\end{pf}
 \end{document}
