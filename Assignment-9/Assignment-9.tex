@@ -192,6 +192,18 @@
     对 (5.1.50) 式给出的一维谐振子和一个额外的微扰 $V=\frac{1}{2}\varepsilon m\omega^2x^2$ 建立 (5.1.54) 式. 证明其他所有的矩阵元 $V_{k0}$ 为零.
 \end{prob}
 \begin{pf}
-    
+    微扰哈密顿量的矩阵元为
+    \begin{align}
+        \notag V_{kn}=&\langle k^{(0)}\rvert\frac{1}{2}\varepsilon m\omega^2x^2\lvert n^{(0)}\rangle\\
+        \notag=&\frac{1}{2}\varepsilon m\omega^2\langle k^{(0)}\rvert\left[\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger})\right]^2\lvert n^{(0)}\rangle\\
+        \notag=&\frac{\varepsilon\hbar\omega}{4}\langle k^{(0)}\rvert(a^2+aa^{\dagger}+a^{\dagger}a+a^{\dagger 2})\lvert n^{(0)}\rangle\\\
+        \notag=&\frac{\varepsilon\hbar\omega}{4}\left[\sqrt{n(n-1)}\delta_{k,n-2}+(2n+1)\delta_{kn}+\sqrt{(n+1)(n+2)}\delta_{k,n+2}\right],
+    \end{align}
+    故除了
+    \begin{align}
+        V_{00}=&\frac{\varepsilon\hbar\omega}{4},\\
+        V_{20}=&\frac{\varepsilon\hbar\omega}{2\sqrt{2}},
+    \end{align}
+    其他所有的矩阵元 $V_{k0}$ 均为零.
 \end{pf}
 \end{document}
