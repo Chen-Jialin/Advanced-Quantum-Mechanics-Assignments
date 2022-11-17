@@ -110,4 +110,75 @@
         \end{align}
     \end{itemize}
 \end{pf}
+
+\begin{prob}[课本习题 5.1]
+    一个 (一维) 简谐振子受到一个微扰
+    \[
+        \lambda H_1=bx,
+    \]
+    其中 $b$ 是一个实常数.
+    \begin{itemize}
+        \item[(a)] 计算基态的能移到最低的非零级.
+        \item[(b)] 严格求解这个问题, 并与 $(a)$ 中得到的结果比较. 可以不加证明地假定
+        \[
+            \langle u_{n'}\rvert x\lvert u_n\rangle=\sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\delta_{n',n+1}+\sqrt{n}\delta_{n',n-1}).
+        \]
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 基态的能移为
+        \begin{align}
+            \Delta_0=\lambda(H_1)_{00}+\lambda^2\sum_{k\neq 0}\frac{\abs{(H_1)_{0k}}^2}{E_0^{(0)}-E_k^{(0)}}+\mathcal{O}(\lambda^3)
+        \end{align}
+        其中
+        \begin{align}
+            \lambda(H_1)_{00}=&b\langle 0^{(0)}\rvert x\lvert 0^{(0)}\rangle=b\langle 0^{(0)}\rvert\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger})\lvert 0^{(0)}\rangle=0,\\
+            \notag\lambda^2\sum_{k\neq 0}\frac{\abs{(H_1)_{0k}}^2}{E_0^{(0)}-E_k^{(0)}}=&b^2\sum_{k\neq 0}\frac{\abs{\langle 0^{(0)}\rvert x\lvert k^{(0)}\rangle}^2}{\frac{\hbar\omega}{2}-\hbar\omega\left(k+\frac{1}{2}\right)}\\
+            \notag=&-b^2\sum_{k\neq 0}\frac{\abs{\langle 0^{(0)}\rvert\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger})\lvert k^{(0)}\rangle}^2}{\hbar\omega k}\\
+            \notag=&-\frac{b^2}{2m\omega^2},
+        \end{align}
+        故基态的能移为
+        \begin{align}
+            \Delta_0=-\frac{b^2}{2m\omega^2}+\cdots
+        \end{align}
+        \item[(b)] 无微扰下, 该一维简谐振子的哈密顿量为
+        \begin{align}
+            H=\frac{p^2}{2m}+\frac{m\omega^2x^2}{2},
+        \end{align}
+        对应的基态能量为
+        \begin{align}
+            E_0^{(0)}=\frac{\hbar\omega}{2}.
+        \end{align}
+        在该微扰下, 该一维简谐振子的哈密顿量为
+        \begin{align}
+            \notag H=&\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}+bx=\frac{p^2}{2m}+\frac{m\omega^2}{2}\left(x+\frac{b}{m\omega^2}\right)-\frac{b^2}{2m\omega^2}\\
+            \notag&(\text{作变量代换 }x'=x+\frac{b^2}{m\omega^2})\\
+            =&\frac{p^2}{2m}+\frac{m\omega^2x'^2}{2}-\frac{b^2}{2m\omega^2},
+        \end{align}
+        故其基态能量为
+        \begin{align}
+            E_0=\frac{\hbar\omega}{2}-\frac{b^2}{2m\omega^2},
+        \end{align}
+        此时基态的能移为
+        \begin{align}
+            \Delta_0=E_0-E_0^{(0)}=-\frac{b^2}{2m\omega^2},
+        \end{align}
+        该结果与前一小题中用微扰理论所得一致.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 5.2]
+    在非简并的时间无关的微扰论中, 在微扰能量本征态 ($\lvert k\rangle$) 中找到相应的无微扰本征态 ($\lvert k^{(0)}\rangle$) 的概率是什么? 求解这个问题至 $g^2$ 级.
+\end{prob}
+\begin{sol}
+
+\end{sol}
+
+\begin{prob}[课本习题 5.5]
+    对 (5.1.50) 式给出的一维谐振子和一个额外的微扰 $V=\frac{1}{2}\varepsilon m\omega^2x^2$ 建立 (5.1.54) 式. 证明其他所有的矩阵元 $V_{k0}$ 为零.
+\end{prob}
+\begin{pf}
+    
+\end{pf}
 \end{document}
