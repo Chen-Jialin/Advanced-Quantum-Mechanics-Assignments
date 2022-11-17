@@ -172,7 +172,20 @@
     在非简并的时间无关的微扰论中, 在微扰能量本征态 ($\lvert k\rangle$) 中找到相应的无微扰本征态 ($\lvert k^{(0)}\rangle$) 的概率是什么? 求解这个问题至 $g^2$ 级.
 \end{prob}
 \begin{sol}
-
+    归一化的微扰本征态为
+    \begin{align}
+        \lvert k\rangle=Z_k^{1/2}\left[\lvert k^{(0)}\rangle+\lambda\sum_{n\neq k}\lvert n^{(0)}\rangle\frac{V_{nk}}{E_k^{(0)}-E_n^{(0)}}\right],
+    \end{align}
+    其中
+    \begin{align}
+        \notag Z_k^{-1}=&(\langle k^{(0)}\rvert+\lambda\langle k^{(1)}\rvert+\lambda^2\langle k^{(2)}\rvert+\cdots)(\lvert k^{(0)}\rangle+\lambda\lvert k^{(1)}\rangle+\lambda^2\lvert k^{(2)}\rangle+\cdots)\\
+        \notag=&1+\lambda^2\langle k^{(1)}\vert k^{(1)}\rangle+\mathcal{O}(\lambda^3)\\
+        =&1+\lambda^2\sum_{n\neq k}\frac{\abs{V_{nk}}^2}{(E_k^{(0)}-E_n^(0))^2}+\mathcal{O}(\lambda^3).
+    \end{align}
+    在该微扰能量本征态中找到相应的无微扰本征态 ($\lvert k^{(0)}\rangle$) 的概率是
+    \begin{align}
+        P(\lvert k^{(0)}\rangle)=\abs{\langle k^{(0)}\vert k\rangle}^2=\abs{Z_0}=\left[1+\lambda^2\sum_{n\neq k}\frac{\abs{V_{nk}}^2}{(E_k^{(0)}-E_n^{(0)})^2}+\mathcal{O}(\lambda^3)\right]^{-1}=1-\lambda^2\sum_{n\neq k}\frac{\abs{V_{nk}}^2}{(E_k^{(0)}-E_n^{(0)})^2}+\mathcal{O}(\lambda^3).
+    \end{align}
 \end{sol}
 
 \begin{prob}[课本习题 5.5]
