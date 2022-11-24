@@ -1,0 +1,222 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第十次作业}{截止时间: 2022 年 11 月 28 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 5.11]
+    一个双态系统的哈密顿量矩阵能被写为
+    \[
+        \mathcal{H}=\begin{pmatrix}
+            E_1^0&\lambda\Delta\\
+            \lambda\Delta&E_2^0
+        \end{pmatrix}
+    \]
+    很清楚, 无微扰问题 ($\lambda=0$) 的能量本征函数由
+    \[
+        \phi_1^{(0)}=\begin{pmatrix}
+            1\\
+            0
+        \end{pmatrix},\quad\phi_z^{(0)}=\begin{pmatrix}
+            0\\
+            1
+        \end{pmatrix}
+    \]
+    给出.
+    \begin{itemize}
+        \item[(a)] \textit{精确}求解这个问题以找到能量本征函数 $\psi_1$ 和 $\psi_2$, 及能量本征值 $E_1$ 和 $E_2$.
+        \item[(b)] 假定 $\lambda\abs{\Delta}\ll\abs{E_1^0-E_2^0}$, 使用时间无关微扰论, 求解同样的问题到一级的能量本征函数和到二级的能量本征值. 并与 (a) 中得到的精确结果比较.
+        \item[(c)] 假定两个无微扰的能量是 ``几乎简并'' 的, 即
+        \[
+            \abs{E_1^0-E_2^0}\ll\lambda\abs{\Delta}.
+        \]
+        证明 (a) 中得到的精确结果非常像通过令 $E_1^0$ 严格等于 $E_2^0$, 而把\textit{简并}微扰论应用于这个问题时所期待的结果.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 通过
+        \begin{align}
+            \abs{\mathcal{H}-EI}=\begin{vmatrix}
+                E_1^0-E&\lambda\Delta\\
+                \lambda\Delta&E_2^0-E
+            \end{vmatrix}=E^2-(E_1^0+E_2^0)E+E_1^0E_2^0-\lambda^2\Delta^2=0
+        \end{align}
+        解得该问题的能量本征值为
+        \begin{align}
+            E_{1,2}=\frac{(E_1^0+E_2^0)\pm\sqrt{(E_1^0-E_2^0)^2+4\lambda^2\Delta^2}}{2}.
+        \end{align}
+        将这两个能量本征值分别代入本征方程
+        \begin{align}
+            \mathcal{H}\psi_{1,2}=E_{1,2}\psi_{1,2}
+        \end{align}
+        中可得对应的归一化能量本征函数分别为
+        \begin{align}
+            \psi_1=\frac{1}{\sqrt{(E_1-E_2^0)^2+\lambda^2\Delta^2}}\begin{bmatrix}
+                E_1-E_2^0\\
+                \lambda\Delta
+            \end{bmatrix},\quad\psi_2=\frac{1}{\sqrt{(E_2-E_1^0)^2+\lambda^2\Delta^2}}\begin{bmatrix}
+                \lambda\Delta\\
+                E_2-E_1^0
+            \end{bmatrix}.
+        \end{align}
+        \item[(b)] \uline{使用时间无关微扰论,} 该问题的精确到一级的能量本征函数为
+        \begin{align}
+            \psi_1=\phi_1^0+\lambda\frac{\Delta}{E_1^0-E_2^0}\phi_2^0,\quad\psi_2=\phi_2^0+\lambda\frac{\Delta}{E_2^0-E_1^0}\phi_1^0.
+        \end{align}
+        精确到二级的能量本征值为
+        \begin{align}
+            E_1=E_1^0+\frac{\lambda^2\abs{\Delta}^2}{E_1^0-E_2^0},\quad E_2=E_2^0+\frac{\lambda^2\abs{\Delta}^2}{E_2^0-E_1^0}.
+        \end{align}
+
+        \uline{由 (a) 中的精确结果,} 关于 $\lambda\Delta$ 展开并取到一阶小量的能量本征函数为
+        \begin{align}
+            \psi_1=\begin{bmatrix}
+                1\\
+                \frac{\lambda\Delta}{E_1^0-E_2^0}
+            \end{bmatrix},\quad\psi_2=\begin{bmatrix}
+                \frac{\lambda\Delta}{E_2^0-E_1^0}\\
+                1
+            \end{bmatrix}.
+        \end{align}
+        关于 $\lambda\Delta$ 展开并取到二阶小量的能量本征值为
+        \begin{align}
+            E_1=\max\{E_1^0,E_2^0\}+\frac{\lambda\abs{\Delta}^2}{\abs{E_1^0-E_2^0}},\quad E_2=\min\{E_1^0,E_2^0\}-\frac{\lambda\abs{\Delta}}{\abs{E_1^0-E_2^0}}.
+        \end{align}
+        可见, 由时间无关微扰论得到的结果与精确结果一致.
+        \item[(c)] \uline{先令 $E_1^0$ 严格等于 $E_2^0$ 并应用简并微扰论:} 微扰矩阵为
+        \begin{align}
+            V=\begin{bmatrix}
+                0&\lambda\Delta\\
+                \lambda\Delta&0
+            \end{bmatrix},
+        \end{align}
+        通过
+        \begin{align}
+            \abs{V-EI}=\begin{vmatrix}
+                -\Delta^{(1)}&\lambda\Delta\\
+                \lambda\Delta&-\Delta^{(1)}
+            \end{vmatrix}=(\Delta^{(1)})^2-(\lambda\Delta)^2=0
+        \end{align}
+        解得该微扰矩阵的本征能量 (一阶能量修正) 为
+        \begin{align}
+            \Delta_{1,2}^{(1)}=\pm\lambda\Delta.
+        \end{align}
+        将这两个本征值代入微扰矩阵的本征方程
+        \begin{align}
+            V\psi_{1,2}^{(0)}=\Delta_{1,2}^{(1)}\psi_{1,2}^{(0)}
+        \end{align}
+        解得对应的零阶本征矢分别为
+        \begin{align}
+            \psi_{1,2}^{(0)}=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                \pm1
+            \end{bmatrix}.
+        \end{align}
+        原简并子空间内的一阶态矢修正为
+        \begin{align}
+            P_0\psi_1^{(1)}=&\frac{\lambda\psi_2^{(0)}}{\Delta_1^{(1)}-\Delta_2^{(1)}}\sum_{k\notin D}\cdots=0,\\
+            P_0\psi_2^{(1)}=&\frac{\lambda\psi_1^{(0)}}{\Delta_2^{(1)}-\Delta_1^{(1)}}\sum_{k\notin D}\cdots=0,
+        \end{align}
+        原简并子空间外的一阶态矢修正为
+        \begin{align}
+            P_1\psi_{1,2}^{(1)}=0
+        \end{align}
+        故一阶态矢修正为
+        \begin{align}
+            \psi_{1,2}^{(1)}=P_0\psi_{1,2}^{(1)}+P_1\psi_{1,2}^{(1)}=0.
+        \end{align}
+        二阶能量修正为
+        \begin{align}
+            \Delta_{1,2}^{(2)}=\sum_{k\notin D}\cdots=0.
+        \end{align}
+        综上, 精确到一级的能量本征函数为
+        \begin{align}
+            \psi_{1,2}=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                1\\
+                \pm 1
+            \end{bmatrix},
+        \end{align}
+        精确到二级的能量本征值为
+        \begin{align}
+            E_{1,2}=E_1^0\pm\lambda\Delta.
+        \end{align}
+
+        \uline{再精确求解:} 当两个无微扰的能量几乎简并, 即 $\abs{E_1^0-E_2^0}\ll\lambda\abs{\Delta}$ 时, 能量本征函数为
+        \begin{align}
+            \psi_{1,2}=\frac{1}{\sqrt{2}}\begin{bmatrix}
+                \pm 1\\
+                1
+            \end{bmatrix},
+        \end{align}
+        能量本征值为
+        \begin{align}
+            E_{1,2}=\frac{E_1^0+E_2^0}{2}\pm\lambda\Delta.
+        \end{align}
+        可见, 通过简并微扰论得到的结果与精确结果是一致的.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 5.13]
+    在下述情况下计算氢的 \ce{2P_{1/2}} 和 \ce{2P_{1/2}} 能级的斯塔克效应, 在那里场 $\varepsilon$ 足够的弱以至 $e\varepsilon a_0$ 小于精细结构, 但要计入兰姆位移 $\delta$ ($\delta=$ \SI{1057}{MHz}) (即在计算中忽略 \ce{2P_{3/2}} 能级). 证明: 当 $e\varepsilon a_0\ll\delta$ 时, 能移对 $\varepsilon$ 是二次的; 而当 $e\varepsilon a_0\ll\delta$ 时, 能移对 $\varepsilon$ 是线性的. (所需径向积分是 $\langle 2s\rvert r\lvert 2p\rangle=3\sqrt{3}a_0$.) 简要地讨论这个问题的时间反演结果 (如果有的话). 这个问题取自 Gottfried 1966, 习题 7-3.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[补充习题]
+    对类氢原子, 求解 $\langle nlm\rvert\frac{1}{r}\frac{\partial V_c}{\partial r}\lvert nlm\rangle$,
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 5.17]
+    \begin{itemize}
+        \item[(a)] 一个刚性转子处于一个垂直于其转轴的磁场中, 假定它的哈密顿量具有如下形式 (Merzbacher 1970, 习题 17-1)
+        \[
+            A\bm{L}^2+BL_z+CL_y
+        \]
+        如果磁场的二次项被忽略的话. 假设 $B\gg C$, 将微扰论用到最低非零级以获得近似的能量本征值.
+        \item[(b)] 考虑一个但电磁 (如, 碱金属) 原子的矩阵元
+        \begin{gather*}
+            \langle n'l'm_l'm_s'\rvert(3z^2-r^2)\lvert nlm_lm_s\rangle,\\
+            \langle n'l'm_l'm_s'\rvert xy\lvert nlm_lm_s\rangle.
+        \end{gather*}
+        对 $\Delta l$, $\Delta m_l$ 和 $\Delta m_s$ 写出选择定则. 证明你的答案是合理的.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 5.19]
+    (Merzbacher 1970, 448 页, 习题 11.) 对氦 (He) 的波函数, 使用
+    \[
+        \psi(\bm{x}_1,\bm{x}_2)=(Z_{\text{有效}}^3/\pi a_0^3)\exp\left[-\frac{Z_{\text{有效}}(r_1+r_2)}{a_0}\right]
+    \]
+    其中 $Z_{\text{有效}}=2-5/16$, 它是使用变分法得到的. 抗磁磁化率的测量值是 \SI{1.99e-6}{cm^3/mole}.
+
+    如果系统处在一个由矢势 $\bm{A}=(1/2)\bm{B}\times\bm{r}$ 描写的一个均匀磁场中, 使用对于在磁场中原子电子的哈密顿量, 确定一个零角动量态的到 $B^2$ 量级的能量变化.
+
+    用 $E=-(1/2)\chi B^2$ 定义原子的抗磁磁化率 $\chi$, 计算基态氦原子的 $\chi$, 并将其与测量值比较.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 5.20]
+    使用试探波函数
+    \[
+        \langle\bm{x}\vert\tilde{0}\rangle=e^{-\beta\abs{x}}
+    \]
+    其中 $\beta$ 作为变分参数, 估算一维简谐振子的基态能量. 可以使用
+    \[
+        \int_0^{\infty}e^{-\alpha r}r^n\,\mathrm{d}r=\frac{n!}{\alpha^{n+1}}.
+    \]
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+\end{document}
