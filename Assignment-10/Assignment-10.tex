@@ -89,7 +89,7 @@
                 \lambda\Delta&0
             \end{bmatrix},
         \end{align}
-        通过
+        通过久期方程
         \begin{align}
             \abs{V-EI}=\begin{vmatrix}
                 -\Delta^{(1)}&\lambda\Delta\\
@@ -156,10 +156,55 @@
 \end{sol}
 
 \begin{prob}[课本习题 5.13]
-    在下述情况下计算氢的 \ce{2P_{1/2}} 和 \ce{2P_{1/2}} 能级的斯塔克效应, 在那里场 $\varepsilon$ 足够的弱以至 $e\varepsilon a_0$ 小于精细结构, 但要计入兰姆位移 $\delta$ ($\delta=$ \SI{1057}{MHz}) (即在计算中忽略 \ce{2P_{3/2}} 能级). 证明: 当 $e\varepsilon a_0\ll\delta$ 时, 能移对 $\varepsilon$ 是二次的; 而当 $e\varepsilon a_0\ll\delta$ 时, 能移对 $\varepsilon$ 是线性的. (所需径向积分是 $\langle 2s\rvert r\lvert 2p\rangle=3\sqrt{3}a_0$.) 简要地讨论这个问题的时间反演结果 (如果有的话). 这个问题取自 Gottfried 1966, 习题 7-3.
+    在下述情况下计算氢的 \ce{2S_{1/2}} 和 \ce{2P_{1/2}} 能级的斯塔克效应, 在那里场 $\varepsilon$ 足够的弱以至 $e\varepsilon a_0$ 小于精细结构, 但要计入兰姆位移 $\delta$ ($\delta=$ \SI{1057}{MHz}) (即在计算中忽略 \ce{2P_{3/2}} 能级). 证明: 当 $e\varepsilon a_0\ll\delta$ 时, 能移对 $\varepsilon$ 是二次的; 而当 $e\varepsilon a_0\gg\delta$ 时, 能移对 $\varepsilon$ 是线性的. (所需径向积分是 $\langle 2s\rvert r\lvert 2p\rangle=3\sqrt{3}a_0$.) 简要地讨论这个问题的时间反演结果 (如果有的话). 这个问题取自 Gottfried 1966, 习题 7-3.
 \end{prob}
 \begin{sol}
-    
+    无微扰时, 考虑兰姆位移 $\delta$, 能量本征态 $\lvert 2S_{1/2}\rangle$ 和 $\lvert 2P_{1/2}\rangle$ 的能量本征值分别为 $E_2+\delta$ 和 $E_2$, 故系统的无微扰哈密顿量可表为
+    \begin{align}
+        H_0=\begin{bmatrix}
+            E_2+\delta&0\\
+            0&E_2
+        \end{bmatrix}.
+    \end{align}
+    外加电场 $\varepsilon$ 带来的微扰为
+    \begin{align}
+        V=-e\varepsilon z,
+    \end{align}
+    其中由于 $\lvert 2S_{1/2}\rangle$ 和 $\lvert 2P_{1/2}\rangle$ 分别具有偶/奇宇称, 故 $\langle 2S_{1/2}\rvert V\lvert 2S_{1/2}\rangle=\langle 2P_{1/2}\rvert V\lvert 2P_{1/2}\rangle=0$, 由于径向积分 $\langle 2s\rvert r\lvert 2p\rangle=\langle 2s\rvert\sqrt{x^2+y^2+z^2}\lvert 2p\rangle=\langle 2s\rvert\sqrt{3}\abs{z}\lvert 2p\rangle=3\sqrt{3}a_0$, 故 $\langle 2s\rvert V\lvert 2p\rangle=-3e\varepsilon a_0$, 从而微扰可表为
+    \begin{align}
+        V=\begin{bmatrix}
+            0&-3e\varepsilon a_0\\
+            -3e\varepsilon a_0&0
+        \end{bmatrix}.
+    \end{align}
+    微扰下哈密顿量为
+    \begin{align}
+        H=H_0+V=\begin{bmatrix}
+            E_2+\delta&-3e\varepsilon a_0\\
+            -3e\varepsilon a_0&E_2
+        \end{bmatrix}.
+    \end{align}
+
+    当 $e\varepsilon a_0\ll\delta$ 时, 可认为 $\lvert 2S_{1/2}\rangle$ 和 $\lvert 2P_{1/2}\rangle$ 不简并, 利用\uline{非简并定态微扰论}, 精确到二级的能量本征值为
+    \begin{align}
+        E_{2S_{1/2}}=E_2+\delta+\frac{(3e\varepsilon a_0)^2}{\delta},\quad E_{2P_{1/2}}=E_2-\frac{(3e\varepsilon a_0)^2}{\delta},
+    \end{align}
+    故此时的能移对 $\varepsilon$ 是二次的.
+
+    当 $e\varepsilon a_0\gg\delta$ 时, 可认为 $\lvert 2S_{1/2}\rangle$ 和 $\lvert 2P_{1/2}\rangle$ 近简并, 利用\uline{简并定态微扰论}, 通过久期方程
+    \begin{align}
+        \abs{V-\Delta^{(1)}I}=\begin{vmatrix}
+            \Delta^{(1)}&-3e\varepsilon a_0\\
+            -3e\varepsilon a_0&\Delta^{(0)}
+        \end{vmatrix}=(\Delta^{(1)})^2-(3e\varepsilon a_0)^2=0
+    \end{align}
+    解得一阶能量修正为
+    \begin{align}
+        \Delta_{2S_{1/2}}^{(1)}=+3e\varepsilon a_0,\quad\Delta_{2P_{1/2}}^{(1)}=-3e\varepsilon a_0,
+    \end{align}
+    故此时的能移对 $\varepsilon$ 是线性的.
+
+    在时间反演变换下, $\lvert 2S_{1/2}\rangle\rightarrow\lvert 2S_{1/2}\rangle$ (不变), $\lvert 2P_{1/2}\rangle\rightarrow\lvert 2P_{1/2}\rangle$ 不变, 位置坐标 $\bm{x}\rightarrow\bm{x}$ (不变), 电场 $\varepsilon\rightarrow\varepsilon$ (不变), 从而微扰算符 $V$ 仅改变符号, 用与上文相同的推导方法最终得到的能移是相同的.
 \end{sol}
 
 \begin{prob}[补充习题]
