@@ -257,7 +257,47 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        
+        \item[(a)] 由于 $B\gg C$, 以该哈密顿量的前两项为无微扰哈密顿量
+        \begin{align}
+            H_0=A\bm{L}^2+BL_z,
+        \end{align}
+        以末项为微扰
+        \begin{align}
+            V=CL_y=C\frac{L_+-L_-}{2i}.
+        \end{align}
+        无微扰时的能量本征态为 $\lvert lm\rangle$, 对应的能量本征值为 $E_{lm}^{(0)}=A\hbar^2l(l+1)+B\hbar m$.
+        利用非简并定态微扰论, 一阶能量本征值修正为
+        \begin{align}
+            \Delta_{lm}^{(1)}=\langle lm\rvert V\lvert lm\rangle=\frac{C}{2i}\langle lm\rvert L_+-L_-\lvert lm\rangle=0,
+        \end{align}
+        二阶能量本征值修正为
+        \begin{align}
+            \notag\Delta_{lm}^{(2)}=&\sum_{l'm'}\frac{\abs{\langle lm\rvert V\lvert l'm'\rangle}^2}{E_{lm}^{(0)}-E_{l'm'}^{(0)}}\\
+            \notag=&\frac{C^2}{4}\sum_{l'm'}\frac{\abs{\langle lm\rvert L_+-L_-\lvert l'm'\rangle}^2}{E_{lm}^{(0)}-E_{l'm'}^{(0)}}\\
+            \notag=&\frac{C^2\hbar^2}{4}\sum_{l'm'}\frac{\abs{\sqrt{m'+1}\delta_{ll'}\delta_{m,m'+1}-\sqrt{m'}\delta_{ll'}\delta_{m,m'-1}}^2}{A\hbar^2l(l+1)+B\hbar m-A\hbar^2l'(l'+1)-B\hbar m'}\\
+            \notag=&\frac{C^2\hbar m}{2B}.
+        \end{align}
+        故精确到最低非零级的近似能量本征值为
+        \begin{align}
+            E_{lm}^{(2)}=E_{lm}^{(0)}+\Delta_{lm}^{(1)}+\Delta_{lm}^{(2)}=A\hbar^2l(l+1)+B\hbar m+\frac{C^2\hbar m}{2B}.
+        \end{align}
+        \item[(b)] 这些矩阵元与电子自旋无关, 故不会引起自旋翻转, $\Delta_s=0$.
+
+        由课本习题 (3.32),
+        \begin{align}
+            \notag\langle n'l'm_l'm_s'\rvert(3z^2-r^2)\lvert nlm_lm_s\rangle=&\sqrt{\frac{16\pi}{5}}\langle n'l'm_l'm_s'\rvert r^2Y_2^0(\bm{r})\lvert nlm_lm_s\rangle\\
+            =&\sqrt{\frac{16\pi}{5}}\langle l2;m_l0\vert l2;l'm_l'\rangle\frac{\langle n'l'\rVert Y^{(2)}(\bm{r})\lVert nl\rangle}{\sqrt{2l+1}}\delta_{m_sm_s'}.
+        \end{align}
+        考虑到 Clebsch-Gordan 系数 $\langle l2;m_l0\vert l2;l'm_l'\rangle$ 仅当 $m_l=m_l'$, $\abs{l-2}\leq l'\leq l+2$ 时不为零, 并且由于 $Y^{(2)}(\bm{r})$ 具有偶宇称, 故 $\langle n'l'\rvert Y^{(2)}(\bm{r})\lvert nl\rangle$ 仅当 $\Delta l=l-l'$ 为偶数时不为零.
+        综上, 矩阵元 $\langle n'l'm_l'm_s'\rvert(3z^2-r^2)\lvert nlm_lm_s\rangle$ 对应的微扰引发的跃迁遵循选择定则: \uline{$\Delta l$ 为偶数且 $\abs{l-2}\leq l'\leq l+2$, $\Delta m_l=0$, $\Delta m_l=0$, $\Delta_s=0$}.
+
+        由课本习题 (3.32) 并利用 Wigner-Eckart 定理,
+        \begin{align}
+            \notag\langle n'l'm_l'm_s'\rvert xy\lvert n'l'm_l'm_s'\rangle=&i\sqrt{\frac{2\pi}{15}}\langle n'l'm_l'm_s'\rvert r^2[Y_2^{-2}(\bm{r})+Y_2^{+2}(\bm{r})]\lvert nlm_lm_s\rangle\\
+            =&i\sqrt{\frac{2\pi}{15}}\left[\langle l2;m_l,-2\vert l2;l'm_l'\rangle+\langle l2;m_l2\vert l2;l'm_l'\rangle\right]\frac{\langle n'l'\rvert Y^{(2)}\lvert nl\rangle}{\sqrt{2l+1}}\delta_{m_sm_s'}.
+        \end{align}
+        考虑到 Clebsch-Gordan 系数 $\langle l2;m_l,-2\vert l2;l'm_l'\rangle$ 仅当 $m_l-2m_l'$, $\abs{l-2}\leq l'\leq l+2$ 时不为零, $\langle l2;m_l2\vert l2;l'm_l'\rangle$ 仅当 $m_l+2=m_l'$, $\abs{l-2}\leq l'\leq l+2$ 时不为零, 并且由于 $Y^{(2)}(\bm{r})$ 具有偶宇称, 故 $\langle n'l'\rvert Y^{(2)}(\bm{r})\lvert nl\rangle$ 仅当 $\Delta l=l-l'$ 为偶数时不为零.
+        综上, 矩阵元 $\langle n'l'm_l'm_s'\rvert xy\lvert nlm_lm_s\rangle$ 对应的微扰引发的跃迁遵循选择定则: \uline{$\Delta l$ 为偶数且 $\abs{l-2}\leq l'\leq l+2$, $\Delta m_l=\pm 2$, $\Delta_s=0$}.
     \end{itemize}
 \end{sol}
 
