@@ -208,10 +208,36 @@
 \end{sol}
 
 \begin{prob}[补充习题]
-    对类氢原子, 求解 $\langle nlm\rvert\frac{1}{r}\frac{\partial V_c}{\partial r}\lvert nlm\rangle$,
+    对类氢原子, 求解 $\langle nlm\rvert\frac{1}{r}\frac{\partial V_c}{\partial r}\lvert nlm\rangle$.
 \end{prob}
 \begin{sol}
-    
+    对类氢原子,
+    \begin{align}
+        V_c=-\frac{Ze^2}{r},
+    \end{align}
+    故
+    \begin{align}
+        \langle nlm\rvert\frac{1}{r}\frac{\partial V_c}{\partial r}\lvert nlm\rangle=\langle nlm\rvert\frac{Ze^2}{r^3}\lvert nlm\rangle.
+    \end{align}
+    注意到对任意算符 $A$, 均有
+    \begin{align}
+        \langle nlm\rvert[H_0,A]\lvert nlm\rangle=\langle nlm\rvert H_0A\lvert nlm\rangle-\langle nlm\rvert AH_0\rvert nlm\rangle=E_{nl}^{(0)}\langle nlm\rvert A\lvert nlm\rangle-E_{nl}^{(0)}\langle nlm\rvert A\lvert nlm\rangle=0.
+    \end{align}
+    取径向动量算符 $A=p_r$, 则有
+    \begin{align}
+        \notag&\langle nlm\rvert\left[-\frac{\hbar^2}{2m}\left(\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\frac{2}{r}\frac{\mathrm{d}}{\mathrm{d}r}\right)+\frac{\bm{L}^2}{2mr^2}+V_c(r),p_r\right]\lvert nlm\rangle\\
+        =&\langle nlm\rvert\left[-\frac{\hbar^2}{2m}\left(\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\frac{2}{r}\frac{\mathrm{d}}{\mathrm{d}r}\right)+\frac{l(l+1)\hbar^2}{2mr^2}+V_c(r),p_r\right]\lvert nlm\rangle=0,
+    \end{align}
+    其中 $H_0$ 的径向部分 $-\frac{\hbar^2}{2m}\left(\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\frac{2}{r}\frac{\mathrm{d}}{\mathrm{d}r}\right)$ 是与径向动量算符 $p_r$ 对易的, 而 $H_0$ 的角向部分 $\frac{l(l+1)\hbar^2}{2mr^2}$ 和带有 $\frac{\partial}{\partial r}$ 的 $V_c$ 与径向角动量算符 $p_r$ 不对易:
+    \begin{gather}
+        \langle nlm\rvert\left[\frac{l(l+1)\hbar^2}{2mr^2}-\frac{Ze^2}{r},p_r\right]\lvert nlm\rangle=-i\hbar\langle nlm\rvert\left[\frac{l(l+1)\hbar^2}{mr^3}-\frac{Ze^2}{r^2}\right]\lvert nlm\rangle\\
+        \Longrightarrow\langle nlm\rvert\frac{Ze^2}{r^3}\lvert nlm\rangle=\frac{m}{l(l+1)\hbar^2}\langle nlm\rvert\frac{(Ze^2)^2}{r^2}\lvert nlm\rangle.
+    \end{gather}
+    由课本式 (5.3.9) 和式 (3.7.53),
+    \begin{align}
+        \notag\langle nlm\rvert\frac{1}{r}\frac{\partial V_c}{\partial r}\lvert nlm\rangle=&\langle nlm\rvert\frac{Ze^2}{r^3}\lvert nlm\rangle=\frac{m}{l(l+1)\hbar^2}\frac{4n}{l+1/2}(E_n^{(0)})^2=-\frac{2m^2c^2Z^2\alpha^2}{nl(l+1)(l+1/2)\hbar^2}E_n^{(0)}\\
+        =&\frac{m^3c^4Z^4\alpha^4}{n^3l(l+1)(l+1/2)\hbar^2}.
+    \end{align}
 \end{sol}
 
 \begin{prob}[课本习题 5.17]
@@ -221,7 +247,7 @@
             A\bm{L}^2+BL_z+CL_y
         \]
         如果磁场的二次项被忽略的话. 假设 $B\gg C$, 将微扰论用到最低非零级以获得近似的能量本征值.
-        \item[(b)] 考虑一个但电磁 (如, 碱金属) 原子的矩阵元
+        \item[(b)] 考虑一个单电子 (如, 碱金属) 原子的矩阵元
         \begin{gather*}
             \langle n'l'm_l'm_s'\rvert(3z^2-r^2)\lvert nlm_lm_s\rangle,\\
             \langle n'l'm_l'm_s'\rvert xy\lvert nlm_lm_s\rangle.
@@ -231,8 +257,7 @@
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        
     \end{itemize}
 \end{sol}
 
