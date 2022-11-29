@@ -1,0 +1,114 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第十一次作业}{截止时间: 2022 年 12 月 5 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 5.29]
+    考虑两个自旋 $1/2$ 的粒子组成的复合系统, 在 $t<0$ 是, 哈密顿量不依赖于自旋, 并能通过恰当地调整能标使其为零. 在 $t>0$ 时, 哈密顿量由
+    \[
+        H=\left(\frac{4\Delta}{\hbar^2}\right)\bm{S}_1\cdot\bm{S}_2
+    \]
+    给出. 假定在 $t\leq 0$ 时, 系统处于 $\lvert+-\rangle$ 态. 作为时间的函数, 找出它处于如下几个态: $\lvert++\rangle$, $\lvert+-\rangle$, $\lvert-+\rangle$, 和 $\lvert--\rangle$ 中的每个态的概率.
+    \begin{itemize}
+        \item[(a)] 通过精确地求解这个问题.
+        \item[(b)] 通过在下面的条件下求解这个问题: 假设一级时间相关微扰论是有效的, 而 $H$ 作为微扰在 $t=0$ 时加入. 在什么条件下, (b) 给出正确的结果?
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 该复合系统的哈密顿量可表为
+        \begin{align}
+            H=\left(\frac{4\Delta}{\hbar^2}\right)\bm{S}_1\cdot\bm{S}_2=\left(\frac{4\Delta}{\hbar^2}\right)\frac{\bm{S}^2-\bm{S}_1^2-\bm{S}_2^2}{2}.
+        \end{align}
+        其能量本征态和对应的本征值分别为
+        \begin{align}
+            \lvert 11\rangle=&\lvert++\rangle,&E_{11}=&\Delta,\\
+            \lvert 10\rangle=&\frac{1}{\sqrt{2}}(\lvert+-\rangle+\lvert-+\rangle),&E_{10}=&\Delta,\\
+            \lvert 1,-1\rangle=&\lvert--\rangle,&E_{1,-1}=&\Delta,\\
+            \lvert 00\rangle=&\frac{1}{\sqrt{2}}(\lvert +-\rangle-\lvert-+\rangle),&E_{00}=&-3\Delta.
+        \end{align}
+        $t=0$ 时系统初态可表为
+        \begin{align}
+            \lvert\alpha,0\rangle=\lvert +-\rangle=\frac{1}{\sqrt{2}}(\lvert 10\rangle+\lvert 00\rangle).
+        \end{align}
+        $t>0$ 时系统状态为
+        \begin{align}
+            \notag\lvert\alpha,0;t\rangle=&e^{-iHt/\hbar}\lvert\alpha,0\rangle=\frac{1}{\sqrt{2}}(e^{-i\Delta t/\hbar}\lvert 10\rangle+e^{i3\Delta t/\hbar}\lvert 00\rangle)\\
+            =&\frac{1}{2}\left[e^{-i\Delta t/\hbar}(\lvert+-\rangle+\lvert-+\rangle)+e^{i3\Delta t/\hbar}(\lvert+-\rangle-\lvert-+\rangle)\right].
+        \end{align}
+        此时系统处于 $\lvert++\rangle$, $\lvert+-\rangle$, $\lvert-+\rangle$, 和 $\lvert--\rangle$ 中的每个态的概率分别为
+        \begin{align}
+            P(\lvert++\rangle)=&\abs{\langle++\vert\alpha,0;t\rangle}^2=0,\\
+            P(\lvert+-\rangle)=&\abs{\langle+-\vert\alpha,0;t\rangle}^2=\abs{\frac{1}{2}(e^{-i\Delta t/\hbar}+e^{i3\Delta t/\hbar})}^2=\frac{1+\cos(4\Delta t/\hbar)}{2},\\
+            P(\lvert-+\rangle)=&\abs{\langle-+\vert\alpha,0;t\rangle}^2=\abs{\frac{1}{2}(e^{-i\Delta t/\hbar}-e^{i3\Delta t/\hbar})}^2=\frac{1-\cos(4\Delta t/\hbar)}{2},\\
+            P(\lvert--\rangle)=&\abs{\langle--\vert\alpha,0;t\rangle}^2=0.
+        \end{align}
+        \item[(b)] 由一级时间相关微扰得到 $\lvert++\rangle$, $\lvert+-\rangle$, $\lvert-+\rangle$, 和 $\lvert--\rangle$ 的系数修正为
+        \begin{align}
+            c_{++}^{(1)}(t)=&\frac{-i}{\hbar}\int_0^t\langle++\rvert H\lvert+-\rangle\,\mathrm{d}t'=\frac{-i}{\hbar}\int_0^t\langle 11\rvert H\frac{1}{\sqrt{2}}(\lvert 10\rangle+\lvert 00\rangle)=0,\\
+            c_{+-}^{(1)}(t)=&\frac{-i}{\hbar}\int_0^t\langle+-\rvert H\lvert+-\rangle\,\mathrm{d}t'=\frac{-i}{\hbar}\int_0^t\frac{1}{\sqrt{2}}(\langle 10\rvert+\langle 00\rvert)H\frac{1}{\sqrt{2}}(\lvert 10\rangle+\lvert 00\rangle)\,\mathrm{d}t'=\frac{i\Delta t}{\hbar},\\
+            c_{-+}^{(1)}(t)=&\frac{-i}{\hbar}\int_0^t\langle-+\rvert H\lvert+-\rangle\,\mathrm{d}t'=\frac{-i}{\hbar}\int_0^t\frac{1}{\sqrt{2}}(\langle 10\rvert-\langle 00\rvert)H\frac{1}{\sqrt{2}}(\lvert 10\rangle+\lvert 00\rangle)\,\mathrm{d}t'=\frac{-i2\Delta t}{\hbar},\\
+            c_{--}^{(1)}(t)=&\frac{-i}{\hbar}\int_0^t\langle--\rvert H\lvert+-\rangle\,\mathrm{d}t'=\frac{-i}{\hbar}\int_0^t\langle 1,-1\rvert H\frac{1}{\sqrt{2}}(\lvert 10\rangle+\lvert 00\rangle)=0.
+        \end{align}
+        故此时系统处于 $\lvert++\rangle$, $\lvert+-\rangle$, $\lvert-+\rangle$, 和 $\lvert--\rangle$ 中的每个态的概率分别为
+        \begin{align}
+            P(\lvert++\rangle)=&\abs{c_{++}^{(0)}(t)+c_{++}^{(1)}(t)}^2=0,\\
+            P(\lvert+-\rangle)=&\abs{c_{+-}^{(0)}(t)+c_{+-}^{(1)}(t)}^2=\abs{1+\frac{i\Delta t}{\hbar}}^2=1+\frac{\Delta^2t^2}{\hbar^2},\\
+            P(\lvert-+\rangle)=&\abs{c_{-+}^{(0)}(t)+c_{-+}^{(1)}(t)}^2=\abs{\frac{-i2\Delta t}{\hbar}}^2=\frac{4\Delta^2t^2}{\hbar^2},\\
+            P(\lvert--\rangle)=&\abs{c_{--}^{(0)}(t)+c_{--}^{(1)}(t)}^2=0.
+        \end{align}
+
+        将 (a) 中的精确解关于 $t$ 展开:
+        \begin{align}
+            P(\lvert++\rangle)=&0,\\
+            P(\lvert+-\rangle)=&\frac{1+\cos(4\Delta t/\hbar)}{2}=1-\frac{4\Delta^2t^2}{\hbar^2}+\cdots,\\
+            P(\lvert-+\rangle)=&\frac{1-\cos(4\Delta t/\hbar)}{2}=\frac{4\Delta^2t^2}{\hbar^2}+\cdots,\\
+            P(\lvert--\rangle)=&=0.
+        \end{align}
+        对比 (a) (b) 结果可知, 所得 $P(\lvert++\rangle)$ 和 $P(\lvert--\rangle)$ 一致, 当 $\frac{\Delta t}{\hbar}\ll 1$, 即 $t\ll\frac{\hbar}{\Delta}$ 时, 所得 $P(\lvert-+\rangle)$ 相近, 而在任何近似情况下, 所得 $P(\lvert+-\rangle)$ 均不相近.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 5.30]
+    考虑一个 $E_1<E_2$ 的双能级系统. 存在一个时间相关的势, 它以如下方式联系着这两个能级:
+    \[
+        V_{11}=V_{22}=0,\quad V_{12}=\gamma e^{i\omega t},\quad V_{21}=\gamma e^{-i\omega t}\quad(\gamma\text{ 为实数})
+    \]
+    已知在 $t=0$ 时, 只有较低的能级被占据, 即 $c_1(0)=1$, $c_2(0)=0$.
+    \begin{itemize}
+        \item[(a)] 通过\textit{精确}求解耦合微分方程
+        \[
+            i\hbar\dot{c}_k=\sum_{n=1}^2V_{kn}(t)e^{i\omega_{kn}t}c_n,\quad(k=1,2)
+        \]
+        求 $t>0$ 时的 $\abs{c_1(t)}^2$ 和 $\abs{c_2(t)}^2$.
+        \item[(b)] 使用时间相关的微扰论到最低的非零级求解同样的问题. 比较小 $\gamma$ 值时的两种近似的解. 分别处理下列两种情况: (i) $\omega$ 与 $\omega_{21}$ 的差别非常大; (ii) $\omega$ 接近 $\omega_{21}$.
+    \end{itemize}
+
+    (a) 的答案 (拉比公式)
+    \begin{align*}
+        \abs{c_2(t)}^2=&\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\},\\
+        \abs{c_1(t)}^2=&1-\abs{c_2(t)}^2.
+    \end{align*}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 
+        \item[(b)] 
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 5.35]
+    考虑由一个电子与一个单电荷 ($Z=1$) 氚核 (\ce{^3H}) 组成的原子. 开始系统处于基态 ($n=1$, $l=0$). 假如系统经受 $\beta$ 衰变, 原子核的电荷突然增加了一个单位 (实际上发射出一个电子和一个反中微子). 这意味着氚原子核 (称为氚核) 转变成一个质量为 $3$ (\ce{^3He}) 的氦 ($Z=2$) 的原子核.
+    \begin{itemize}
+        \item[(a)] 求系统处于产生的氦离子基态的概率. 氢的波函数由
+        \[
+            \psi_{n=1,l=0}(\bm{x})=\frac{1}{\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}e^{-Zr/a_0}
+        \]
+        给出.
+        \item[(b)] 氚 $\beta$ 衰变中可用的能量约为 \SI{18}{keV}, 且 \ce{^3He} 原子的尺度约为 1 \AA. 检查跃迁的时间标度 $T$ 满足瞬变近似合理性的判据.
+    \end{itemize}
+\end{prob}
+\begin{itemize}
+    \item[(a)] 
+    \item[(b)] 
+\end{itemize}
+\end{document}
