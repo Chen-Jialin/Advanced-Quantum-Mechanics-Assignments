@@ -341,6 +341,39 @@
     \]
 \end{prob}
 \begin{sol}
-    
+    一维简谐振子的哈密顿量为
+    \begin{align}
+        H=-\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}=-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+\frac{m\omega^2x^2}{2}.
+    \end{align}
+    试探波函数对应的能量为
+    \begin{align}
+        \bar{H}=\frac{\langle\tilde{0}\rvert H\lvert\tilde{0}\rangle}{\langle\tilde{0}\vert\tilde{0}\rangle}=\frac{\int_{-\infty}^{+\infty}e^{-\beta\abs{x}}\left(-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+\frac{m\omega^2x^2}{2}\right)e^{-\beta\abs{x}}\,\mathrm{d}x}{\int_{-\infty}^{+\infty}e^{-2\beta\abs{x}}\,\mathrm{d}x},
+    \end{align}
+    其中
+    \begin{align}
+        \notag-\frac{\hbar^2}{2m}\int_{-\infty}^{+\infty}e^{-\beta\abs{x}}\frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\beta\abs{x}}\,\mathrm{d}x=&-\frac{\hbar^2}{2m}\lim_{\epsilon\rightarrow 0}\left[2\int_{\epsilon}^{\infty}e^{-\beta x}\frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\beta x}+\int_{-\epsilon}^{\epsilon}e^{-\beta\abs{x}}\frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\beta\abs{x}}\,\mathrm{d}x\right]\\
+        \notag=&-\frac{\hbar^2}{2m}\left[2\beta^2\int_{\epsilon}^{\infty}e^{-2\beta x}\,\mathrm{d}x+e^{-\beta\cdot 0}\int_{-\epsilon}^{\epsilon}\mathrm{d}\left(\frac{\mathrm{d}e^{-\beta\abs{x}}}{\mathrm{d}x}\right)\right]\\
+        \notag=&-\frac{\hbar^2}{2m}\left[\beta+\left(\frac{\mathrm{d}e^{-\beta\abs{x}}}{\mathrm{d}x}\right)_{-\epsilon}^{\epsilon}\right]\\
+        =&\frac{\hbar^2\beta}{2m},
+    \end{align}
+    \begin{align}
+        \frac{m\omega^2}{2}\int_{-\infty}^{+\infty}x^2e^{-2\beta\abs{x}}\,\mathrm{d}x=&m\omega^2\int_0^{+\infty}x^2e^{-2\beta x}\,\mathrm{d}x=\frac{m\omega^2}{4\beta^3},
+    \end{align}
+    \begin{align}
+        \int_{-\infty}^{+\infty}e^{-2\beta\abs{x}}=\frac{1}{\beta},
+    \end{align}
+    故
+    \begin{align}
+        \bar{H}=\frac{\hbar^2\beta^2}{2m}+\frac{m\omega^2}{4\beta^2}.
+    \end{align}
+    要使估算的基态能量最小, 则需参数 $\beta$ 满足
+    \begin{gather}
+        \frac{\partial\bar{H}}{\partial\beta}=\frac{\hbar^2\beta}{m}-\frac{m\omega^2}{2\beta^3}=0,\\
+        \Longrightarrow\beta^2=\frac{m\omega}{\sqrt{2}\hbar},
+    \end{gather}
+    此时估算的基态能量为
+    \begin{align}
+        \bar{H}=\frac{\hbar\omega}{\sqrt{2}}.
+    \end{align}
 \end{sol}
 \end{document}
