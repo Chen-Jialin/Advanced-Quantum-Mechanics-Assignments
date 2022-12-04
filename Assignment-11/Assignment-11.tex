@@ -161,10 +161,27 @@
         \item[(b)] 氚 $\beta$ 衰变中可用的能量约为 \SI{18}{keV}, 且 \ce{^3He} 原子的尺度约为 1 \AA. 检查跃迁的时间标度 $T$ 满足瞬变近似合理性的判据.
     \end{itemize}
 \end{prob}
-\begin{itemize}
-    \item[(a)] 
-    \item[(b)] 
-\end{itemize}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] \uline{就包含电荷和原子核的整个原子系统而言,} 初态和末态由不同的粒子组成, 其希尔伯特空间是不相同的, 衰变前的系统处于氦离子的基态的概率为 $0$. \uline{就原有的那个电子而言,} 其初态波函数为氢原子 ($Z=1$) 基态的电子波函数
+        \begin{align}
+            \psi_{\ce{H},n=1,l=0}(\bm{x})=\frac{1}{\sqrt{\pi}}\left(\frac{1}{a_0}\right)^{3/2}e^{-r/a_0}.
+        \end{align}
+        氦离子 ($Z=2$) 基态的电子波函数为
+        \begin{align}
+            \psi_{\ce{He},n=1,l=0}(\bm{x})=\frac{1}{\sqrt{\pi}}\left(\frac{2}{a_0}\right)^{3/2}e^{-2r/a_0}.
+        \end{align}
+        衰变前该电子处于产生的氦离子的基态的概率为
+        \begin{align}
+            \abs{\notag\int\psi_{\ce{He},n=1,l=0}^*(\bm{x})\psi_{\ce{H},n=1,l=0}(\bm{x})\,\mathrm{d}^3\bm{x}}^2=&\abs{4\pi\int_0^{\infty}\frac{1}{\sqrt{\pi}}\left(\frac{2}{a_0}\right)^{3/2}e^{-2r/a_0}\frac{1}{\sqrt{\pi}}\left(\frac{1}{a_0}\right)^{3/2}e^{-r/a_0}r^2\,\mathrm{d}r}^2\\
+            \notag=&\abs{\frac{2^{7/2}}{a_0^3}\int_0^{\infty}e^{-3r/a_0}r^2\,\mathrm{d}r}^2\\
+            \notag&(\text{利用 }\int_0^{\infty}e^{-x}x^{n-1}\,\mathrm{d}x=(n-1)!)\\
+            \notag=&\abs{\frac{2^{9/2}}{27}}^2\\
+            =&\frac{2^9}{3^6}\approx 0.702.
+        \end{align}
+        \item[(b)] 初末态能量差对应的跃迁频率为 $\omega_{ab}=\frac{E_{ab}}{\hbar}=\frac{\SI{18}{keV}}{\SI{6.63E-34}{J\cdot s}}=\SI{2.73E19}{Hz}$. 由于电子的质量远小于氦原子核的质量, 故衰变获得的能量几乎全部转变为发射出的自由电子的动能, 该自由电子的出射速度 $v=\sqrt{\frac{2E}{m_e}}=\sqrt{\frac{2\times\SI{18}{keV}}{\SI{9.11E-31}{kg}}}=\SI{7.95E7}{m/s}$, 衰变过程发生的时间尺度 $T\sim\frac{1\text{\AA}}{v}=\frac{\SI{E-10}{m}}{\SI{7.95E7}{m/s}}=\SI{1.26E-18}{s}$. 该衰变过程\uline{不满足}瞬变近似判据: $T\sim\SI{1.26E-18}{s}>\frac{2\pi}{\omega_{ab}}=\SI{2.3E-19}{s}$.
+    \end{itemize}
+\end{sol}
 
 \begin{prob}[课本习题 5.38]
     一个氢原子的基态 ($n=1$, $l=0$) 受到一个如下的时间相关势
