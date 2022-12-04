@@ -85,14 +85,68 @@
 
     (a) 的答案 (拉比公式)
     \begin{align*}
-        \abs{c_2(t)}^2=&\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\},\\
+        \abs{c_2(t)}^2=&\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin^2\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\},\\
         \abs{c_1(t)}^2=&1-\abs{c_2(t)}^2.
     \end{align*}
 \end{prob}
 \begin{sol}
     \begin{itemize}
-        \item[(a)] 
-        \item[(b)] 
+        \item[(a)] 描述该双能级系统演化的耦合微分方程为
+        \begin{align}
+            \label{A10-2-coupling-eqs-1}
+            i\hbar\dot{c}_1=&\gamma e^{i(\omega-\omega_{21})t}c_2,\\
+            \label{A10-2-coupling-eqs-2}
+            i\hbar\dot{c}_2=&\gamma e^{-i(\omega-\omega_{21})t}c_1,
+        \end{align}
+        其中 $\omega_{21}=\frac{E_2-E_1}{\hbar}$. 对式 \eqref{A10-2-coupling-eqs-2} 进一步微分
+        \begin{align}
+            i\hbar\ddot{c}_2=-i(\omega-\omega_{21})\gamma e^{-i(\omega-\omega_{21})t}c_1+\gamma e^{-i(\omega-\omega_{21})t}\dot{c}_1=-i(\omega-\omega_{21})i\hbar c_2+\gamma e^{-i(\omega-\omega_{21})t}\dot{c}_1,
+        \end{align}
+        并代入式 \eqref{A10-2-coupling-eqs-1} 中消去 $\dot{c}_1$ 得
+        \begin{align}
+            \hbar^2\ddot{c}_2+i\hbar^2(\omega-\omega_{21})\dot{c}_2+\gamma^2c_2=0,
+        \end{align}
+        考虑到初始条件 $c_1(0)=\frac{i\hbar}{\gamma}\dot{c}_2(0)=1$, $c_2(0)=0$, 解得
+        \begin{align}
+            \notag c_2(t)=&-\frac{\frac{\gamma}{\hbar}}{2\sqrt{\frac{(\omega-\omega_{21})^2}{4}+\frac{\gamma^2}{\hbar^2}}}\times\\
+            &\left(\exp\left\{i\left[-\frac{\omega-\omega_{21}}{2}+\sqrt{\frac{(\omega-\omega_{21})^2}{4}+\frac{\gamma^2}{\hbar^2}}\right]t\right\}-\exp\left\{i\left[-\frac{\omega-\omega_{21}}{2}-\sqrt{\frac{(\omega-\omega_{21})^2}{4}+\frac{\gamma^2}{\hbar^2}}\right]t\right\}\right).
+        \end{align}
+        故
+        \begin{align}
+            \notag\abs{c_2(t)}^2=&\frac{\frac{\gamma^2}{\hbar^2}}{\frac{(\omega-\omega_{21})^2}{4}+\frac{\gamma^2}{\hbar^2}}\frac{1-\cos\left\{2\sqrt{\frac{(\omega-\omega_{21})^2}{4}+\frac{\gamma^2}{\hbar^2}}t\right\}}{2}\\
+            =&\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin^2\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\},\\
+            \abs{c_1(t)}^2=&1-\abs{c_2(t)}^2.
+        \end{align}
+        \item[(b)] 由含时微扰论, $c_2$ 的零级近似为
+        \begin{align}
+            c_2^{(0)}(t)=&0.
+        \end{align}
+        $c_2$ 的一级修正为
+        \begin{align}
+            c_2^{(1)}(t)=&\frac{-i}{\hbar}\int_0^te^{i\omega_{21}t}\langle 2\rvert V(t')\lvert 1\rangle\,\mathrm{d}t'=\frac{-i}{\hbar}\int_0^t\gamma e^{i(\omega_{21}-\omega)t'}\,\mathrm{d}t'=\frac{\gamma}{\hbar(\omega-\omega_{21})}[e^{-i(\omega-\omega_{21})t}-1].
+        \end{align}
+        故 $c_2$ 的最低的非零级近似为
+        \begin{align}
+            c_2(t)=c_2^{(0)}(t)+c_2^{(1)}(t)=\frac{\gamma}{\hbar(\omega-\omega_{21})}[e^{-i(\omega-\omega_{21})t}-1].
+        \end{align}
+        从而
+        \begin{align}
+            \abs{c_2(t)}^2=\frac{\gamma^2}{\hbar^2(\omega-\omega_{21})^2}\{2-2\cos[(\omega-\omega_{21})t]\}=\frac{\gamma^2/\hbar^2}{(\omega-\omega_{21})^2}\sin^2\left[\frac{(\omega-\omega_{21})t}{2}\right].
+        \end{align}
+
+        与精确结果相比:
+        \begin{itemize}
+            \item[(i)] 当 $\omega$ 与 $\omega_{21}$ 差别非常大, $\abs{\omega-\omega_{21}}\gg\gamma/\hbar$ 时, 精确结果
+            \begin{align}
+                \abs{c_2(t)}^2=\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin^2\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\}\approx\frac{\gamma^2/\hbar^2}{(\omega-\omega_{21})^2/4}\sin^2\left\{\frac{\omega-\omega_{21}}{2}t\right\}.
+            \end{align}
+            故由含时微扰论得到的近似结果与精确结果相近.
+            \item[(ii)] 当 $\omega$ 接近 $\omega_{21}$, $\abs{\omega-\omega_{21}}\ll\gamma/\hbar$ 时, 精确结果
+            \begin{align}
+                \abs{c_2(t)}^2=\frac{\gamma^2/\hbar^2}{\gamma^2/\hbar^2+(\omega-\omega_{21})^2/4}\sin^2\left\{\left[\frac{\gamma^2}{\hbar^2}+\frac{(\omega-\omega_{21})^2}{4}\right]^{1/2}t\right\}\approx\sin^2\left\{\frac{\gamma}{\hbar}t\right\}.
+            \end{align}
+            此时由含时微扰论得到的近似结果并不能很好地吻合精确结果.
+        \end{itemize}
     \end{itemize}
 \end{sol}
 
@@ -111,4 +165,31 @@
     \item[(a)] 
     \item[(b)] 
 \end{itemize}
+
+\begin{prob}[课本习题 5.38]
+    一个氢原子的基态 ($n=1$, $l=0$) 受到一个如下的时间相关势
+    \[
+        V(\bm{x},t)=V_0\cos(kz-\omega t)
+    \]
+    的作用. 使用时间相关微扰论, 求动量 $\bm{p}$ 的电子被发射出来的跃迁速率的表达式. 特别要证明如何放射出电子的角分布 (借助相对于 $z$ 轴定义的 $\theta$ 和 $\phi$ 角). \textit{简要地}讨论这个问题与 (更实际一些) 光电效应的相似性和不同处. (注意: 初始波函数可参见习题 5.35. 如果有归一化问题, 最终的波函数可以取为
+    \[
+        \psi_f(\bm{x})=\left(\frac{1}{L^{3/2}}\right)e^{i\bm{p}\cdot\bm{x}/\hbar}
+    \]
+    $L$ 非常大, 但应能够证明可观测的效应是不依赖于 $L$ 的.)
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 5.39]
+    约束在一维运动的一个质量为 $m$ 的粒子, 被一个无限深势阱
+    \begin{align*}
+        V=&\infty&\text{对}&x<0,x>L\\
+        V=&0&\text{对}&0\leq x\leq L.
+    \end{align*}
+    禁闭在 $0<x<L$ 的范围中. 求在\textit{高能}情况下, 作为 $E$ 的函数的态密度表达式 (即单位能量间隔中的态的数目). (检查你的量纲!)
+\end{prob}
+\begin{sol}
+    
+\end{sol}
 \end{document}
