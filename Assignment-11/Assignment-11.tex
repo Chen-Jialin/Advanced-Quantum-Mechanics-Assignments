@@ -188,14 +188,50 @@
     \[
         V(\bm{x},t)=V_0\cos(kz-\omega t)
     \]
-    的作用. 使用时间相关微扰论, 求动量 $\bm{p}$ 的电子被发射出来的跃迁速率的表达式. 特别要证明如何放射出电子的角分布 (借助相对于 $z$ 轴定义的 $\theta$ 和 $\phi$ 角). \textit{简要地}讨论这个问题与 (更实际一些) 光电效应的相似性和不同处. (注意: 初始波函数可参见习题 5.35. 如果有归一化问题, 最终的波函数可以取为
+    的作用. 使用时间相关微扰论, 求动量 $\bm{p}$ 的电子被发射出来的跃迁速率的表达式. 特别要证明如何计算放射出电子的角分布 (借助相对于 $z$ 轴定义的 $\theta$ 和 $\phi$ 角). \textit{简要地}讨论这个问题与 (更实际一些) 光电效应的相似性和不同处. (注意: 初始波函数可参见习题 5.35. 如果有归一化问题, 最终的波函数可以取为
     \[
         \psi_f(\bm{x})=\left(\frac{1}{L^{3/2}}\right)e^{i\bm{p}\cdot\bm{x}/\hbar}
     \]
     $L$ 非常大, 但应能够证明可观测的效应是不依赖于 $L$ 的.)
 \end{prob}
 \begin{sol}
-    
+    该时间相关势可表为
+    \begin{align}
+        V(\bm{x},t)=V_0\cos(kz-\omega t)=\frac{V_0}{2}\{\exp[i(kz-\omega t)]+\exp[i(-kz+\omega t)]\}.
+    \end{align}
+    由时间微扰论, 电子\uline{以动量 $\bm{p}$ 发射的跃迁速率} (由能量守恒, 已略去非谐振项) 为
+    \begin{align}
+        \notag w_{\lvert n=1,l=0\rangle\rightarrow\lvert\bm{p}\rangle}=&\frac{2\pi}{\hbar}\abs{\langle\bm{p}\rvert\frac{V_0}{2}\exp[i(kz-\omega t)]\lvert n=1,l=0\rangle}^2\delta(E-E_0-\hbar\omega)\\
+        \notag=&\frac{2\pi}{\hbar}\left(\frac{V_0}{2}\right)^2\abs{\langle\bm{p}\rvert\exp(ikz)\lvert n=1,l=0\rangle}^2\delta(E-E_0-\hbar\omega),
+    \end{align}
+    其中
+    \begin{align}
+        \notag\langle\bm{p}\rvert e^{ikz}\lvert n=1,l=0\rangle=&\int_{-\infty}^{\infty}\langle\bm{p}\vert\bm{x}'\rangle\langle\bm{x}'\rvert e^{ikz}\lvert n=1,l=0\rangle\\
+        \notag=&\int_{-\infty}^{\infty}\langle\bm{p}\vert\bm{x}'\rangle e^{ikz'}\langle\bm{x}'\vert n=1,l=0\rangle\\
+        \notag=&\int_{-\infty}^{\infty}\left(\frac{1}{L^{3/2}}\right)e^{-i\bm{p}\cdot\bm{x}'/\hbar}e^{ikz'}\frac{1}{\sqrt{\pi}}\left(\frac{1}{a_0}\right)^{3/2}e^{-r'/a_0}\,\mathrm{d}^3\bm{x}'\\
+        \notag=&\left(\frac{1}{La_0}\right)^{3/2}\int_{-\infty}^{\infty}e^{-i(\bm{p}/\hbar-k\hat{z})\cdot\bm{x}'}e^{-r'/a_0}\,\mathrm{d}^3\bm{x}'\\
+        =&\left(\frac{1}{La_0}\right)^{3/2}\int_{-\infty}^{\infty}e^{-i\bm{q}\cdot\bm{x}'}e^{-r'/a_0}\,\mathrm{d}^3\bm{x}'
+    \end{align}
+    其中 $\bm{q}=\frac{\bm{p}}{\hbar}-k\hat{z}$, 并且不妨将 $\bm{p}$ 的方向作为 $\bm{z}'$ 方向, 从而有
+    \begin{align}
+        \notag\langle\bm{p}\rvert e^{ikz}\lvert n=1,l=0\rangle=&\left(\frac{1}{La_0}\right)^{3/2}2\pi\int_0^{\infty}e^{-r'/a_0}r'^2\,\mathrm{d}r'\int_{-\pi}^{\pi}e^{-iqr'\cos\theta'}\sin\theta'\,\mathrm{d}\theta'\\
+        \notag=&\left(\frac{1}{La_0}\right)^{3/2}2\pi\int_0^{\infty}e^{-r'/a_0}r'^2\,\mathrm{d}r'\int_{-1}^1e^{-iqr'\cos\theta'}\,\mathrm{d}(\cos\theta')\\
+        \notag=&\left(\frac{1}{La_0}\right)^{3/2}2\pi\int_0^{\infty}e^{-r'/a_0}r'^2\frac{e^{iqr'}-e^{-iqr'}}{iqr'}\,\mathrm{d}r'\\
+        \notag=&\frac{1}{\sqrt{\pi}}\left(\frac{1}{La_0}\right)^{3/2}\frac{2\pi}{iq}\int_0^{\infty}[e^{-(1/a_0-iq)r'}-e^{-(1/a_0+iq)r'}]r'\,\mathrm{d}r'\\
+        \notag&(\text{利用 }\int_0^{\infty}e^{-x}x\,\mathrm{d}x=1)\\
+        \notag=&\frac{1}{\sqrt{\pi}}\left(\frac{1}{La_0}\right)^{3/2}\frac{2\pi}{iq}\left[\frac{1}{(1/a_0-iq)^2}-\frac{1}{(1/a_0+iq)^2}\right]\\
+        =&\frac{1}{\sqrt{\pi}}\left(\frac{1}{La_0}\right)^{3/2}\frac{8\pi a_0^3}{(1+a_0^2q^2)^2}.
+    \end{align}
+    故电子\uline{以动量 $\bm{p}$ 发射的跃迁速率}
+    \begin{align}
+        w_{\lvert n=1,l=0\rangle\rightarrow\lvert\bm{p}\rangle}=\frac{2\pi}{\hbar}\left(\frac{V_0}{2}\right)^2\frac{1}{\pi}\left(\frac{1}{La_0}\right)^3\left[\frac{8\pi a_0^3}{(1+a_0^2q^2)^2}\right]^2\delta(E-E_0-\hbar\omega),
+    \end{align}
+    其中电子的发射角度包含在 $q$ 中.
+
+    上述情况可视为光电效应的一个特例. 对电光效应, 光场的时间相关势 (偶极近似下) 具有和题设类似的形式, 但是光场激发的电子并非处于氢原子的基态, 而是金属原子的各个电子能态, 故其动量 $\bm{p}$ 的电子被发射出来的跃迁速率的表达式为
+    \begin{align}
+        w=\sum_{n,l}w_{\lvert n,l\rangle\rightarrow\lvert\bm{p}\rangle}=\sum_{n,l}\frac{2\pi}{\hbar}\abs{\langle\bm{p}\rvert\frac{V_0}{2}\exp[i(kz-\omega t)]\lvert n,l\rangle}^2\delta(E-E_0-\hbar\omega).
+    \end{align}
 \end{sol}
 
 \begin{prob}[课本习题 5.39]
