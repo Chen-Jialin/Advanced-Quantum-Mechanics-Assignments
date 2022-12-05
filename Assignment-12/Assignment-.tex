@@ -1,0 +1,37 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第十二次作业}{截止时间: 2022 年 12 月 12 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 5.41]
+    求基态氢原子具有特定动量 $\bm{p}'$ 的概率 $\abs{\phi(\bm{p}')}^2\,\mathrm{d}^3p'$. (这是一个很好的三维傅里叶变换的练习. 为进行角积分, 选择 $z$ 轴沿 $\bm{p}$ 方向.)
+\end{prob}
+\begin{sol}
+    在位置表象中, 氢原子电子基态波函数为
+    \begin{align}
+        \psi(\bm{x})=\frac{1}{\sqrt{\pi}}\left(\frac{1}{a_0}\right)^{3/2}e^{-r/a_0}.
+    \end{align}
+    利用傅里叶变换将其变换至动量表象中得
+    \begin{align}
+        \notag\phi(\bm{p}')=&\frac{1}{(2\pi\hbar)^{3/2}}\int\mathrm{d}^3x\,e^{-i\bm{p}\cdot\bm{x}/\hbar}\psi(\bm{x})\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}\frac{1}{\sqrt{\pi}}\int\mathrm{d}^3x\,e^{-i\bm{p}\cdot\bm{x}/\hbar}e^{-r/a_0}\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\int_0^{\infty}e^{-r/a_0}r^2\,\mathrm{d}r\int_0^{\pi}e^{-ipr\cos\theta/\hbar}\sin\theta\,\mathrm{d}\theta\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\int_0^{\infty}e^{-r/a_0}r^2\frac{e^{ipr/\hbar}-e^{-ipr/\hbar}}{ipr/\hbar}\,\mathrm{d}r\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\int_0^{\infty}e^{-r/a_0}r^2\,\mathrm{d}r\int_{-1}^1e^{-ipr\cos\theta/\hbar}\,\mathrm{d}(\cos\theta)\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\frac{1}{ip/\hbar}\int_0^{\infty}[e^{-(1/a_0-ip/\hbar)r}-e^{-(1/a_0+ip/\hbar)r}]r\,\mathrm{d}r\\
+        \notag&(\text{利用 }\int_0^{\infty}e^{-x}x\,\mathrm{d}x=1)\\
+        \notag=&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\frac{1}{ip/\hbar}\left[\frac{1}{(1/a_0-ip/\hbar)^2}-\frac{1}{(1/a_0+ip/\hbar)^2}\right]\\
+        =&\frac{1}{(2\pi\hbar a_0)^{3/2}}2\sqrt{\pi}\frac{4\hbar^4a_0^3}{(\hbar^2+a_0^2p^2)^2}.
+    \end{align}
+    故基态氢原子具有特定动量的概率为
+    \begin{align}
+        \abs{\phi(\bm{p}')}^2\,\mathrm{d}^3p'=\frac{8\hbar^5a_0^3}{\pi^2(\hbar^2+a_0^2p^2)^4}.
+    \end{align}
+\end{sol}
+
+\begin{prob}[课本习题 5.42]
+    求氢原子的 $\tau(2p\rightarrow 1s)$ 的表达式. 证明它等于 \SI{1.6e-9}{s}.
+\end{prob}
+\begin{pf}
+    
+\end{pf}
+\end{document}
