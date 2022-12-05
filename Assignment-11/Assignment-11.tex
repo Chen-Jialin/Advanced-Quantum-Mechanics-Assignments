@@ -243,6 +243,23 @@
     禁闭在 $0<x<L$ 的范围中. 求在\textit{高能}情况下, 作为 $E$ 的函数的态密度表达式 (即单位能量间隔中的态的数目). (检查你的量纲!)
 \end{prob}
 \begin{sol}
-    
+    对于无限深方势阱, 能量本征态波矢满足
+    \begin{gather}
+        k\cdot 2L=n\cdot 2\pi,\\
+        k=\frac{n\pi}{L},\quad n=1,2,3,\cdots,
+    \end{gather}
+    即相邻波矢之间间隔为 $\frac{\pi}{L}$.
+    能量本征值为
+    \begin{align}
+        E=\frac{\hbar^2k^2}{2m}.
+    \end{align}
+    态密度满足
+    \begin{align}
+        \rho(E)\,\mathrm{d}E=&\frac{\mathrm{d}k}{\pi/L}=\frac{\mathrm{d}\sqrt{\frac{2mE}{\hbar^2}}}{2\pi/L}=\frac{L}{\pi\hbar}\left(\frac{m}{2E}\right)^{1/2}\,\mathrm{d}E.
+    \end{align}
+    故态密度的表达式为
+    \begin{align}
+        \rho(E)=\frac{L}{\pi\hbar}\left(\frac{m}{2E}\right)^{1/2}.
+    \end{align}
 \end{sol}
 \end{document}
