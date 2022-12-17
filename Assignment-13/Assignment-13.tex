@@ -1,0 +1,91 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{作业}{截止时间: 2022 年  月  日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 7.7]
+    证明一个算符 $a$ 和它的共轭算符遵从反对易关系 $\{a,a^{\dagger}\}=aa^{\dagger}+a^{\dagger}a=1$, 则算符 $N=a^{\dagger}a$ 具有本征值为 $0$ 和 $1$ 的本征态.
+\end{prob}
+\begin{pf}
+    假设 $\lvert\alpha\rangle$ 为算符 $N=a^{\dagger}a$ 的一个本征态, 对应的本征值为 $\alpha$:
+    \begin{align}
+        N\lvert\alpha\rangle=\alpha\lvert\alpha\rangle.
+    \end{align}
+    首先证明算符 $N$ 的本征值非负: 一方面,
+    \begin{align}
+        \langle\alpha\rvert N\lvert\alpha\rangle=\langle\rvert\alpha\lvert\alpha\alpha\rangle=\alpha,
+    \end{align}
+    另一方面,
+    \begin{align}
+        \langle\alpha\rvert N\lvert\alpha\rangle=\langle\alpha\rvert a^{\dagger}a=[a\lvert\alpha\rangle]^{\dagger}a\lvert\alpha\rangle=\abs{a\lvert\alpha\rangle}^2,
+    \end{align}
+    故
+    \begin{align}
+        \alpha=\abs{a\lvert\alpha\rangle}^2\geq 0.
+    \end{align}
+
+    其次考虑 $a^{\dagger}\lvert\alpha\rangle$, 将算符 $N$ 作用于其上并利用反对易关系 $\{a^{\dagger},a\}=a^{\dagger}a+aa^{\dagger}$ 有
+    \begin{align}
+        N\lvert\alpha\rangle=a^{\dagger}aa^{\dagger}\lvert\alpha\rangle=a^{\dagger}(1-a^{\dagger}a)\lvert\alpha\rangle=a^{\dagger}(1-\alpha)\lvert\alpha\rangle,
+    \end{align}
+    故 $a^{\dagger}\lvert\alpha\rangle$ 亦为算符 $N$ 的本征态, 对应的本征值为 $1-\alpha$. 由于算符 $N$ 的本征值非负, 故 $1-\alpha\geq 0\Longrightarrow\alpha\leq 1$.
+
+    因此, 算符 $N=a^{\dagger}a$ 具有本征值为 $0$ 和 $1$ 的本征态.
+
+    (上述推导存疑: 如何仿照波色子的案例利用本征值非负的条件来截断本征态 / 值之间的递推关系从而将本征值限定为整数, 暂时没想到.)
+\end{pf}
+
+\begin{prob}
+    若 $N$ 个全同粒子体系的哈密顿算符为:
+    \[
+        \hat{H}=\sum_{k=1}^NT(x_k)+\frac{1}{2}\sum_{k\neq l=1}^NV(x_k,x_l),
+    \]
+    写出对应的二次量子化形式并指出产生湮灭算符的基本对易或反对易关系.
+\end{prob}
+\begin{sol}
+
+\end{sol}
+
+\begin{prob}
+    $N$ 个自旋为 $1/2$ 的无相互作用的全同粒子受外势 $V_0\delta(x)$ 作用, 求以平面波为基时的哈密顿算符的二次量子化形式, 指出相应产生与湮灭算符的基本关系, 并利用微扰法给出基态能量.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}[课本习题 8.10]
+    证明狄拉克方程的连续性方程 (8.2.11).
+\end{prob}
+\begin{pf}
+    
+\end{pf}
+
+\begin{prob}[课本习题 8.11]
+    求自由粒子狄拉克方程 (8.2.20) 的本征值.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}
+    对核子数为 $Z$ 的类氢原子, 估算其基态波函数大小分量模平方的比值.
+\end{prob}
+\begin{sol}
+    
+\end{sol}
+
+\begin{prob}
+    若 $4$ 个厄米矩阵 $M_i$ ($i=1,2,3,4$) 满足关系: $M_iM_j+M_jM_i=2\delta_{ij}$, 证明:
+    \begin{itemize}
+        \item[1)] $M_i$ 的本征值为 $\pm 1$;
+        \item[2)] $M_i$ 的迹为 $0$;
+        \item[3)] $M_i$ 必为偶数位矩阵.
+    \end{itemize}
+\end{prob}
+\begin{pf}
+    \begin{itemize}
+        \item[1)] 
+        \item[2)] 
+        \item[3)] 
+    \end{itemize}
+\end{pf}
+\end{document}
