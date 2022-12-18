@@ -156,7 +156,38 @@
     求自由粒子狄拉克方程 (8.2.20) 的本征值.
 \end{prob}
 \begin{sol}
-    
+    自由粒子狄拉克方程 (8.2.20):
+    \begin{align}
+        \begin{bmatrix}
+            m&0&p&0\\
+            0&m&0&-p\\
+            p&0&-m&0\\
+            0&-p&0&-m
+        \end{bmatrix}\begin{bmatrix}
+            u_1\\
+            u_2\\
+            u_3\\
+            u_4
+        \end{bmatrix}=E\begin{bmatrix}
+            u_1\\
+            u_2\\
+            u_3\\
+            u_4
+        \end{bmatrix}.
+    \end{align}
+    利用
+    \begin{align}
+        \abs{H-EI}=\begin{vmatrix}
+            m-E&0&p&0\\
+            0&m-E&0&-p\\
+            p&0&-m-E&0\\
+            0&-p&0&-m-E
+        \end{vmatrix}=[(m-E)(m+E)+p^2]^2=0
+    \end{align}
+    解得哈密顿量的本征值为
+    \begin{align}
+        E_{1,2}=\sqrt{m^2+p^2},\quad E_{3,4}=-\sqrt{m^2+p^2}.
+    \end{align}
 \end{sol}
 
 \begin{prob}
