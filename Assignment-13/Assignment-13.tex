@@ -1,5 +1,5 @@
 \documentclass{assignment}
-\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{作业}{截止时间: 2022 年  月  日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第十三次作业}{截止时间: 2022 年 12 月 19 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
 
 \begin{document}
 \begin{prob}[课本习题 7.7]
@@ -194,7 +194,35 @@
     对核子数为 $Z$ 的类氢原子, 估算其基态波函数大小分量模平方的比值.
 \end{prob}
 \begin{sol}
-    
+    类氢原子的相对论性哈密顿量为
+    \begin{align}
+        H=(\bm{p}^2c^2+m^2c^4)^{1/2}-\frac{Ze^2}{r},
+    \end{align}
+    从而其狄拉克方程为
+    \begin{align}
+        i\hbar\frac{\partial\Psi}{\partial t}=\left[c\bm{\alpha}\cdot\bm{p}+\beta mc^2-\frac{Ze^2}{r}\right]\Psi.
+    \end{align}
+    展开精确至 $(v/c)^2$, 有
+    \begin{gather}
+        \begin{bmatrix}
+            E-mc^2+\frac{Ze^2}{r}&-c\bm{\sigma}\cdot\bm{p}\\
+            -c\bm{\sigma}\cdot\bm{p}&E+mc^2-\frac{Ze^2}{r}
+        \end{bmatrix}\begin{bmatrix}
+            \chi\\
+            \Phi
+        \end{bmatrix}=\begin{bmatrix}
+            0\\
+            0
+        \end{bmatrix}\\
+        \Longrightarrow\Phi=\left(E-mc^2+\frac{Ze^2}{r}\right)\chi=c\bm{\sigma}\cdot\bm{p}\Phi,\quad\left(E+mc^2+\frac{Ze^2}{r}\right)\Phi=c\bm{\sigma}\cdot\bm{p}\chi,
+    \end{gather}
+    从而对于基态, 波函数大小分量模平方的比值可估算为
+    \begin{align}
+        \frac{\abs{\Psi}}{\abs{\chi}}=&\frac{\abs{c\bm{\sigma}\cdot\bm{p}}}{\abs{E+mc^2+\frac{Ze^2}{r}}}\approx\frac{c\langle p^2\rangle^{1/2}}{2mc^2}\\
+        \notag\approx&\frac{c}{2mc^2}\left[4\left(\frac{a_0}{Z}\right)^3\int_0^{\infty}\mathrm{d}r\,e^{-Zr/a_0}\left(-\hbar^2\frac{1}{r^2}\frac{\partial}{\partial r}r^2\frac{\partial}{\partial r}e^{-Zr/a_0}\right)\right]^{1/2}\\
+        =&\frac{\hbar Z}{2mca_0}=\frac{Z}{2\alpha}=\frac{Z}{274},
+    \end{align}
+    其中 $a_0$ 为玻尔半径, $\alpha=\frac{1}{137}$ 为精细结构常数.
 \end{sol}
 
 \begin{prob}
@@ -207,9 +235,29 @@
 \end{prob}
 \begin{pf}
     \begin{itemize}
-        \item[1)] 
-        \item[2)] 
-        \item[3)] 
+        \item[1)] 由于 $M_i$ ($i=1,2,3,4$) 为厄米矩阵, 故其本征值必为实数. 假设 $\psi_i$ 为 $M_i$ 的本征矢, 对应的本征态为 $m_i$, 则
+        \begin{gather}
+            M_i\psi_i=m_i\psi_i,\\
+            \Longrightarrow M_i^2\psi_i=m_i^2\psi_i.
+        \end{gather}
+        又由于 $M_iM_j+M_jM_i=2\delta_{ij}$,
+        \begin{gather}
+            (M_iM_i+M_iM_i)\psi_i=2\psi_i\\
+            \Longrightarrow M_i^2\psi_i=\psi_i,
+        \end{gather}
+        故
+        \begin{gather}
+            m_i^2=1,\\
+            \Longrightarrow m_i=\pm 1.
+        \end{gather}
+        \item[2)] 利用 $M_iM_j+M_jM_i=2\delta_{ij}$,
+        \begin{gather}
+            M_iM_j=-M_jM_i\\
+            \Longrightarrow M_i=-M_jM_iM_j^{-1}\\
+            \Longrightarrow\tr(M_i)=-\tr(M_jM_iM_j^{-1})=-\tr(M_j^{-1}M_jM_i)=-\tr(M_i)\\
+            \Longrightarrow\tr(M_i)=0.
+        \end{gather}
+        \item[3)] 利用反证法即可证明. 根据线性代数的知识, 我们知道矩阵的本征值之和即为其迹. 假设 $M_i$ 为奇数位矩阵, 则 $M_i$ 具有奇数个本征值, 这些本征值为 $\pm 1$, 它们的和必 $\neq 0$, 这与上一小题得到的结论相悖, 故假设错误, 故 $M_i$ 必为偶数位矩阵.
     \end{itemize}
 \end{pf}
 \end{document}
