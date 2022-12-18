@@ -46,7 +46,7 @@
     \begin{align}
         \hat{H}=\int\mathrm{d}x'\int\mathrm{d}x''\,\langle x'\rvert T\lvert x''\rangle a_{x'}^{\dagger}a_{x''}+\int\mathrm{d}x'\int\mathrm{d}x''\int\mathrm{d}x'''\int\mathrm{d}x''''\,\langle x_i,x_j\rvert V\lvert x_k,x_l\rangle a_{x'}^{\dagger}a_{x''}^{\dagger}a_{x''''}a_{x'''},
     \end{align}
-    (注意 $a_{x'''}$ 和 $a_{x''''}$ 的顺序不可调换!)\\
+    (注意 $a_{x''''}$ 和 $a_{x'''}$ 的顺序不可调换!)\\
     其中
     \begin{align}
         \langle x'\rvert T\lvert x''\rangle=&T(x')\delta(x'-x''),\\
@@ -71,7 +71,59 @@
     $N$ 个自旋为 $1/2$ 的无相互作用的全同粒子受外势 $V_0\delta(x)$ 作用, 求以平面波为基时的哈密顿算符的二次量子化形式, 指出相应产生与湮灭算符的基本关系, 并利用微扰法给出基态能量.
 \end{prob}
 \begin{sol}
-    
+    以平面波为基, 哈密顿算符的二次量子化形式为
+    \begin{align}
+        H=\sum_{k_1\lambda_1,k_2\lambda_2}\langle k_1\lambda_1\rvert \frac{p^2}{2m}\lvert k_2\lambda_2\rangle a_{k_1\lambda_1}^{\dagger}a_{k_2\lambda_2}+\sum_{k_1\lambda_1,k_2\lambda_2}\langle k_1\lambda_1\rvert V_0\delta(x)\lvert k_2\lambda_2\rangle a_{k_1\lambda_1}^{\dagger}a_{k_2\lambda_2},
+    \end{align}
+    (注意 $a_{k_4\lambda_4}$ 和 $a_{k_3\lambda_3}$ 的顺序不可调换!)\\
+    其中 $k_i$ 代表平面波矢, $\lambda_i$ 代表自旋,
+    \begin{align}
+        \langle k_1\lambda_1\rvert\frac{p^2}{2m}\lvert k_2\lambda_2\rangle=&\frac{1}{V}\int\mathrm{d}^3x\,e^{-ik_1\cdot x}\eta_{\lambda_1}^{\dagger}\frac{-\hbar^2\nabla^2}{2m}e^{ik_2\cdot x}\eta_{\lambda_2}=\frac{\hbar^2k_2^2}{2mV}\delta_{\lambda_1\lambda_2}\int\mathrm{d}^3xe^{i(k_2-k_1)\cdot x}=\frac{\hbar^2k_2^2}{2m}\delta_{\lambda_1\lambda_1}\delta_{k_1k_2},\\
+        \langle k_1\lambda_1\rvert V_0\delta(x)\lvert k_2\lambda_2\rangle=&\frac{1}{V}\int\mathrm{d}^3x\,e^{-ik_1\cdot x}\eta_{\lambda_1}^{\dagger}V_0\delta(x)e^{ik_2\cdot x}\eta_{\lambda_2}=V_0\delta_{\lambda_1\lambda_2},
+    \end{align}
+    其中 $V=L^3$ 为用于平面波箱归一化的箱体积, 故哈密顿算符的二次量子化形式为
+    \begin{align}
+        H=\sum_{k\lambda}\frac{\hbar^2k^2}{2m}a_{k\lambda}^{\dagger}a_{k\lambda}+\sum_{k_1k_2\lambda}V_0a_{k_1\lambda}^{\dagger}a_{k_2\lambda}.
+    \end{align}
+
+    自旋为 $1/2$ 的粒子为费米子, 其产生与湮灭算符的基本关系为
+    \begin{align}
+        \{a_{k_1\lambda_1}^{\dagger},a_{k_2\lambda_2}^{\dagger}\}=\{a_{k_1\lambda_1},a_{k_2\lambda_2}\}=0,\quad\{a_{k_1\lambda_1},a_{k_2\lambda_2}^{\dagger}\}=\delta_{k_1k_2}\delta_{\lambda_1\lambda_2}.
+    \end{align}
+
+    以 $\sum_{k\lambda}\frac{\hbar^2k^2}{2m}a_{k\lambda}^{\dagger}a_{k\lambda}$ 为无微扰哈密顿量, $\sum_{k_1k_2\lambda}V_0a_{k_1\lambda}^{\dagger}a_{k_2\lambda}$ 为微扰. 无微扰下, 系统基态即为自由费米子气体的基态, $N$ 个粒子从平面波的基态能级开始向高能级依次填充, 并且每个能级可以填充两个自旋相反的粒子, 自由费米子气体的态密度满足
+    \begin{gather}
+        D(E)\,\mathrm{d}E=2\times\frac{1}{(2\pi /L)^3}4\pi k^2\,\mathrm{d}k=\frac{2^{1/2}Vm^{3/2}E^{1/2}}{\pi^2\hbar^3}\mathrm{d}E\\
+        \Longrightarrow D(E)=\frac{2^{1/2}Vm^{3/2}E^{1/2}}{\pi^2\hbar^3}.
+    \end{gather}
+    故此时填充至费米能量
+    \begin{gather}
+        \int_0^{E_f}D(E)\,\mathrm{d}E=\int_0^{E_f}\frac{2^{1/2}Vm^{3/2}E^{1/2}}{\pi^2\hbar^3}\mathrm{d}E=\frac{2^{3/2}Vm^{3/2}E_f^{3/2}}{3\pi^2\hbar^3}=N,\\
+        \Longrightarrow E_f=\frac{3^{2/3}\pi^{4/3}N^{2/3}\hbar^2}{2mL^2}.
+    \end{gather}
+    对应费米波矢
+    \begin{align}
+        k_f=\frac{3^{1/3}\pi^{2/3}N^{1/3}}{L}.
+    \end{align}
+    故无微扰下的基态能量为
+    \begin{align}
+        \notag E_0^{(0)}=&\int_0^{E_f}\mathrm{d}E\,D(E)\times E=\int_0^{E_f}\mathrm{d}E\,\frac{2^{1/2}Vm^{3/2}E^{1/2}}{\pi^2\hbar^3}\times E=\frac{2^{1/2}Vm^{3/2}}{\pi^2\hbar^3}\frac{2}{5}E_f^{5/2}\\
+        =&\frac{2\times 3^{5/2}\pi^{4/3}\hbar^2N^{5/3}}{5mV^{2/3}}.
+    \end{align}
+    利用微扰理论, 一阶微扰为
+    \begin{align}
+        \Delta_0^{(1)}=\langle\text{base state}\rvert V_0a_{k_1\lambda}^{\dagger}a_{k_2\lambda}\lvert\text{base state}\rangle=\int_0^{E_f}\mathrm{d}E\,D(E)\times V_0=NV_0,
+    \end{align}
+    其中基态 $\lvert\text{base state}\rangle$ 为波矢小于费米波矢 ($k<k_f$) 的每个能级均被有两个自旋相反的粒子填充, 波矢大于费米波矢 ($k>k_f$) 的每个能级的粒子数均为零. 综上, 由微扰理论近似到一阶的基态能量为
+    \begin{align}
+        E_0^{(1)}=E_0^{(0)}+\Delta_0^{(1)}=\frac{2\times 3^{5/2}\pi^{4/3}\hbar^2N^{5/3}}{5mV^{2/3}}+NV_0.
+    \end{align}
+    (\textit{注意: 以上的推导中, 我们实际上假定该系统的态是连续分布的, 故可以使用态密度的概念, 这适用于大 $N$ (即 $k_f\gg\frac{2\pi}{L}$) 的情形. 对于较小的 $N$ (即 $k_f\sim\frac{2\pi}{L}$) 的情形, 粒子仅占据较少个数的分离的态, 故应当将 $\int\mathrm{d}E\,D(E)$ 换成 $\sum_{k}$ 更为准确, 其余推导过程仍类似, 对于这一情形, 三维的推导过程较为复杂, 难以给出解析形式, 这里我们仅给出一维的答案 (近似到一阶):
+    \begin{align}
+        \notag E_0^{(1)}=&\sum_{n=1}^{\lceil N/4\rceil}4\times\frac{\left(\hbar\frac{2\pi n}{L}\right)^2}{2m}+\frac{\left(\hbar\frac{2\pi\lceil N/4\rceil}{L}\right)^2}{2m}\times[(N+2)\mod 4]+NV_0\\
+        =&\frac{8\pi^2\hbar^2}{mL^2}\frac{\lceil N/4\rceil(\lceil N/4\rceil+1)(2\lceil N/4\rceil+1)}{6}+\frac{2\pi^2\hbar^2}{mL^2}\lceil N/4\rceil\times[(N+2)\mod 4]+NV_0,
+    \end{align}
+    其中 $\lceil\cdot\rceil$ 代表高斯符号, 即 $\lceil x\rceil$ 为不大于 $x$ 的最大整数. 具体的推导过程略去.})
 \end{sol}
 
 \begin{prob}[课本习题 8.10]
