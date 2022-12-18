@@ -42,7 +42,29 @@
     写出对应的二次量子化形式并指出产生湮灭算符的基本对易或反对易关系.
 \end{prob}
 \begin{sol}
+    以坐标表象的基矢为基, 哈密顿算符的二次量子化形式为
+    \begin{align}
+        \hat{H}=\int\mathrm{d}x'\int\mathrm{d}x''\,\langle x'\rvert T\lvert x''\rangle a_{x'}^{\dagger}a_{x''}+\int\mathrm{d}x'\int\mathrm{d}x''\int\mathrm{d}x'''\int\mathrm{d}x''''\,\langle x_i,x_j\rvert V\lvert x_k,x_l\rangle a_{x'}^{\dagger}a_{x''}^{\dagger}a_{x''''}a_{x'''},
+    \end{align}
+    (注意 $a_{x'''}$ 和 $a_{x''''}$ 的顺序不可调换!)\\
+    其中
+    \begin{align}
+        \langle x'\rvert T\lvert x''\rangle=&T(x')\delta(x'-x''),\\
+        \langle x',x''\rvert V\lvert x''',x''''\rangle=&V(x'-x'')\delta(x'-x''')\delta(x''-x'''')
+    \end{align}
+    故哈密顿算符的二次量子化形式为
+    \begin{align}
+        \hat{H}=\int\mathrm{d}x'\,T(x')a_{x'}^{\dagger}a_{x'}+\int\mathrm{d}x'\int\mathrm{d}x''\,V(x'-x'')a_{x'}^{\dagger}a_{x''}^{\dagger}a_{x''}a_{x'},
+    \end{align}
 
+    产生湮灭算符的基本对易或反对易关系: 对费米子,
+    \begin{align}
+        [a_{x'}^{\dagger},a_{x''}^{\dagger}]=[a_{x'},a_{x''}]=0,\quad[a_{x'},a_{x''}^{\dagger}]=\delta(x'-x'');
+    \end{align}
+    对玻色子
+    \begin{align}
+        \{a_{x'}^{\dagger},a_{x''}^{\dagger}\}=\{a_{x'},a_{x''}\}=0,\quad\{a_{x'},a_{x''}^{\dagger}\}=\delta(x'-x'').
+    \end{align}
 \end{sol}
 
 \begin{prob}
