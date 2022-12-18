@@ -130,7 +130,26 @@
     证明狄拉克方程的连续性方程 (8.2.11).
 \end{prob}
 \begin{pf}
-    
+    自由粒子的狄拉克方程为
+    \begin{align}
+        i\hbar\frac{\partial\Psi}{\partial t}=(c\bm{\alpha}\cdot\bm{p}+\beta mc^2)\Psi.
+    \end{align}
+    自由粒子的狄拉克方程的连续性方程为
+    \begin{align}
+        \frac{\partial\rho}{\partial t}+\nabla\cdot\bm{j}=0,
+    \end{align}
+    其中概率密度 $\rho=\Psi^{\dagger}\Psi$, 概率密度流 $\bm{j}=c\Psi^{\dagger}\bm{\alpha}\Psi$.
+    \begin{align}
+        \notag\frac{\partial\rho}{\partial t}=&\frac{\partial\Psi^{\dagger}}{\partial t}\Psi+\Psi^{\dagger}\frac{\partial\Psi}{\partial t}\\
+        \notag=&\frac{1}{i\hbar}\left\{-[(c\bm{\alpha}\cdot\bm{p}+\beta mc^2)\Psi]^{\dagger}\Psi+\Psi^{\dagger}[c\bm{\alpha}\cdot\bm{p}+\beta mc^2]\Psi\right\}\\
+        =&c\left\{-\nabla\Psi^{\dagger}\cdot\bm{\alpha}\Psi-\Psi^{\dagger}\bm{\alpha}\cdot\nabla\Psi\right\},\\
+        \notag\nabla\cdot\bm{j}=&c(\nabla\Psi^{\dagger}\cdot\bm{\alpha}\Psi+\Psi^{\dagger}\bm{\alpha}\cdot\nabla\Psi).
+    \end{align}
+    故
+    \begin{align}
+        \frac{\partial\rho}{\partial t}+\nabla\cdot\bm{j}=0.
+    \end{align}
+    至此证明了狄拉克方程的连续性方程.
 \end{pf}
 
 \begin{prob}[课本习题 8.11]
