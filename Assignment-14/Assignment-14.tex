@@ -1,0 +1,109 @@
+\documentclass{assignment}
+\ProjectInfos{高等量子力学}{PHYS5001P}{2022-2023 学年第一学期}{第十四次作业}{截止时间: 2023 年 1 月 2 日 (周一)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}[课本习题 6.1]
+    李普曼-施温格形式也能用于仅当 $0<\abs{x}<a$ 时 $V(x)\neq 0$ 的一个有限力程势的一维透射-反射问题.
+    \begin{itemize}
+        \item[(a)] 假定有一个来自左边的入射波: $\langle x\vert\phi\rangle=e^{ikx}/\sqrt{2\pi}$. 如果想要只在 $x>a$ 的区域有一个透射波, 在 $x<-a$ 的区域有一个反射波和原始的波, 必须如何处理奇异的 $1/(E-H_0)$ 算符? $E\rightarrow E+i\varepsilon$ 的做法是否仍然正确? 求一个恰当的格林函数表达式, 并且写出 $\langle x\vert\psi^{(+)}\rangle$ 的一个积分方程.
+        \item[(b)] 考虑一个吸引的 $\delta$ 函数的特例
+        \[
+            V=-\left(\frac{\gamma\hbar^2}{2m}\right)\delta(x)\quad(\gamma>0).
+        \]
+        求解这个积分方程以得到透射和反射振幅. 检查该结果是否与 Gottfried 1966, 52 页的相符合.
+        \item[(c)] 有着 $\gamma>0$ 的一维 $\delta$ 函数势, 对 $\gamma$ 取任意值, 都允许一个 (且仅一个) 束缚态. 当 $k$ 被看做是一个复变量时, 证明你算出的透射和反射振幅在预期的位置具有束缚态的极点.
+    \end{itemize}
+\end{prob}
+\begin{sol}
+    \begin{itemize}
+        \item[(a)] 如果想要只在 $x>a$ 的区域有一个透射波, 在 $x<-a$ 的区域有一个反射波和原始的波, 则应当在 $x>a$ 的区域 $1/(E-H_0)\rightarrow 1/(E-H_0+i\varepsilon)$, 即 $E\rightarrow E+i\varepsilon$ 的做法仍然正确, 这将导致 $\langle x\vert\psi^{(+)}\rangle$ 无论在 $x>a$ 还是 $x<a$ 的区域都有一个原始波 + 散射波的形式, 在接下来的计算中会看到, 这最终会表现为在 $x>a$ 的区域有一个透射波, 在 $x<-a$ 的区域有一个反射波和原始的波.
+
+        此时,
+        \begin{align}
+            \lvert\psi^{(+)}\rangle=\lvert\phi\rangle+\frac{1}{E-H_0+i\varepsilon}V\lvert\psi^{(+)}\rangle.
+        \end{align}
+        格林函数:
+        \begin{align}
+            \notag G_{(+)}(x,x')=&\frac{\hbar^2}{2m}\langle x\rvert\frac{1}{E-H_0+i\varepsilon}\lvert x'\rangle\\
+            \notag=&\frac{\hbar^2}{2m}\sum_{k'}\sum_{k''}\langle x\vert k'\rangle\langle k'\rvert\frac{1}{E-H_0+i\varepsilon}\lvert k''\rangle\langle k''\vert x'\rangle\\
+            \notag=&\frac{1}{L}\sum_{k'}\frac{e^{ik'(x-x')}}{k^2-k'^2+i\varepsilon}\\
+            \notag=&\frac{1}{L}\int\frac{\mathrm{d}k'}{2\pi/L}\,\frac{e^{ik'(x-x')}}{k^2-k'^2+i\varepsilon}\\
+            \notag&(\text{重定义 }\varepsilon>0)\\
+            =&\frac{1}{2\pi}\int\mathrm{d}k'\,\frac{e^{ik'(x-x')}}{-(k'-k-i\varepsilon)(k'+k+i\varepsilon)}.
+        \end{align}
+        对 $x>x'$, 取上半复平面的积分半圆,
+        \begin{align}
+            G_{(+)}=\frac{1}{2\pi}2\pi i\res\left[\frac{e^{ik'(x-x')}}{-(k'-k-i\varepsilon)(k'+k+i\varepsilon)},k+i\varepsilon\right]=\frac{1}{2\pi}2\pi i\frac{e^{ik(x-x')}}{-2k}=-\frac{ie^{ik(x-x')}}{2k}.
+        \end{align}
+        对 $x<x'$, 去下半复平面的积分半圆,
+        \begin{align}
+            G_{(+)}=\frac{1}{2\pi}2\pi i\res\left[\frac{e^{ik'(x-x')}}{-(k'-k-i\varepsilon)(k'+k+i\varepsilon)},-k-i\varepsilon\right]=-\frac{1}{2\pi}2\pi i\frac{e^{-ik(x-x')}}{2k}=-\frac{ie^{-ik(x-x')}}{2k}.
+        \end{align}
+        综上, 格林函数表达式:
+        \begin{align}
+            G_{(+)}(x,x')=\left\{\begin{array}{ll}
+                -\frac{ie^{ik(x-x')}}{2k},&x>x',\\
+                -\frac{ie^{-ik(x-x')}}{2k},&x<x'.
+            \end{array}\right.
+        \end{align}
+        散射波函数:
+        \begin{align}
+            \notag\langle x\vert\psi^{(+)}\rangle=&\langle x\vert\phi\rangle+\frac{2m}{\hbar^2}\int\mathrm{d}x'\,\langle x\rvert\frac{1}{E-H_0+i\varepsilon}\lvert x'\rangle\langle x'\rvert V\lvert\psi^{(+)}\rangle\\
+            \notag=&\frac{e^{ikx}}{\sqrt{2\pi}}+\frac{2m}{\hbar^2}\int\mathrm{d}x'\,G_{(+)}(x,x')V(x')\langle x'\vert\psi^{(+)}\rangle\\
+            =&\left\{\begin{array}{ll}
+                \frac{e^{ikx}}{\sqrt{2\pi}}-\frac{2m}{\hbar^2}\frac{i}{2k}\int\mathrm{d}x'\,e^{ik(x-x')}V(x')\langle x'\vert\psi^{(+)}\rangle,&x>a,\\
+                \frac{e^{ikx}}{\sqrt{2\pi}}-\frac{2m}{\hbar^2}\frac{i}{2k}\int\mathrm{d}x'\,e^{-ik(x-x')}V(x')\langle x'\vert\psi^{(+)}\rangle,&x<-a
+            \end{array}\right.
+        \end{align}
+        \item[(b)] 对 $x>a$,
+        \begin{align}
+            \langle x\vert\psi^{(+)}\rangle=\frac{e^{ikx}}{\sqrt{2\pi}}-\frac{2m}{\hbar^2}\frac{i}{2k}\int\mathrm{d}x'\,e^{ik(x-x')}\left(-\frac{\gamma\hbar^2}{2m}\right)\delta(x')\langle x'\vert\psi^{(+)}\rangle=\frac{e^{ikx}}{\sqrt{2\pi}}+\frac{i\gamma}{2k}e^{ikx}\psi^{(+)}(0),
+        \end{align}
+        上式中取 $x=0$ 得
+        \begin{gather}
+            \psi^{(+)}(0)=\frac{1}{\sqrt{2\pi}}+\frac{i\gamma}{2k}\psi^{(+)}(0),\\
+            \Longrightarrow\psi^{(+)}(0)=\frac{1}{\sqrt{2\pi}}\frac{2k}{2k-i\gamma},
+        \end{gather}
+        从而
+        \begin{align}
+            \langle x\vert\psi^{(+)}\rangle=\frac{e^{ikx}}{\sqrt{2\pi}}\left[1+\frac{i\gamma}{2k-i\gamma}\right]=\frac{e^{ikx}}{\sqrt{2\pi}}\frac{2k}{2k-i\gamma},\quad\text{for }x>a.
+        \end{align}
+        故透射系数为
+        \begin{align}
+            T=\frac{2k}{2k-i\gamma}.
+        \end{align}
+        对 $x<-a$,
+        \begin{align}
+            \langle x\vert\psi^{(+)}\rangle=\frac{e^{ikx}}{\sqrt{2\pi}}-\frac{2m}{\hbar^2}\frac{i}{2k}\int\mathrm{d}x'\,e^{-ik(x-x')}\left(-\frac{\gamma\hbar^2}{2m}\right)\delta(x')\langle x'\vert\psi^{(+)}\rangle=\frac{e^{ikx}}{\sqrt{2\pi}}+\frac{i\gamma}{2k-i\gamma}e^{-ikx}.
+        \end{align}
+        故反射系数为
+        \begin{align}
+            R=\frac{i\gamma}{2k-i\gamma}.
+        \end{align}
+        \item[(c)] 由课本习题 (2.24) 的结论, 该一维 $\delta$ 函数势的束缚态的波函数为
+        \begin{align}
+            \psi(x)=\left\{\begin{array}{ll}
+                \sqrt{\frac{\gamma}{2}}e^{-ikx},&x<0,\\
+                \sqrt{\frac{\gamma}{2}}e^{ikx},&x>0,
+            \end{array}\right.
+        \end{align}
+        其中 $k=i\frac{\gamma}{2}$. 而上述透射-反射问题的透射和反射振幅均在 $k=i\frac{\gamma}{2}$ 处达到极值, 这与束缚态的 $k$ 一致.
+    \end{itemize}
+\end{sol}
+
+\begin{prob}[课本习题 6.4]
+    考虑一个势
+    \[
+        V=0\quad\text{对 }r>R\qquad V=V_0=\text{常数}\quad\text{对 }r<R.
+    \]
+    其中的 $V_0$ 可能是正的或负的. 采用分波法, 证明对 $\abs{V_0}\ll E=\hbar^2k^2/2m$ 和 $kR\ll 1$, 微分截面是各向同性的, 并且总截面由
+    \[
+        \sigma_{\text{总}}=\left(\frac{16\pi}{9}\right)\frac{m^2V_0^2R^6}{\hbar^4}
+    \]
+    给出. 假定能量稍稍增加. 证明角分布能被写成
+    \[
+        \frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}=A+B\cos\theta.
+    \]
+    求 $B/A$ 的一个近似表达式.
+\end{prob}
+\end{document}
