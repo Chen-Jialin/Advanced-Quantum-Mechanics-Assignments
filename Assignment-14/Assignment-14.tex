@@ -106,4 +106,78 @@
     \]
     求 $B/A$ 的一个近似表达式.
 \end{prob}
+\begin{sol}
+    在 $r>R$ 处, $A_l(r)$ 的具有这样的形式:
+    \begin{align}
+        A_l(r)=e^{i\delta_1}[\cos\delta_lj_l(kr)-\sin\delta_ln_l(kr)],
+    \end{align}
+    其中 $n_l$ 为 $l$ 阶球 Neumann 函数. 其在 $r=R$ 处的对数导数为
+    \begin{align}
+        \beta_l=kR\left[\frac{j_l'(kR)\cos\delta_l-n_l'(kR)\sin\delta_l}{j_l(kR)\cos\delta_l-n_l(kR)\sin\delta_l}\right].
+    \end{align}
+    相移 $\delta_l$ 满足
+    \begin{align}
+        \tan\delta_l=\frac{kRj_l'(kR)-\beta_lj_l(kR)}{kRn_l'(kR)-\beta_ln_l(kR)}.
+    \end{align}
+    利用适用于球 Bessel 和球 Neumann 函数的递推式 $f_l'(x)=\frac{l}{x}f_l(x)-f_{l+1}(x)$, 处理掉上式中的微分项得
+    \begin{align}
+        \label{A14-2-phase-shift}
+        \tan\delta_l=\frac{kR\left[\frac{l}{kR}j_l(kR)-j_{l+1}(kR)\right]-\beta_lj_l(kR)}{kR\left[\frac{l}{lR}n_l(kR)-n_{l+1}(kR)\right]-\beta_ln_l(kR)}=\frac{\left[lj_l(kR)-kRj_{l+1}(kR)\right]-\beta_lj_l(kR)}{\left[ln_l(kR)-kRn_{l+1}(kR)\right]-\beta_ln_l(kR)}.
+    \end{align}
+
+    在 $r<R$ 处, 求解
+    \begin{align}
+        \frac{\mathrm{d}^2u_l}{\mathrm{d}r^2}+\left(k^2-\frac{2m}{\hbar^2}V_0-\frac{l(l+1)}{r^2}\right)u_l=0,
+    \end{align}
+    考虑到边界条件 $u_l|_{r=0}=0$ 得
+    \begin{gather}
+        u_l=rA_l(r)=\kappa rj_l(\kappa r),\quad\text{for }0\leq r<R,\\
+        \Longrightarrow A_l(r)=\kappa j_l(\kappa r),\quad\text{for }0\leq r<R,
+    \end{gather}
+    其中 $j_l$ 为 $l$ 阶球 Bessel 函数, $\kappa$ 满足 $\frac{\hbar^2\kappa^2}{2m}=\frac{\hbar k^2}{2m}-V_0$. 在 $r=R$ 处的对数微商为
+    \begin{align}
+        \beta_l=\left(\frac{r}{A}\frac{\mathrm{d}A_l}{\mathrm{d}r}\right)_{r=R}=\frac{\kappa Rj_l'(\kappa R)}{j_l(\kappa R)}.
+    \end{align}
+    利用适用于球 Bessel 和球 Neumann 函数的递推式 $f_l'(x)=\frac{l}{x}f_l(x)-f_{l+1}(x)$, 处理掉上式中的微分项得
+    \begin{align}
+        \beta_l=\frac{lj_l(\kappa R)-\kappa Rj_{l+1}(\kappa R)}{j_l(\kappa R)}=l-\frac{\kappa Rj_l(\kappa R)}{j_l(\kappa R)}.
+    \end{align}
+    将上式代入式 \eqref{A14-2-phase-shift} 中得
+    \begin{align}
+        \notag\tan\delta_l=&\frac{\left[lj_l(kR)-kRj_{l+1}(kR)\right]-\left[l-\frac{\kappa Rj_l(\kappa R)}{j_l(\kappa R)}\right]j_l(kR)}{\left[ln_l(kR)-kRn_{l+1}(kR)\right]-\left[l-\frac{\kappa Rj_l(\kappa R)}{j_l(\kappa R)}\right]n_l(kR)}\\
+        =&\frac{-kRj_{l+1}(kR)+\kappa R\frac{j_{l+1}(\kappa R)}{j_l(\kappa R)}j_l(kR)}{-kRn_{l+1}(kR)+\kappa R\frac{j_{l+1}(\kappa R)}{j_l(\kappa R)}n_l(kR)}.
+    \end{align}
+
+    对 $\abs{V_0}\ll E=\hbar^2k^2/2m$, $\kappa\approx k$, 又对 $kR\ll 1$, 故 $j_l(kR)\rightarrow\frac{(kR)^l}{(2l+1)!!}$, $n_l(kR)\rightarrow-\frac{(2l-1)!!}{(kR)^{l+1}}$, 从而
+    \begin{align}
+        \notag\tan\delta_l\approx&\frac{-\frac{(kR)^{l+2}}{(2l+3)!!}+\frac{(\kappa R)^2(kR)^l}{(2l+3)!!}}{\frac{(2l+1)!!}{(kR)^{l+1}}-\frac{(2l+1)!!(2l-1)!!}{(2l+3)!!}\frac{(\kappa R)^2}{(kR)^{l+1}}}\\
+        \notag=&(kR)^{2l+1}\frac{(\kappa R)^2-(kR)^2}{(2l+3)!!(2l+1)!!-(2l+1)!!(2l-1)!!}\\
+        \notag\approx&(kR)^{2l+1}\frac{(\kappa R)^2-(kR)^2}{(2l+3)!!(2l+1)!!}\\
+        \notag=&\frac{(kR)^{2l+3}}{(2l+3)!!(2l+1)!!}\left[\left(\frac{\kappa}{k}\right)^2-1\right]\\
+        \notag=&\frac{(kR)^{2l+3}}{(2l+3)!!(2l+1)!!}\left[\frac{E-V_0}{E}-1\right]\\
+        =&-\frac{(kR)^{2l+3}}{(2l+3)!!(2l+1)!!}\frac{V_0}{E},
+    \end{align}
+    \begin{align}
+        \sin\delta_0\approx\tan\delta_0\approx-\frac{(kR)^3}{3}\frac{V_0}{E}=-\frac{2mV_0kR^3}{3\hbar^2}.
+    \end{align}
+    故总截面为
+    \begin{align}
+        \sigma_{\text{总}}=4\pi\frac{\sin^2\delta_0}{k^2}=\frac{16\pi}{9}\frac{m^2V_0^2R^6}{\hbar^4}.
+    \end{align}
+    假定能量稍稍增加,
+    \begin{align}
+        \sin\delta_1\approx\tan\delta_1\approx-\frac{(kR)^5}{45}\frac{V_0}{E}.
+    \end{align}
+    角分布为
+    \begin{align}
+        \notag\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}=&\abs{f(\theta)}^2=\abs{\frac{1}{k}\sum_{l=0}(2l+1)e^{i\delta_l}\sin\delta_lP_l(\cos\theta)}^2\\
+        \notag\approx&\frac{1}{k^2}\abs{e^{i\delta_0}\sin\delta_0+3e^{i\delta_1}\sin\delta_l\cos\theta}^2\\
+        \notag\approx&\frac{1}{k^2}\left[\sin^2\delta_0+6\cos(\delta_1-\delta_0)\sin\delta_0\sin\delta_1\cos\theta\right]\\
+        \approx&\frac{1}{k^2}\left[\sin^2\delta_0+6\sin\delta_0\sin\delta_1\cos\theta\right],
+    \end{align}
+    故
+    \begin{align}
+        \frac{B}{A}=\frac{6\sin\delta_1}{\sin\delta_0}=\frac{2}{5}(kR)^2.
+    \end{align}
+\end{sol}
 \end{document}
